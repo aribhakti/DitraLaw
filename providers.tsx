@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import { Translations, ToastMessage } from './types';
-import { EN, ID } from './locales';
+import { EN } from './locales';
 import { ToastContainer } from './components/Toast';
 
 // --- Toast Context ---
@@ -43,7 +43,8 @@ export const useToast = () => {
 
 
 // --- Theme Context ---
-type Theme = 'light' | 'dark';
+// Forced to Light mode
+type Theme = 'light';
 interface ThemeContextType {
   theme: Theme;
   toggleTheme: () => void;
@@ -52,27 +53,18 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('theme');
-      if (saved === 'dark' || saved === 'light') return saved;
-      // Default to light mode explicitly
-      return 'light';
-    }
-    return 'light';
-  });
-
+  const theme = 'light';
+  
+  // Ensure dark mode class is removed
   useEffect(() => {
-    const root = window.document.documentElement;
-    if (theme === 'dark') {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
+    if (typeof window !== 'undefined') {
+      window.document.documentElement.classList.remove('dark');
     }
-    localStorage.setItem('theme', theme);
-  }, [theme]);
+  }, []);
 
-  const toggleTheme = () => setTheme((p) => (p === 'light' ? 'dark' : 'light'));
+  const toggleTheme = () => {
+    // No-op
+  };
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
@@ -88,7 +80,8 @@ export const useTheme = () => {
 };
 
 // --- Language Context ---
-type Lang = 'en' | 'id';
+// Forced to English
+type Lang = 'en';
 interface LanguageContextType {
   lang: Lang;
   toggleLang: () => void;
@@ -98,13 +91,12 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [lang, setLang] = useState<Lang>('en');
+  const lang = 'en';
+  const t = EN;
 
   const toggleLang = () => {
-    setLang((prev) => (prev === 'en' ? 'id' : 'en'));
+    // No-op
   };
-
-  const t = lang === 'en' ? EN : ID;
 
   return (
     <LanguageContext.Provider value={{ lang, toggleLang, t }}>

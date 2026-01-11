@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Linkedin, Twitter, Facebook, Send, ArrowUp, Moon, Sun, Globe, Search, Loader2 } from 'lucide-react';
+import { Menu, X, Linkedin, Send, ArrowUp, Search, Loader2 } from 'lucide-react';
 import { CONTACT_INFO } from '../constants';
-import { useTheme, useLang, useToast } from '../providers';
+import { useLang, useToast } from '../providers';
 import SearchModal from './SearchModal';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -15,8 +15,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   
   const location = useLocation();
-  const { theme, toggleTheme } = useTheme();
-  const { lang, toggleLang, t } = useLang();
+  const { t } = useLang();
   const { addToast } = useToast();
 
   useEffect(() => {
@@ -30,7 +29,8 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       setShowScrollTop(scrollTop > 500);
     };
     
-    window.addEventListener('scroll', handleScroll);
+    // Passive listener for performance
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -39,6 +39,15 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     setIsSearchOpen(false);
     window.scrollTo(0, 0);
   }, [location]);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+  }, [isMobileMenuOpen]);
 
   // Keyboard shortcut for search
   useEffect(() => {
@@ -71,7 +80,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
   const navLinks = [
     { name: t.nav.home, path: '/' },
-    { name: t.nav.practices, path: '/practices' },
+    { name: t.nav.services, path: '/services' },
     { name: t.nav.people, path: '/people' },
     { name: t.nav.insights, path: '/insights' },
     { name: t.nav.contact, path: '/contact' },
@@ -79,137 +88,154 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
   // Determine header style based on page
   const isHome = location.pathname === '/';
+  // Check if we are on a light background (standard page, not scrolled, not home)
+  const isLightBackground = !isHome && !isScrolled;
 
   return (
-    <div className="flex flex-col min-h-screen bg-surface dark:bg-primary text-primary dark:text-gray-200 transition-colors duration-300">
+    <div className="flex flex-col min-h-screen bg-surface text-primary transition-colors duration-300">
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-[140] bg-white text-primary px-4 py-2 font-bold shadow-lg">Skip to content</a>
+      
       <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
 
-      {/* Reading Progress Bar with Glow Tip */}
-      <div className="fixed top-0 left-0 h-[3px] bg-secondary z-[70] transition-all duration-100 ease-out" style={{ width: `${scrollProgress * 100}%` }}>
+      {/* Reading Progress Bar with Glow Tip - z-105 to sit above header background but below drawers */}
+      <div className="fixed top-0 left-0 h-[3px] bg-secondary z-[105] transition-all duration-100 ease-out" style={{ width: `${scrollProgress * 100}%` }}>
         <div className="absolute right-0 top-1/2 -translate-y-1/2 w-24 h-[4px] bg-secondary blur-[4px] opacity-70" />
       </div>
 
-      {/* Navigation */}
+      {/* Navigation - z-100 Base Level for Fixed Elements */}
       <nav
-        className={`fixed w-full z-50 transition-all duration-500 ${
+        className={`fixed w-full z-[100] transition-all duration-500 ease-in-out ${
           isScrolled 
-            ? 'bg-primary/95 backdrop-blur-md py-4 text-white shadow-2xl border-b border-white/5' 
-            : `bg-transparent py-6 md:py-8 ${isHome ? 'text-white' : 'text-primary dark:text-white'}`
+            ? 'bg-[#4A0404]/95 backdrop-blur-md py-4 shadow-2xl border-b border-white/5' 
+            : `bg-transparent py-6 md:py-8`
         }`}
       >
-        <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-          <Link to="/" className="text-xl md:text-2xl font-serif font-bold tracking-tight flex items-center gap-1 z-50 group">
+        <div className="container mx-auto px-6 md:px-12 flex justify-between items-center relative z-[101]">
+          <Link 
+            to="/" 
+            onClick={() => setIsMobileMenuOpen(false)}
+            className={`text-xl md:text-2xl font-serif font-bold tracking-tight flex items-center gap-1 group transition-colors duration-300 ${
+               isMobileMenuOpen 
+                 ? 'text-white' // Always white when menu is open
+                 : (isLightBackground ? 'text-primary' : 'text-white')
+            }`}
+          >
              DITRA<span className="text-secondary group-hover:scale-150 transition-transform duration-300 origin-bottom">.</span>
           </Link>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8 lg:space-x-12">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`text-[11px] font-bold tracking-[0.2em] uppercase hover:text-secondary transition-all duration-300 relative group ${
-                   location.pathname === link.path ? 'text-secondary' : ''
-                }`}
-              >
-                {link.name}
-                <span className={`absolute -bottom-2 left-1/2 w-0 h-[1px] bg-secondary transition-all duration-300 group-hover:w-full group-hover:left-0 ${location.pathname === link.path ? 'w-full left-0' : ''}`}></span>
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.path;
+              
+              let textColorClass = isLightBackground ? 'text-primary' : 'text-white';
+              let hoverClass = isLightBackground ? 'hover:text-primary/70' : 'hover:text-secondary';
+              let activeClass = isLightBackground ? 'text-primary font-extrabold' : 'text-secondary';
+
+              return (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 relative group ${textColorClass} ${hoverClass} ${
+                     isActive ? activeClass : ''
+                  }`}
+                >
+                  {link.name}
+                  <div className={`absolute -bottom-2 left-1/2 w-0 h-[1px] bg-secondary transition-all duration-300 group-hover:w-full group-hover:left-0 ${isActive ? 'w-full left-0' : ''}`}></div>
+                </Link>
+              );
+            })}
             
-            <div className={`flex items-center gap-5 pl-8 border-l ${isScrolled || isHome ? 'border-white/20' : 'border-primary/20 dark:border-white/20'}`}>
-               {/* Search Trigger */}
+            <div className={`flex items-center gap-5 pl-8 border-l ${isLightBackground ? 'border-primary/20' : 'border-white/20'}`}>
                <button 
                  onClick={() => setIsSearchOpen(true)}
-                 className="hover:text-secondary transition-colors group"
+                 className={`transition-colors group ${
+                   isLightBackground ? 'text-primary hover:text-primary/70' : 'text-white hover:text-secondary'
+                 }`}
                  aria-label="Search"
                >
                  <Search size={16} className="group-hover:scale-110 transition-transform" />
                </button>
-
-               {/* Language Switcher */}
-               <button 
-                 onClick={toggleLang}
-                 className="hover:text-secondary transition-colors text-[10px] font-bold uppercase tracking-widest flex items-center gap-1"
-                 aria-label="Toggle Language"
-               >
-                 {lang === 'en' ? 'ID' : 'EN'}
-               </button>
-
-               {/* Dark Mode Switcher */}
-               <button 
-                 onClick={toggleTheme}
-                 className="hover:text-secondary transition-colors group"
-                 aria-label="Toggle Dark Mode"
-               >
-                 {theme === 'dark' ? 
-                   <Sun size={16} className="group-hover:rotate-90 transition-transform duration-500" /> : 
-                   <Moon size={16} className="group-hover:-rotate-12 transition-transform duration-500" />
-                 }
-               </button>
             </div>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - Z-Index 101 to stay above overlay */}
           <button
-            className={`md:hidden z-50 transition-colors p-2 -mr-2 ${isMobileMenuOpen ? 'text-primary dark:text-white' : (isScrolled || isHome ? 'text-white' : 'text-primary dark:text-white')}`}
+            className={`md:hidden p-2 -mr-2 transition-colors ${
+              isMobileMenuOpen 
+                ? 'text-white' 
+                : (isLightBackground ? 'text-primary' : 'text-white')
+            }`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X size={24} strokeWidth={1} /> : <Menu size={24} strokeWidth={1} />}
           </button>
         </div>
 
-        {/* Mobile Nav Overlay */}
-        <div className={`fixed inset-0 bg-white/98 dark:bg-[#0c0a09]/98 backdrop-blur-xl z-40 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] transform ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-          <div className="flex flex-col justify-center h-full px-8 space-y-8">
-             {navLinks.map((link, idx) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
+        {/* Mobile Nav Overlay - Hardcoded Color to ensure opacity, h-[100dvh] for mobile browsers */}
+        <div className={`fixed inset-0 bg-[#4A0404] z-[100] h-[100dvh] transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] transform ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+          {/* Noise texture for premium feel */}
+          <div className="absolute inset-0 opacity-20 pointer-events-none bg-[url('data:image/svg+xml,%3Csvg%20viewBox=%220%200%20200%20200%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter%20id=%22noiseFilter%22%3E%3CfeTurbulence%20type=%22fractalNoise%22%20baseFrequency=%220.65%22%20numOctaves=%223%22%20stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect%20width=%22100%25%22%20height=%22100%25%22%20filter=%22url(%23noiseFilter)%22%20opacity=%221%22/%3E%3C/svg%3E')] mix-blend-overlay"></div>
+          
+          <div className="flex flex-col h-full px-8 pt-28 pb-8 overflow-y-auto relative z-10">
+             <div className="flex flex-col space-y-6">
+               {navLinks.map((link, idx) => (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`text-3xl font-serif transition-colors flex items-center justify-between group border-b border-white/5 pb-4 ${
+                      location.pathname === link.path ? 'text-secondary italic' : 'text-white hover:text-white/70'
+                    }`}
+                    style={{ transitionDelay: `${idx * 50}ms` }}
+                  >
+                    <span>{link.name}</span>
+                    {location.pathname === link.path && <ArrowUp className="rotate-45 text-secondary" size={20} />}
+                  </Link>
+                ))}
+                <Link 
+                  to="/careers"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`text-4xl font-serif text-primary dark:text-white hover:text-secondary transition-colors ${location.pathname === link.path ? 'text-secondary italic' : ''}`}
-                  style={{ transitionDelay: `${idx * 50}ms` }}
+                  className={`text-3xl font-serif transition-colors border-b border-white/5 pb-4 ${location.pathname === '/careers' ? 'text-secondary italic' : 'text-white hover:text-white/70'}`}
                 >
-                  {link.name}
+                  {t.nav.careers}
                 </Link>
-              ))}
-              <Link 
-                to="/careers"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`text-4xl font-serif text-primary dark:text-white hover:text-secondary transition-colors ${location.pathname === '/careers' ? 'text-secondary italic' : ''}`}
-              >
-                {t.nav.careers}
-              </Link>
+             </div>
 
-              <div className="flex flex-col gap-6 mt-12 pt-12 border-t border-gray-100 dark:border-white/10">
-                <button onClick={() => { setIsMobileMenuOpen(false); setIsSearchOpen(true); }} className="text-xs font-bold uppercase tracking-widest flex items-center gap-4 text-primary dark:text-white">
-                  <Search size={18} /> Search
+              <div className="mt-auto pt-8">
+                {/* Mobile Search Button */}
+                <button 
+                  onClick={() => { setIsMobileMenuOpen(false); setIsSearchOpen(true); }} 
+                  className="w-full text-left py-4 px-4 bg-white/5 rounded-sm text-xs font-bold uppercase tracking-widest flex items-center gap-4 text-white hover:bg-white/10 transition-colors mb-6"
+                >
+                  <Search size={16} className="text-secondary" /> Search Website
                 </button>
-                <button onClick={toggleLang} className="text-xs font-bold uppercase tracking-widest flex items-center gap-4 text-primary dark:text-white">
-                  <Globe size={18} /> {lang === 'en' ? 'Bahasa Indonesia' : 'English'}
-                </button>
-                <button onClick={toggleTheme} className="text-xs font-bold uppercase tracking-widest flex items-center gap-4 text-primary dark:text-white">
-                  {theme === 'dark' ? <><Sun size={18} /> Light Mode</> : <><Moon size={18} /> Dark Mode</>}
-                </button>
+
+                {/* Office Info on Mobile Menu */}
+                <div className="border-t border-white/10 pt-6">
+                  <p className="text-white/40 text-[10px] uppercase tracking-widest font-bold mb-2">Jakarta Office</p>
+                  <a href={`tel:${CONTACT_INFO.phone}`} className="text-white text-xl font-serif block hover:text-secondary transition-colors">{CONTACT_INFO.phone}</a>
+                </div>
               </div>
           </div>
         </div>
       </nav>
 
       {/* Main Content with Page Transition Key */}
-      <main key={location.pathname} className="flex-grow animate-page-enter will-change-transform">
+      <main id="main-content" key={location.pathname} className="flex-grow animate-page-enter will-change-transform">
         {children}
       </main>
 
       {/* Scroll To Top Button */}
       <button 
         onClick={scrollToTop}
-        className={`fixed bottom-8 right-8 z-40 bg-white dark:bg-[#1c1917] text-primary dark:text-white p-4 shadow-2xl rounded-full transition-all duration-500 hover:bg-secondary hover:text-white border border-gray-100 dark:border-white/10 group ${
+        className={`fixed bottom-6 right-6 z-[90] bg-[#4A0404] text-white p-4 shadow-2xl rounded-full transition-all duration-500 border border-white/10 group ${
           showScrollTop ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
         }`}
         aria-label="Scroll to top"
       >
-        <ArrowUp size={20} className="group-hover:-translate-y-1 transition-transform" />
+        <ArrowUp size={20} className="group-hover:-translate-y-1 transition-transform text-secondary" />
       </button>
 
       {/* Footer */}
@@ -225,13 +251,10 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 {t.footer.slogan}
               </p>
               
-              {/* Social Icons with Interaction */}
               <div className="flex gap-4">
-                {[<Linkedin key="li"/>, <Twitter key="tw"/>, <Facebook key="fb"/>].map((icon, i) => (
-                  <a key={i} href="#" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-stone-400 hover:text-white hover:border-secondary hover:bg-secondary/10 transition-all duration-300 hover:scale-110">
-                    {React.cloneElement(icon as React.ReactElement, { size: 18 })}
-                  </a>
-                ))}
+                <a href="https://www.linkedin.com/company/ditralaw" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-stone-400 hover:text-white hover:border-secondary hover:bg-secondary/10 transition-all duration-300 hover:scale-110" aria-label="LinkedIn">
+                   <Linkedin size={18} />
+                </a>
               </div>
             </div>
 
@@ -252,7 +275,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               <div>
                 <h4 className="text-xs font-bold tracking-widest text-secondary uppercase mb-8">{t.footer.links}</h4>
                 <ul className="space-y-4 font-light text-sm">
-                  <li><Link to="/practices" className="hover:text-secondary text-stone-400 transition-colors">{t.nav.practices}</Link></li>
+                  <li><Link to="/services" className="hover:text-secondary text-stone-400 transition-colors">{t.nav.services}</Link></li>
                   <li><Link to="/people" className="hover:text-secondary text-stone-400 transition-colors">{t.nav.people}</Link></li>
                   <li><Link to="/insights" className="hover:text-secondary text-stone-400 transition-colors">{t.nav.insights}</Link></li>
                   <li><Link to="/careers" className="hover:text-secondary text-stone-400 transition-colors">{t.nav.careers}</Link></li>
@@ -272,11 +295,13 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                     placeholder="Email Address" 
                     disabled={isSubmitting}
                     className="w-full bg-white/5 border border-white/10 rounded-none px-4 py-4 text-sm text-white placeholder-stone-500 focus:outline-none focus:border-secondary input-glow transition-all duration-300"
+                    aria-label="Email for newsletter"
                   />
                   <button 
                     type="submit"
                     disabled={isSubmitting}
                     className="absolute right-3 top-3 transition-colors p-1 text-stone-500 hover:text-secondary"
+                    aria-label="Subscribe"
                   >
                     {isSubmitting ? <Loader2 size={16} className="animate-spin"/> : <Send size={16} />}
                   </button>

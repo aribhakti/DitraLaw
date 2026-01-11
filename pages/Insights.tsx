@@ -1,50 +1,91 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar, ArrowRight, Filter } from 'lucide-react';
+import { Calendar, ArrowRight } from 'lucide-react';
 import { useLang } from '../providers';
 import SEO from '../components/SEO';
 import Image from '../components/Image';
 
-// Dummy data generator since we don't have a backend
+// Real data from 2025 Legal Updates with Curated Professional Imagery
 const ALL_INSIGHTS = [
   {
     id: 1,
-    title: "The Evolution of M&A in Southeast Asia's Tech Sector",
-    date: "Oct 12, 2024",
-    category: "Corporate",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop",
-    excerpt: "Analyzing the shift in deal structures and regulatory scrutiny for tech unicorns."
+    title: "Indonesia Updates Stock Exchange Disclosure Framework Through IDX Regulation No. I-E of 2025",
+    date: "Dec 29, 2025",
+    category: "Capital Markets",
+    // Image: Abstract glass building reflection (Corporate/Finance feel)
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop",
+    excerpt: "On 12 December 2025, IDX issued a new Regulation No. I-E on Disclosure Obligations replacing the previous framework issued in 2022. The regulation aligns reporting mechanisms with OJK frameworks."
   },
   {
     id: 2,
-    title: "Navigating New Carbon Trading Regulations in Indonesia",
-    date: "Sep 28, 2024",
-    category: "Sustainability",
-    image: "https://images.unsplash.com/photo-1500485035595-cbe6f645feb1?q=80&w=2669&auto=format&fit=crop",
-    excerpt: "A comprehensive guide to the new carbon exchange and compliance requirements."
+    title: "New Implementation Guidelines for Mineral and Coal Mining Under MEMR Regulation No. 18 of 2025",
+    date: "Dec 05, 2025",
+    category: "Mining",
+    // Image: Aerial texture of earth/mining (Industrial/Raw)
+    image: "https://images.unsplash.com/photo-1579541579240-a33777555d8f?q=80&w=2000&auto=format&fit=crop", 
+    excerpt: "The Minister of Energy and Mineral Resources enacted MR 18/2025 to implement regulatory frameworks set out under GR 39/2025, revising eligibility criteria for WIUP auctions."
   },
   {
     id: 3,
-    title: "Understanding Employment Law Changes for Remote Work",
-    date: "Sep 15, 2024",
-    category: "Employment",
-    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2664&auto=format&fit=crop",
-    excerpt: "How recent omnibus law amendments impact remote and hybrid working arrangements."
+    title: "Indonesia Updates State-Owned Enterprises Legal Framework Through Law No. 16 of 2025",
+    date: "Nov 10, 2025",
+    category: "SOE",
+    // Image: Abstract Batik or Indonesian texture (Cultural/State)
+    image: "https://images.unsplash.com/photo-1628190201777-62f790299d9d?q=80&w=2000&auto=format&fit=crop", 
+    excerpt: "The Indonesian Government enacted Law 16/2025, the fourth amendment to the SOE Law, enhancing governance, efficiency and competitiveness of SOEs."
   },
   {
     id: 4,
-    title: "Project Financing in Renewable Energy: A Legal Framework",
-    date: "Aug 10, 2024",
-    category: "Energy",
-    image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=2070&auto=format&fit=crop",
-    excerpt: "Key considerations for lenders and sponsors in green energy infrastructure projects."
+    title: "Indonesia’s New Mining Framework: Key Insights into GR No. 39 of 2025",
+    date: "Oct 29, 2025",
+    category: "Mining",
+    // Image: Coal/Mineral texture (Dark/Serious)
+    image: "https://images.unsplash.com/photo-1618388428806-3af443210b42?q=80&w=2000&auto=format&fit=crop", 
+    excerpt: "Government Regulation 39/2025 aligns the mineral and coal mining framework with the latest Mining Law amendment, introducing detailed priority rights mechanisms."
   },
   {
     id: 5,
-    title: "Data Privacy Compliance for Fintech Startups",
-    date: "Jul 22, 2024",
-    category: "Technology",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop",
-    excerpt: "Ensuring compliance with the Personal Data Protection Law (PDP Law) in digital finance."
+    title: "Indonesia's Latest Regime on Risk-Based Business Licensing System Under BKPM Regulation No. 5/2025",
+    date: "Oct 22, 2025",
+    category: "Corporate",
+    // Image: Modern office architecture (Business/Licensing)
+    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2000&auto=format&fit=crop", 
+    excerpt: "BKPM issued MR 5/2025 to clarify provisions on business licensing and investment under GR 28/2025, effectively replacing three previous BKPM regulations."
+  },
+  {
+    id: 6,
+    title: "Indonesia Introduces New Import Policy Regime Under Ministry of Trade Regulation No. 16 of 2025",
+    date: "Aug 18, 2025",
+    category: "Trade",
+    // Image: Shipping containers/Logistics (Trade/Export)
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2000&auto=format&fit=crop", 
+    excerpt: "MOTR 16/2025 becomes Indonesia’s new import regulatory framework, aimed at simplifying licensing procedures and strengthening compliance oversight."
+  },
+  {
+    id: 7,
+    title: "Indonesia’s New Risk Based-Licensing Regime (GR 28/2025)",
+    date: "Jul 21, 2025",
+    category: "Corporate",
+    // Image: Abstract skyscraper looking up (Growth/Structure)
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2000&auto=format&fit=crop", 
+    excerpt: "A comprehensive update to the risk-based business licensing framework, aiming to enhance legal certainty and streamline regulatory processes via the OSS system."
+  },
+  {
+    id: 8,
+    title: "Significant Amendments to Land Rights Regime Under Ministerial Regulation No. 5 of 2025",
+    date: "Jun 22, 2025",
+    category: "Real Estate",
+    // Image: Architectural details/Building facade (Property/Land)
+    image: "https://images.unsplash.com/photo-1516156008625-3a9d60da923c?q=80&w=2000&auto=format&fit=crop", 
+    excerpt: "MR 5/2025 develops Indonesia’s land rights regime by refining key reforms, clarifying delegation of authority, and providing certainty on land right renewals."
+  },
+  {
+    id: 9,
+    title: "OJK Mandates Dematerialization of Physical Shares and Regulates Unclaimed Assets (POJK 9/2025)",
+    date: "Jun 16, 2025",
+    category: "Capital Markets",
+    // Image: Digital data/Abstract tech (Modernization/Digital)
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop", 
+    excerpt: "OJK's new regulation mandates full dematerialization of equity securities within 5 years and establishes a framework to manage unclaimed assets in the capital market."
   }
 ];
 
@@ -105,13 +146,15 @@ const Insights: React.FC = () => {
               className="group cursor-pointer flex flex-col h-full animate-fade-in-up"
               style={{ animationDelay: `${0.4 + (index * 0.1)}s` }}
             >
-               <div className="overflow-hidden mb-6 rounded-sm relative aspect-[16/10]">
+               <div className="overflow-hidden mb-6 rounded-sm relative aspect-[3/2]">
                   <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
                   <Image 
                     src={item.image} 
                     alt={item.title} 
                     loading="lazy"
-                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000"
+                    // Performance: Tell browser image takes 33% width on large screens, 50% on medium, 100% on small
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transform group-hover:scale-105 transition-all duration-1000"
                     containerClassName="w-full h-full"
                   />
                   <div className="absolute top-4 left-4 z-20 bg-white/90 dark:bg-primary/90 backdrop-blur text-primary dark:text-white px-3 py-1 text-[9px] font-bold uppercase tracking-[0.2em]">

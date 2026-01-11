@@ -38,20 +38,28 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
 
   if (!isOpen) return null;
 
-  const filteredPractices = t.practicesList.filter(
+  const filteredPractices = t.practicesList ? t.practicesList.filter(
     (p) => 
       p.title.toLowerCase().includes(query.toLowerCase()) || 
-      p.shortDescription.toLowerCase().includes(query.toLowerCase())
+      p.shortDescription?.toLowerCase().includes(query.toLowerCase())
+  ) : [];
+  
+  // Note: If t.practicesList is not directly available, fall back to aggregating from t.practiceAreas and t.expertise
+  // Assuming useLang returns access to those or we can just use the merged list logic here for safety:
+  const allServices = [...(t.practiceAreas || []), ...(t.expertise || [])];
+  const results = allServices.filter(
+     (p) => p.title.toLowerCase().includes(query.toLowerCase()) || (p.shortDescription && p.shortDescription.toLowerCase().includes(query.toLowerCase()))
   );
+
 
   const filteredLawyers = LAWYERS.filter(
     (l) => l.name.toLowerCase().includes(query.toLowerCase())
   );
 
-  const hasResults = filteredPractices.length > 0 || filteredLawyers.length > 0;
+  const hasResults = results.length > 0 || filteredLawyers.length > 0;
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-start justify-center pt-24 px-4">
+    <div className="fixed inset-0 z-[120] flex items-start justify-center pt-24 px-4">
       {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-primary/90 backdrop-blur-md transition-opacity duration-300"
@@ -81,14 +89,14 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
           {query.length > 0 ? (
             hasResults ? (
               <>
-                {filteredPractices.length > 0 && (
+                {results.length > 0 && (
                   <div>
-                    <h3 className="text-xs font-bold uppercase tracking-widest text-secondary mb-4">{t.search.practices}</h3>
+                    <h3 className="text-xs font-bold uppercase tracking-widest text-secondary mb-4">{t.search.services}</h3>
                     <div className="space-y-2">
-                      {filteredPractices.map((p) => (
+                      {results.map((p) => (
                         <Link 
                           key={p.id} 
-                          to={`/practices#${p.id}`} 
+                          to={`/services#${p.id}`} 
                           onClick={onClose}
                           className="block p-4 rounded bg-gray-50 dark:bg-white/5 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors group"
                         >
@@ -114,7 +122,7 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
                           onClick={onClose}
                           className="flex items-center p-4 rounded bg-gray-50 dark:bg-white/5 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors group"
                         >
-                          <div className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden mr-4">
+                          <div className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden mr-4 flex-shrink-0">
                             <img src={l.image} alt={l.name} className="w-full h-full object-cover" />
                           </div>
                           <div className="flex-grow">

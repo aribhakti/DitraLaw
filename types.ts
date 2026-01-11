@@ -1,8 +1,9 @@
 export interface PracticeArea {
   id: string;
   title: string;
-  shortDescription: string;
+  shortDescription?: string;
   fullDescription: string;
+  image: string;
 }
 
 export interface Lawyer {
@@ -10,11 +11,12 @@ export interface Lawyer {
   role: string;
   email: string;
   phone: string;
-  image?: string;
-  bio?: string;
+  image: string;
+  bio: string;
   education?: string[];
-  admissions?: string[];
+  qualifications?: string[];
   languages?: string[];
+  memberships?: string[];
 }
 
 export interface ContactInfo {
@@ -33,7 +35,7 @@ export interface ToastMessage {
 export interface Translations {
   nav: {
     home: string;
-    practices: string;
+    services: string;
     people: string;
     insights: string;
     careers: string;
@@ -42,7 +44,6 @@ export interface Translations {
   hero: {
     title1: string;
     title2: string;
-    title3: string;
     subtitle: string;
     cta1: string;
     cta2: string;
@@ -52,20 +53,19 @@ export interface Translations {
     firmSubtitle: string;
     firmDesc: string;
     meetTeam: string;
-    expertiseTitle: string;
-    expertiseSubtitle: string;
+    clientServicesTitle: string;
+    clientServicesSubtitle: string;
     viewAll: string;
-    quote: string;
-    quoteAuthor: string;
-    interiorQuote: string;
     insightsTitle: string;
     insightsSubtitle: string;
     readMore: string;
   };
-  practices: {
-    capabilities: string;
+  services: {
     title: string;
     subtitle: string;
+    mainTitle: string;
+    practiceAreasHeader: string;
+    expertiseHeader: string;
     index: string;
   };
   people: {
@@ -74,11 +74,13 @@ export interface Translations {
     subtitle: string;
     readBio: string;
     bio: {
-      biography: string;
+      overview: string;
       education: string;
-      admissions: string;
+      qualifications: string;
       languages: string;
+      memberships: string;
     };
+    associates: string;
   };
   insights: {
     title: string;
@@ -129,7 +131,7 @@ export interface Translations {
   search: {
     placeholder: string;
     noResults: string;
-    practices: string;
+    services: string;
     people: string;
   };
   cookie: {
@@ -141,5 +143,6 @@ export interface Translations {
     desc: string;
     button: string;
   };
-  practicesList: PracticeArea[];
+  practiceAreas: PracticeArea[];
+  expertise: PracticeArea[];
 }

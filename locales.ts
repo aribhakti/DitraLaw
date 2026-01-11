@@ -3,56 +3,56 @@ import { Translations } from './types';
 export const EN: Translations = {
   nav: {
     home: 'Home',
-    practices: 'Practices',
+    services: 'Services',
     people: 'Team',
     insights: 'Insights',
     careers: 'Careers',
     contact: 'Contact',
   },
   hero: {
-    title1: 'Strategic',
-    title2: 'Vision,',
-    title3: 'Unwavering Trust.',
+    title1: 'Focused on Solutions,',
+    title2: 'Built on Trust.',
     subtitle: 'Navigating the complexities of Indonesian law with international standards and a forward-thinking approach.',
     cta1: 'Partner With Us',
-    cta2: 'Our Expertise',
+    cta2: 'Our Services',
   },
   home: {
     firmTitle: 'The Firm',
-    firmSubtitle: 'Modern agility. Traditional excellence.',
-    firmDesc: 'DITRA is a premier legal partnership founded on decades of high-stakes experience. We combine the agility of a modern boutique firm with the sophistication required for complex cross-border transactions, serving as trusted architects for our clients\' most critical business decisions.',
-    meetTeam: 'Meet our Partners',
-    expertiseTitle: 'Expertise',
-    expertiseSubtitle: 'Practice Areas',
-    viewAll: 'View All Practices',
-    quote: '"We do not just interpret the law; we leverage it to build sustainable commercial advantages for our clients."',
-    quoteAuthor: 'Ditra Law Partnership',
-    interiorQuote: '"Decades of excellence in corporate strategy."',
-    insightsTitle: 'Perspectives',
-    insightsSubtitle: 'Legal Analysis',
-    readMore: 'Read Analysis',
+    firmSubtitle: 'Local Firm, International Standards: DITRA\'s Commitment to Quality.',
+    firmDesc: 'DITRA is a local law firm led by lawyers with nearly twenty years of experience in corporate and commercial law, which uphold international standards to ensure its clients receive high-quality legal services at competitive costs. The firm combines the dedicated service of a specialized practice with the technical expertise required for complex domestic and cross-border transactions. We act as strategic partners to our clients’ most important business decisions.',
+    meetTeam: 'Meet Our Team',
+    clientServicesTitle: 'Client Services',
+    clientServicesSubtitle: 'Practice Areas and Expertise',
+    viewAll: 'View All Our Services',
+    insightsTitle: 'News & Insights',
+    insightsSubtitle: 'News & Insights',
+    readMore: 'Read Article',
   },
-  practices: {
-    capabilities: 'Capabilities',
-    title: 'Practices & Expertise',
-    subtitle: 'Comprehensive legal solutions tailored to the unique challenges of Indonesia’s dynamic business landscape.',
-    index: 'Practice Index',
+  services: {
+    title: 'Services',
+    subtitle: 'At DITRA, we offer comprehensive legal services across a wide range of practice areas and industries. Our team is dedicated to delivering innovative, client-focused solutions tailored to the unique challenges and opportunities in today’s dynamic legal and business landscape.',
+    mainTitle: 'Practice Areas and Expertise',
+    practiceAreasHeader: 'Practice Areas',
+    expertiseHeader: 'Expertise',
+    index: 'Services Index',
   },
   people: {
     team: 'The Team',
     title: 'Our People',
-    subtitle: 'A collective of seasoned legal minds dedicated to commercial success and regulatory precision.',
+    subtitle: 'Our team of experienced lawyers combines deep legal expertise with practical insights into Indonesia’s business and regulatory landscape. Meet our key contacts and discover how their expertise drives client success.',
     readBio: 'View Profile',
     bio: {
-      biography: 'Professional Biography',
+      overview: 'Overview',
       education: 'Education',
-      admissions: 'Admissions & Affiliations',
+      qualifications: 'Qualifications',
       languages: 'Languages',
-    }
+      memberships: 'Membership',
+    },
+    associates: 'Associates'
   },
   insights: {
-    title: 'Market Intelligence',
-    subtitle: 'Analysis and commentary on the latest regulatory developments and market trends.',
+    title: 'News & Insights',
+    subtitle: 'At DITRA, we are committed to sharing valuable legal insights through our regular publications. Our team continuously analyzes legal developments, industry trends and key issues to deliver-in depth articles, reports and thought leadership pieces.',
     filterAll: 'All Topics',
   },
   careers: {
@@ -86,7 +86,7 @@ export const EN: Translations = {
     },
   },
   footer: {
-    slogan: 'Strategic Vision.\nBuilt on Trust.',
+    slogan: 'Focused on Solutions,\nBuilt on Trust.',
     office: 'Office',
     links: 'Navigation',
     insights: 'Insights',
@@ -97,9 +97,9 @@ export const EN: Translations = {
     privacy: 'Privacy Policy',
   },
   search: {
-    placeholder: 'Search practices, professionals, or insights...',
+    placeholder: 'Search services, professionals, or insights...',
     noResults: 'No matches found.',
-    practices: 'Practice Areas',
+    services: 'Services',
     people: 'Professionals',
   },
   cookie: {
@@ -111,313 +111,199 @@ export const EN: Translations = {
     desc: 'The resource you are looking for is unavailable or has been moved.',
     button: 'Return to Home',
   },
-  practicesList: [
+  
+  practiceAreas: [
+    {
+      id: "corporate-commercial",
+      title: "Corporate and Commercial",
+      shortDescription: "Comprehensive solutions for business operations.",
+      fullDescription: `Our team provides comprehensive, solutions-focused advice on all aspects of doing business in Indonesia, from initial investment to day-to-day operations.
+
+We assist domestic and foreign investors with the structuring and corporate aspects of their investments and company establishment in Indonesia (PT PMA), regulatory licensing, corporate compliance and commercial matters, ensuring every step meets local formalities. By combining international standard documentation with excellent relationships with governmental authorities typically involved in such process and reputable notaries, we deliver practical advice that is easy to understand and implement.`,
+      // Image: Abstract office building glass
+      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop"
+    },
     {
       id: "ma",
       title: "Mergers & Acquisitions",
-      shortDescription: "Architecting high-value transactions and strategic consolidations across the region.",
-      fullDescription: `DITRA stands at the forefront of Indonesian M&A, advising multinational corporations and leading domestic entities on complex cross-border transactions. Our expertise spans high-profile acquisitions for Indonesian corporates and inbound investments for clients across Australia, Greater China, Japan, and Southeast Asia.
+      shortDescription: "Advising on high-profile domestic and cross-border transactions.",
+      fullDescription: `We specialize in Indonesian M&A with extensive expertise advising multinational corporations and leading Indonesian entities on high-profile domestic and cross-border transactions across the region. We provide a full range of integrated services, including advice on transaction structuring, legal due diligence exercise, preparation of sale and purchase agreements, shareholders agreement and completion. Our team has a proven track record of handling inbound acquisitions for clients from key markets such as Australia, China, Hong Kong, Japan, Malaysia and Singapore, ensuring every deal is grounded in technical precision and practical business insight.
 
-We provide end-to-end advisory services encompassing private and public takeovers, schemes of arrangement, private equity buyouts, due diligence, and regulatory compliance. We excel in highly regulated industries, where our nuanced understanding of the commercial and political landscape adds tangible value to deal structures.`
+Recognizing that M&A transactions are highly time-sensitive, we provide flexible and responsive support to ensure rapid turnaround times. We navigate the complexities of highly regulated industries by providing end-to-end assistance with regulatory filings, internal corporate approvals and compliance with Indonesia’s legal regimes. By bridging the gap between international standards and local practice, we act as trusted partners to corporate clients and financial advisors, delivering a seamless service that covers everything from initial formation to the final completion of the deal.`,
+      // Image: Handshake or abstract connection
+      image: "https://images.unsplash.com/photo-1578574577315-3fbeb0ce88e3?q=80&w=2000&auto=format&fit=crop"
     },
     {
-      id: "capital-market",
+      id: "capital-markets",
       title: "Capital Markets",
-      shortDescription: "Navigating public markets, IPOs, and complex debt structures with precision.",
-      fullDescription: `We possess deep expertise in both Equity Capital Markets (ECM) and Debt Capital Markets (DCM), with a strong track record in Initial Public Offerings (IPOs) and rights issues. Our team guides issuers and underwriters through the intricacies of capital raising, ensuring rigorous compliance with OJK regulations while optimizing commercial results.
+      shortDescription: "Navigating public markets, IPOs and debt structures.",
+      fullDescription: `DITRA has extensive experience in both Equity Capital Markets (ECM) and Debt Capital Markets (DCM), with particular expertise in initial public offerings (IPOs) and rights issues. Our team has successfully guided clients through the complexities of capital raising, ensuring compliance with Indonesian regulations and addressing market challenges to deliver optimal results. We provide end-to-end support for our clients, from structuring and documentation to investor relations and market positioning.
 
-Our Partner’s membership in the HKHSK (Capital Market Legal Consultants Association) underscores our ability to provide high-level strategic guidance on Indonesia’s evolving capital market frameworks.`
+Our Partner is also a member of the HKHSK (Himpunan Konsultan Hukum Sektor Keuangan), further enhancing our firm’s ability to offer high-level insights and strategic guidance on capital markets transactions in Indonesia. This membership connects DITRA with a strong network of market professionals, ensuring that our clients benefit from up-to-date regulatory knowledge and industry trends.`,
+      // Image: Financial chart or stock exchange building abstract
+      image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=2000&auto=format&fit=crop"
     },
     {
       id: "banking-finance",
       title: "Banking & Finance",
-      shortDescription: "Structuring the capital that drives growth for lenders and borrowers.",
-      fullDescription: `DITRA advises major domestic and international financial institutions on a broad spectrum of banking matters. Our team has a formidable track record in project finance, syndicated lending, and regulatory compliance.
+      shortDescription: "Structuring financing solutions for lenders and borrowers.",
+      fullDescription: `DITRA has extensive experience in advising both domestic and international investors on a wide array of banking and finance matters in Indonesia.
 
-We represent borrowers, private equity firms, and corporate conglomerates in cross-border financings, increasingly handling domestic transactions under Indonesian law utilizing international-standard documentation. We help clients navigate the financial landscape to execute high-stakes funding strategies.`
+Our team has a strong track record in financing arrangements, regulatory compliance and structuring financial transactions. We have represented borrowers, private equity firms and corporate groups in cross-border financings and are increasingly handling domestic transactions under Indonesian law, utilizing international-standard documentation.
+
+With deep expertise in Indonesian banking regulations and legal frameworks, we help clients navigate complex financial landscapes while ensuring the successful execution of high-stakes transactions. Our team collaborates with corporate clients to structure deals, mitigate risks, and maintain compliance with current laws and regulations.`,
+      // Image: Modern banking architecture
+      image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2000&auto=format&fit=crop"
     },
     {
       id: "employment",
-      title: "Employment & Industrial Relations",
-      shortDescription: "Harmonizing workforce dynamics with strict regulatory rigor.",
-      fullDescription: `Navigating Indonesia's employment landscape requires a delicate balance of technical compliance and practical strategy. We offer comprehensive services across the full spectrum of employment law, from drafting complex executive agreements to negotiating collective labor agreements.
+      title: "Employment",
+      shortDescription: "Nuanced understanding of employment regulations.",
+      fullDescription: `Navigating employment laws in Indonesia demands a nuanced understanding of both technical regulations and practical implementation. DITRA is known for providing clear, commercial and highly practical advice across all aspects of employment. Our team of experienced lawyers offers comprehensive legal services across wide aspects of employment law and industrial relations in Indonesia, from employment agreements to developing company policies and negotiating collective labor agreements.
 
-We provide strategic counsel on termination rights, severance obligations, and industrial dispute resolution, ensuring our clients maintain a stable and compliant workforce.`
+We act as strategic partners to our clients, advising extensively on both the legal and practical aspects of the employment lifecycle, including termination rights, severance obligations and settlement agreements.`,
+      // Image: Office meeting or people collaboration
+      image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=2000&auto=format&fit=crop"
+    }
+  ],
+  expertise: [
+    {
+      id: "joint-venture",
+      title: "Joint Venture",
+      shortDescription: "Structuring complex joint ventures and partnerships.",
+      fullDescription: `DITRA specializes in structuring complex joint ventures, bridging diverse interests into cohesive and legally sound partnerships. We provide end-to-end support for domestic and cross-border collaborations, from initial partner due diligence and development of governance frameworks to the negotiation of shareholder agreements and management structures.
+
+We bring a deep understanding of the critical mechanics that define a successful partnership, including minority protection rights, non-compete covenants, deadlock resolutions and clear exit mechanisms. By balancing operational control with risk-sharing and regulatory compliance, we ensure that our clients' commercial interests are protected throughout the entire lifecycle of the joint venture.`,
+      // Image: Two buildings connecting or abstract knot
+      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop"
+    },
+    {
+      id: "soes",
+      title: "SOEs and Public Authorities",
+      shortDescription: "Navigating requirements of State-Owned Enterprises.",
+      fullDescription: `DITRA offers a sophisticated depth of expertise in navigating the unique legal and administrative requirements of State-Owned Enterprises (SOEs) and public agencies.
+
+With over 15 years of our team experience in building strong and continuous relationships with various institutions and agencies, including government bodies, non-government organizations and SOEs along with their subsidiaries, our firm serves as a strategic bridge between public interest mandates and commercial objectives. These ongoing collaborations ensure that we consistently receive up-to-date insights, which serve as a key foundation in navigating Indonesia’s evolving regulatory landscape.
+
+Our commitment to understanding clients’ needs and delivering relevant, actionable guidance has strengthened DITRA’s reputation as a trusted partner. Our role goes beyond legal support; we are committed to the success and sustainability of our clients’ businesses in Indonesia, helping them confidently address the complexities of their legal and business challenges.`,
+      // Image: Government building or formal architecture
+      image: "https://images.unsplash.com/photo-1560969184-10fe8719e090?q=80&w=2000&auto=format&fit=crop"
+    },
+    {
+      id: "construction",
+      title: "Construction",
+      shortDescription: "Deep regulatory expertise with transaction-driven approach.",
+      fullDescription: `DITRA advises domestic and international clients on complex construction projects, combining deep regulatory expertise with a commercial, transaction-driven approach. We support the full project lifecycle, from land acquisition and due diligence to development structuring, construction execution and final disposition.
+
+Our team specializes in high-stakes projects across the commercial, industrial, residential and hospitality sectors. We are particularly adept at navigating the unique legal requirements of construction-based cooperation schemes, ensuring commercial objectives align with Indonesia’s administrative and regulatory frameworks.`,
+      // Image: Construction details or architectural blueprints
+      image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2000&auto=format&fit=crop"
     },
     {
       id: "vc-growth",
-      title: "Venture Capital & High-Growth",
-      shortDescription: "Bridging the gap between ambitious founders and strategic capital.",
-      fullDescription: `DITRA is a trusted partner for the venture ecosystem. We possess a deep understanding of the VC landscape, advising venture capital firms, private equity funds, and corporate venture arms, as well as high-growth startups through all fundraising stages.
+      title: "VC & Growth Companies",
+      shortDescription: "Guiding investors and startups through the growth lifecycle.",
+      fullDescription: `Our team has a deep understanding of the venture capital landscape, having worked with a wide range of investors, including venture capital firms, private equity funds, and corporate investors, as well as fast-growing startups across various fundraising stages. We guide clients through the entire investment lifecycle, from initial seed funding to later-stage investments.
 
-Our partners’ international background equips us to handle sophisticated equity structuring, term sheet negotiations, and exit strategies, ensuring that innovation is backed by solid legal foundations.`
+Our partners’ extensive background and prior experience at an international law firm have equipped them with a deep understanding of the nuances of venture capital transactions. This enables us to offer sound legal guidance on equity structuring, term sheets shareholder agreements, regulatory compliance and exit strategies.
+
+With a strong grasp of the challenges and opportunities in Indonesia’s venture capital space, DITRA serves as a trusted advisor for investors and startups navigating the complexities of the ecosystem.`,
+      // Image: Modern tech office or upward graph abstract
+      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2000&auto=format&fit=crop"
+    },
+    {
+      id: "insurance",
+      title: "Insurance",
+      shortDescription: "Specialized counsel for insurance strategy and M&A.",
+      fullDescription: `Our team provides specialized legal counsel at the intersection of corporate strategy and insurance regulation and has extensive experience in advising on mergers and acquisitions within the insurance sector. Our expertise is rooted in an international law firm pedigree, allowing us to navigate the complexities of insurance M&A transactions effectively.
+
+We have advised a broad range of clients, including insurance companies, private equity firms and multinational corporations, on transaction structuring, regulatory due diligence, acquisitions, regulatory compliance and integration processes.
+
+This experience positions DITRA as a trusted advisor for clients seeking strategic guidance in the competitive and highly regulated insurance industry.`,
+      // Image: Umbrella or protection abstract
+      image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2000&auto=format&fit=crop"
     },
     {
       id: "real-estate",
       title: "Real Estate & Property",
-      shortDescription: "Maximizing asset value in property development and infrastructure.",
-      fullDescription: `We advise on major real estate transactions across residential, commercial, and industrial sectors. Our team represents developers, investors, and corporate tenants in acquisitions, disposals, and leasing arrangements.
+      shortDescription: "End-to-end support for real estate mandates.",
+      fullDescription: `DITRA has significant experience advising on corporate transactions across various sectors, including real estate and property. Representing clients on both the buy-side and sell-side, our team works closely with stakeholders to understand their objectives, maximize sales proceeds, and negotiate optimal deal terms. From overseeing due diligence to ensuring a seamless closing, we provide end-to-end support for real estate and property mandates.
 
-We work closely with clients to navigate land acquisition laws, zoning regulations, and construction contracts, ensuring seamless transaction execution and risk mitigation in Indonesia’s property market.`
+Our team acts for prominent property owners such as developers, corporate property users, as well as tourism and hotel groups. With deep knowledge of the Indonesian real estate market and regulatory landscape, we deliver strategic, tailored legal advice that drives successful and compliant transactions.`,
+      // Image: Modern apartment or building facade
+      image: "https://images.unsplash.com/photo-1460317442991-0ec2aa72af41?q=80&w=2000&auto=format&fit=crop"
     },
     {
       id: "mining",
-      title: "Mining & Resources",
-      shortDescription: "Strategic counsel for exploration, production, and resource acquisition.",
-      fullDescription: `We bring specialized expertise to the mining sector, covering the full lifecycle of mining projects—from exploration and mine development to offtake agreements and divestments.
+      title: "Mining",
+      shortDescription: "Expertise spanning the full mining project lifecycle.",
+      fullDescription: `We bring specialized expertise in mining M&A, with extensive experience spanning the full project lifecycle, from exploration and mine development to the acquisition and disposal of mining assets. Our team advises on complex operational and regulatory issues, including mining contracts, procurement and sales and marketing arrangements.
 
-Our lawyers have successfully advised on transactions involving coal, nickel, gold, and copper. We possess deep knowledge of the regulatory shifts in the mining industry, guiding major corporations and junior explorers through licensing, compliance, and operational challenges.`
+Having previously worked at leading international law firms, our lawyers have successfully navigated high-stakes transactions involving a diverse range of minerals, including nickel, coal, gold, copper and iron ore.
+
+Their expertise enables them to lead the team in serving a broad spectrum of clients, from major mining corporations and junior explorers to multinational companies and investors. By bridging the gap between global standards and Indonesia’s complex regulatory framework, DITRA serves as a trusted advisor in this highly competitive sector.`,
+      // Image: Aerial mining view or texture
+      image: "https://images.unsplash.com/photo-1518709414768-a88986a45e5d?q=80&w=2000&auto=format&fit=crop"
     },
     {
       id: "renewable-energy",
       title: "Renewable Energy",
-      shortDescription: "Powering the energy transition with robust legal frameworks.",
-      fullDescription: `DITRA is committed to the future of energy. We advise on the acquisition, development, and financing of renewable energy projects, including solar, hydro, and biomass.
+      shortDescription: "Acquisition and development of renewable energy projects.",
+      fullDescription: `We offer comprehensive legal services for the acquisition, restructuring and development of renewable energy projects in Indonesia. Our team brings deep expertise to the sector, navigating the complexities of renewable asset portfolios and the specific regulatory frameworks governing green energy. We are adept at structuring and documenting arrangements tailored to the unique technical and commercial requirements of the energy sector.
 
-Our team is adept at structuring power purchase agreements (PPAs) and navigating the regulatory complexities of the renewable sector in Indonesia, helping clients capitalize on the shift toward sustainable energy sources.`
+We take a pragmatic, results-driven approach to help clients navigate Indonesia’s complex regulatory landscape. By focusing on strategic outcomes, we ensure each transaction aligns with our clients’ objectives while proactively addressing the local challenges of Indonesia’s evolving environmental and energy policies.`,
+      // Image: Solar panels or wind turbine abstract
+      image: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=2000&auto=format&fit=crop"
     },
     {
       id: "healthcare",
-      title: "Healthcare & Life Sciences",
-      shortDescription: "Navigating the intersection of medical innovation and business regulation.",
-      fullDescription: `We bring a sector-focused approach to healthcare M&A and investment. Our team advises on hospital acquisitions, pharmaceutical regulations, and medical technology investments.
+      title: "Healthcare",
+      shortDescription: "Healthcare-focused approach to corporate M&A.",
+      fullDescription: `DITRA brings a specialized, healthcare-focused approach to corporate M&A, advising on significant domestic and cross-border transactions. Our core team has a proven track record of supporting high-profile mandates, overseeing every stage of the investment process, from initial structuring and legal due diligence to documentation, negotiation and closing.
 
-From structuring deals to conducting specialized due diligence, we ensure compliance with Indonesia’s strict healthcare regulations, enabling our clients to navigate growth opportunities in this critical sector with confidence.`
+Our deep understanding of Indonesia’s unique regulatory landscape and industry-specific challenges ensures seamless execution and full compliance with local laws. By combining sector-specific technicality with practical commercial solutions, we enable our clients to navigate investments and growth opportunities in the healthcare space with confidence.`,
+      // Image: Clean, white/blue abstract or lab
+      image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=2000&auto=format&fit=crop"
     },
     {
       id: "hospitality",
-      title: "Hospitality & Tourism",
-      shortDescription: "Elevating hospitality investments through sound legal structures.",
-      fullDescription: `DITRA provides tailored legal services for the hospitality industry. We assist owners, operators, and investors in hotel management agreements, asset acquisitions, and joint ventures.
+      title: "Hospitality",
+      shortDescription: "Tailored services for Indonesia's hospitality sector.",
+      fullDescription: `DITRA provides comprehensive legal services tailored to the unique demands of Indonesia’s hospitality sector. Combining deep industry knowledge with a results-driven approach, we help clients navigate complex regulatory challenges and capitalize on emerging growth opportunities. Our expertise spans the full project lifecycle, including foreign investment structuring, joint ventures and the development of hospitality projects.
 
-Our deep sector knowledge allows us to address the unique challenges of tourism developments, ensuring that our clients’ assets are protected and their commercial objectives are met in Indonesia’s competitive hospitality market.`
+We work closely with our clients to ensure compliance with Indonesia’s legal and regulatory landscape. From structuring deals and drafting agreements to conducting due diligence, we provide practical, results-driven legal solutions. Our team has extensive experience advising hotels, resorts and tourism-related businesses, equipping us to address industry-specific challenges effectively. At DITRA, we focus on helping clients achieve their business goals while mitigating risks in Indonesia’s dynamic hospitality sector.`,
+      // Image: Luxury hotel interior or pool abstract
+      image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2000&auto=format&fit=crop"
     },
     {
-      id: "consumer-goods",
-      title: "Consumer Goods (FMCG)",
-      shortDescription: "Supporting market leaders in distribution, compliance, and expansion.",
-      fullDescription: `We advise major players in the Fast-Moving Consumer Goods (FMCG) sector on M&A, foreign direct investment, and regulatory compliance.
+      id: "consumer-retail",
+      title: "Consumer and Retail",
+      shortDescription: "Strategic guidance for the FMCG industry.",
+      fullDescription: `DITRA offers extensive experience advising on high-stakes M&A and foreign investments within Indonesia’s Fast-Moving Consumer Goods (FMCG) industry. Our team provides strategic guidance on deal structuring, regulatory compliance and transaction execution, ensuring every mandate is optimized for the local market.
 
-Our team understands the supply chain and distribution complexities of the Indonesian market, providing strategic guidance on market entry, product registration, and corporate restructuring to optimize operational efficiency.`
+Our team advised both local and international clients in the acquisition, merger and restructuring of FMCG businesses across the food and beverage, personal care and general consumer product segments. By combining a deep understanding of market trends with specialized knowledge of Indonesian consumer law, we deliver tailored, practical solutions that help our clients navigate sector specific challenges and achieve their commercial objectives effectively.`,
+      // Image: Abstract shopping or retail space
+      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2000&auto=format&fit=crop"
     },
     {
-      id: "carbon-markets",
-      title: "Carbon Markets & Climate Finance",
-      shortDescription: "Pioneering legal frameworks for carbon trading and environmental assets.",
-      fullDescription: `We are at the forefront of environmental law, representing clients in carbon trading, forestry projects, and climate finance. Our strong relationships with regulatory authorities enable us to provide effective guidance on the evolving carbon exchange mechanisms.
+      id: "manufacturing",
+      title: "Manufacturing and Industry",
+      shortDescription: "Practical support for industrial growth and expansion.",
+      fullDescription: `DITRA advises domestic and international manufacturing and industrial clients, combining deep sector knowledge with a practical, commercially focused approach. We support our clients in achieving growth through strategic M&A, operational expansion and innovation driven investment.
 
-We advise on carbon project development, emissions reduction purchase agreements (ERPAs), and regulatory compliance, helping clients achieve their sustainability goals while unlocking new revenue streams.`
-    }
-  ],
-};
-
-export const ID: Translations = {
-  nav: {
-    home: 'Beranda',
-    practices: 'Layanan',
-    people: 'Tim Kami',
-    insights: 'Wawasan',
-    careers: 'Karir',
-    contact: 'Hubungi',
-  },
-  hero: {
-    title1: 'Visi',
-    title2: 'Strategis,',
-    title3: 'Kepercayaan Utuh.',
-    subtitle: 'Menavigasi kompleksitas hukum Indonesia dengan standar internasional dan pendekatan visioner.',
-    cta1: 'Bermitra Dengan Kami',
-    cta2: 'Keahlian Kami',
-  },
-  home: {
-    firmTitle: 'Tentang Firma',
-    firmSubtitle: 'Agilitas modern. Keunggulan tradisional.',
-    firmDesc: 'DITRA adalah kemitraan hukum terkemuka yang dibangun di atas pengalaman puluhan tahun. Kami menggabungkan kelincahan firma butik modern dengan kecanggihan yang diperlukan untuk transaksi lintas batas yang kompleks, bertindak sebagai arsitek tepercaya bagi keputusan bisnis paling kritis klien kami.',
-    meetTeam: 'Temui Partner Kami',
-    expertiseTitle: 'Keahlian',
-    expertiseSubtitle: 'Area Praktik',
-    viewAll: 'Lihat Semua Layanan',
-    quote: '"Kami tidak hanya menafsirkan hukum; kami memanfaatkannya untuk membangun keuntungan komersial yang berkelanjutan bagi klien kami."',
-    quoteAuthor: 'Ditra Law Partnership',
-    interiorQuote: '"Dua dekade keunggulan dalam strategi korporasi."',
-    insightsTitle: 'Perspektif',
-    insightsSubtitle: 'Analisis Hukum',
-    readMore: 'Baca Analisis',
-  },
-  practices: {
-    capabilities: 'Kapabilitas',
-    title: 'Praktik & Keahlian',
-    subtitle: 'Solusi hukum komprehensif yang disesuaikan dengan tantangan unik lanskap bisnis Indonesia yang dinamis.',
-    index: 'Indeks Praktik',
-  },
-  people: {
-    team: 'Tim Kami',
-    title: 'Profesional Kami',
-    subtitle: 'Kolektif pemikir hukum berpengalaman yang didedikasikan untuk kesuksesan komersial dan presisi regulasi.',
-    readBio: 'Lihat Profil',
-    bio: {
-      biography: 'Biografi Profesional',
-      education: 'Pendidikan',
-      admissions: 'Afiliasi & Izin',
-      languages: 'Bahasa',
-    }
-  },
-  insights: {
-    title: 'Intelijen Pasar',
-    subtitle: 'Analisis dan komentar mengenai perkembangan regulasi terbaru dan tren pasar.',
-    filterAll: 'Semua Topik',
-  },
-  careers: {
-    title: 'Karir di DITRA',
-    subtitle: 'Kami mencari talenta hukum luar biasa untuk membentuk masa depan firma kami.',
-    cultureTitle: 'Budaya Kami',
-    cultureDesc: 'Di DITRA, kami menjunjung tinggi budaya ketelitian intelektual dan keunggulan kolaboratif. Kami berkomitmen pada bimbingan dan pertumbuhan profesional, menawarkan lingkungan di mana pengacara ambisius dapat berkembang sambil memberikan layanan terbaik.',
-    openingsTitle: 'Peluang Saat Ini',
-    noOpenings: 'Saat ini belum ada posisi terbuka, namun kami menyambut pernyataan minat dari kandidat berkualitas tinggi.',
-    apply: 'Lamar Sekarang',
-  },
-  contact: {
-    getInTouch: 'Hubungi Kami',
-    title: 'Kontak',
-    form: {
-      name: 'Nama Lengkap',
-      email: 'Alamat Email',
-      subject: 'Subjek',
-      message: 'Pesan',
-      send: 'Kirim Pertanyaan',
-      sending: 'Mengirim...',
-      sent: 'Terima kasih. Pertanyaan Anda telah diterima.',
-      error: 'Pengiriman gagal. Silakan coba lagi.',
-    },
-    office: {
-      title: 'Kantor Jakarta',
-      address: 'Alamat',
-      email: 'Email',
-      phone: 'Telepon',
-      viewMap: 'Lihat di Google Maps',
-    },
-  },
-  footer: {
-    slogan: 'Visi Strategis.\nDibangun atas Kepercayaan.',
-    office: 'Kantor',
-    links: 'Navigasi',
-    insights: 'Wawasan',
-    subscribe: 'Berlangganan berita hukum.',
-    subscribed: 'Berhasil berlangganan.',
-    rights: 'DITRA Law Partnership.',
-    designed: 'Designed for Excellence.',
-    privacy: 'Kebijakan Privasi',
-  },
-  search: {
-    placeholder: 'Cari layanan, profesional, atau wawasan...',
-    noResults: 'Tidak ada hasil ditemukan.',
-    practices: 'Area Praktik',
-    people: 'Profesional',
-  },
-  cookie: {
-    text: 'Kami menggunakan cookie untuk mengoptimalkan pengalaman digital Anda dan menganalisis lalu lintas situs.',
-    accept: 'Terima',
-  },
-  notFound: {
-    title: 'Halaman Tidak Ditemukan',
-    desc: 'Sumber daya yang Anda cari tidak tersedia atau telah dipindahkan.',
-    button: 'Kembali ke Beranda',
-  },
-  practicesList: [
-    {
-      id: "ma",
-      title: "Merger & Akuisisi",
-      shortDescription: "Merancang transaksi bernilai tinggi dan konsolidasi strategis di seluruh wilayah.",
-      fullDescription: `DITRA berada di garis depan M&A Indonesia, menasihati perusahaan multinasional dan entitas domestik terkemuka dalam transaksi lintas batas yang kompleks. Keahlian kami mencakup akuisisi profil tinggi untuk korporasi Indonesia dan investasi masuk untuk klien di seluruh Australia, Tiongkok Raya, Jepang, dan Asia Tenggara.
-
-Kami menyediakan layanan penasihat ujung-ke-ujung yang mencakup pengambilalihan swasta dan publik, skema pengaturan, pembelian ekuitas swasta, uji tuntas, dan kepatuhan regulasi. Kami unggul dalam industri yang sangat diatur, di mana pemahaman mendalam kami tentang lanskap komersial dan politik memberikan nilai nyata pada struktur kesepakatan.`
-    },
-    {
-      id: "capital-market",
-      title: "Pasar Modal",
-      shortDescription: "Menavigasi pasar publik, IPO, dan struktur utang yang kompleks dengan presisi.",
-      fullDescription: `Kami memiliki keahlian mendalam baik di Pasar Modal Ekuitas (ECM) maupun Pasar Modal Utang (DCM), dengan rekam jejak yang kuat dalam Penawaran Umum Perdana (IPO) dan rights issue. Tim kami membimbing emiten dan penjamin emisi melalui seluk-beluk penggalangan modal, memastikan kepatuhan ketat terhadap peraturan OJK sambil mengoptimalkan hasil komersial.
-
-Keanggotaan Partner kami di HKHPM (Himpunan Konsultan Hukum Pasar Modal) menegaskan kemampuan kami untuk memberikan panduan strategis tingkat tinggi mengenai kerangka kerja pasar modal Indonesia yang terus berkembang.`
-    },
-    {
-      id: "banking-finance",
-      title: "Perbankan & Keuangan",
-      shortDescription: "Menyusun struktur modal yang mendorong pertumbuhan bagi pemberi pinjaman dan peminjam.",
-      fullDescription: `DITRA menasihati lembaga keuangan domestik dan internasional utama dalam berbagai masalah perbankan. Tim kami memiliki rekam jejak yang tangguh dalam pembiayaan proyek, pinjaman sindikasi, dan kepatuhan regulasi.
-
-Kami mewakili peminjam, firma ekuitas swasta, dan konglomerasi perusahaan dalam pembiayaan lintas batas, serta semakin banyak menangani transaksi domestik di bawah hukum Indonesia menggunakan dokumentasi berstandar internasional.`
-    },
-    {
-      id: "employment",
-      title: "Ketenagakerjaan & Hubungan Industrial",
-      shortDescription: "Menyelaraskan dinamika tenaga kerja dengan ketelitian regulasi yang ketat.",
-      fullDescription: `Menavigasi lanskap ketenagakerjaan Indonesia memerlukan keseimbangan antara kepatuhan teknis dan strategi praktis. Kami menawarkan layanan komprehensif di seluruh spektrum hukum ketenagakerjaan, mulai dari menyusun perjanjian eksekutif yang kompleks hingga menegosiasikan perjanjian kerja bersama.
-
-Kami memberikan nasihat strategis tentang hak pemutusan hubungan kerja, kewajiban pesangon, dan penyelesaian perselisihan hubungan industrial, memastikan klien kami mempertahankan tenaga kerja yang stabil dan patuh.`
-    },
-    {
-      id: "vc-growth",
-      title: "Modal Ventura & Pertumbuhan Tinggi",
-      shortDescription: "Menjembatani kesenjangan antara pendiri ambisius dan modal strategis.",
-      fullDescription: `DITRA adalah mitra tepercaya bagi ekosistem ventura. Kami memiliki pemahaman mendalam tentang lanskap VC, menasihati firma modal ventura, dana ekuitas swasta, dan unit ventura korporat, serta startup dengan pertumbuhan tinggi melalui semua tahap penggalangan dana.
-
-Latar belakang internasional partner kami membekali kami untuk menangani penataan ekuitas yang canggih, negosiasi term sheet, dan strategi keluar (exit), memastikan bahwa inovasi didukung oleh fondasi hukum yang kokoh.`
-    },
-    {
-      id: "real-estate",
-      title: "Real Estat & Properti",
-      shortDescription: "Memaksimalkan nilai aset dalam pengembangan properti dan infrastruktur.",
-      fullDescription: `Kami menasihati transaksi real estat utama di sektor perumahan, komersial, dan industri. Tim kami mewakili pengembang, investor, dan penyewa korporat dalam akuisisi, pelepasan, dan pengaturan sewa.
-
-Kami bekerja sama dengan klien untuk menavigasi hukum pembebasan lahan, peraturan zonasi, dan kontrak konstruksi, memastikan eksekusi transaksi yang mulus dan mitigasi risiko di pasar properti Indonesia.`
-    },
-    {
-      id: "mining",
-      title: "Pertambangan & Sumber Daya Alam",
-      shortDescription: "Nasihat strategis untuk eksplorasi, produksi, dan akuisisi sumber daya.",
-      fullDescription: `Kami membawa keahlian khusus ke sektor pertambangan, mencakup siklus hidup penuh proyek pertambangan—mulai dari eksplorasi dan pengembangan tambang hingga perjanjian offtake dan divestasi.
-
-Pengacara kami telah berhasil menasihati transaksi yang melibatkan batubara, nikel, emas, dan tembaga. Kami memiliki pengetahuan mendalam tentang pergeseran regulasi dalam industri pertambangan, membimbing korporasi besar dan penjelajah junior melalui perizinan, kepatuhan, dan tantangan operasional.`
-    },
-    {
-      id: "renewable-energy",
-      title: "Energi Terbarukan",
-      shortDescription: "Mendukung transisi energi dengan kerangka hukum yang kuat.",
-      fullDescription: `DITRA berkomitmen untuk masa depan energi. Kami menasihati akuisisi, pengembangan, dan pembiayaan proyek energi terbarukan, termasuk tenaga surya, hidro, dan biomassa.
-
-Tim kami mahir dalam menyusun perjanjian pembelian tenaga listrik (PPA) dan menavigasi kompleksitas regulasi sektor terbarukan di Indonesia, membantu klien memanfaatkan pergeseran menuju sumber energi berkelanjutan.`
-    },
-    {
-      id: "healthcare",
-      title: "Kesehatan & Ilmu Hayati",
-      shortDescription: "Menavigasi persimpangan inovasi medis dan regulasi bisnis.",
-      fullDescription: `Kami membawa pendekatan berfokus pada sektor untuk M&A dan investasi kesehatan. Tim kami menasihati akuisisi rumah sakit, regulasi farmasi, dan investasi teknologi medis.
-
-Dari penataan kesepakatan hingga melakukan uji tuntas khusus, kami memastikan kepatuhan terhadap peraturan kesehatan Indonesia yang ketat, memungkinkan klien kami untuk menavigasi peluang pertumbuhan di sektor kritis ini dengan percaya diri.`
-    },
-    {
-      id: "hospitality",
-      title: "Perhotelan & Pariwisata",
-      shortDescription: "Meningkatkan investasi perhotelan melalui struktur hukum yang baik.",
-      fullDescription: `DITRA menyediakan layanan hukum yang disesuaikan untuk industri perhotelan. Kami membantu pemilik, operator, dan investor dalam perjanjian manajemen hotel, akuisisi aset, dan usaha patungan.
-
-Pengetahuan sektor kami yang mendalam memungkinkan kami untuk mengatasi tantangan unik pengembangan pariwisata, memastikan bahwa aset klien kami terlindungi dan tujuan komersial mereka terpenuhi di pasar perhotelan Indonesia yang kompetitif.`
-    },
-    {
-      id: "consumer-goods",
-      title: "Barang Konsumen (FMCG)",
-      shortDescription: "Mendukung pemimpin pasar dalam distribusi, kepatuhan, dan ekspansi.",
-      fullDescription: `Kami menasihati pemain utama di sektor Barang Konsumen Bergerak Cepat (FMCG) mengenai M&A, investasi asing langsung, dan kepatuhan regulasi.
-
-Tim kami memahami kompleksitas rantai pasokan dan distribusi pasar Indonesia, memberikan panduan strategis tentang entri pasar, pendaftaran produk, dan restrukturisasi perusahaan untuk mengoptimalkan efisiensi operasional.`
+Our expertise spans the full industrial lifecycle, including corporate transactions, regulatory and environmental compliance and industrial relations. We also provide specialized support in intellectual property, technology, real estate planning, and competition issues. With a broad reach across diverse manufacturing sectors, DITRA ensures that our clients’ operations remain compliant and competitive within Indonesia’s complex industrial landscape.`,
+      // Image: Factory floor or industrial machinery
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2000&auto=format&fit=crop"
     },
     {
       id: "carbon-markets",
-      title: "Pasar Karbon & Keuangan Iklim",
-      shortDescription: "Merintis kerangka hukum untuk perdagangan karbon dan aset lingkungan.",
-      fullDescription: `Kami berada di garis depan hukum lingkungan, mewakili klien dalam perdagangan karbon, proyek kehutanan, dan keuangan iklim. Hubungan kuat kami dengan otoritas regulasi memungkinkan kami memberikan panduan efektif tentang mekanisme pertukaran karbon yang berkembang.
+      title: "Carbon Markets",
+      shortDescription: "Expertise in climate change, forestry, and carbon projects.",
+      fullDescription: `We have extensive experience representing clients on matters related to climate change, forestry, carbon and environmental infrastructure. Our strong relationships with key Indonesian institutions and regulatory authorities enable us to provide effective support and guidance throughout the regulatory and bureaucratic processes in Indonesia.
 
-Kami menasihati pengembangan proyek karbon, perjanjian pembelian pengurangan emisi (ERPA), dan kepatuhan regulasi, membantu klien mencapai tujuan keberlanjutan mereka sambil membuka aliran pendapatan baru.`
+Our team has partnered with a wide range of stakeholders, including research groups, NGOs, and private sector leaders, to develop and implement large-scale carbon projects. We advise on every facet of the carbon lifecycle, including landlord arrangements, the acquisition of carbon businesses, offtake and trading agreements, regulatory compliance, and green financing. By combining technical environmental knowledge with legal precision, we help clients navigate the complexities of Indonesia’s emerging carbon businesses.`,
+      // Image: Forest or nature abstract
+      image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2000&auto=format&fit=crop"
     }
-  ],
+  ]
 };

@@ -7,16 +7,18 @@ interface SEOProps {
   description?: string;
   image?: string;
   type?: 'website' | 'article' | 'profile';
+  keywords?: string[];
 }
 
 const SEO: React.FC<SEOProps> = ({ 
   title, 
   description = "DITRA Law Partnership - Jakarta-based law firm specializing in Corporate, M&A, and Commercial Transactions.",
-  image = "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop", // Optimized default OG image
-  type = 'website'
+  image = "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop", 
+  type = 'website',
+  keywords = ["Law Firm Jakarta", "Corporate Law Indonesia", "M&A Lawyer Jakarta", "DITRA Law", "Commercial Litigation"]
 }) => {
   const location = useLocation();
-  const siteUrl = 'https://ditralaw.com'; // Replace with actual production domain
+  const siteUrl = 'https://ditralaw.com'; 
   const canonicalUrl = `${siteUrl}${location.pathname === '/' ? '' : location.pathname}`;
   const fullTitle = `${title} | DITRA Law Partnership`;
 
@@ -47,6 +49,8 @@ const SEO: React.FC<SEOProps> = ({
 
     // 3. Standard SEO Meta
     setMeta('description', description);
+    setMeta('keywords', keywords.join(', '));
+    setMeta('author', 'DITRA Law Partnership');
     setMeta('robots', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
 
     // 4. Open Graph (Facebook, LinkedIn, WhatsApp)
@@ -59,12 +63,14 @@ const SEO: React.FC<SEOProps> = ({
     setOg('og:image', image);
     setOg('og:image:width', '1200');
     setOg('og:image:height', '630');
+    setOg('og:image:alt', title);
 
     // 5. Twitter Cards
     setMeta('twitter:card', 'summary_large_image');
     setMeta('twitter:title', fullTitle);
     setMeta('twitter:description', description);
     setMeta('twitter:image', image);
+    setMeta('twitter:creator', '@ditralaw');
 
     // 6. Canonical URL
     let link = document.querySelector('link[rel="canonical"]');
@@ -75,7 +81,8 @@ const SEO: React.FC<SEOProps> = ({
     }
     link.setAttribute('href', canonicalUrl);
 
-    // 7. JSON-LD Structured Data (Local Business / Legal Service)
+    // 7. JSON-LD Structured Data
+    // We add BreadcrumbList in addition to LocalBusiness for better search result snippets
     let script = document.getElementById('json-ld');
     if (!script) {
       script = document.createElement('script');
@@ -84,7 +91,26 @@ const SEO: React.FC<SEOProps> = ({
       document.head.appendChild(script);
     }
 
-    const structuredData = {
+    const breadcrumbData = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": siteUrl
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": title,
+          "item": canonicalUrl
+        }
+      ]
+    };
+
+    const businessData = {
       "@context": "https://schema.org",
       "@type": "LegalService",
       "name": "DITRA Law Partnership",
@@ -103,7 +129,7 @@ const SEO: React.FC<SEOProps> = ({
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": "-6.2154", // Approx coordinates for Mori Tower
+        "latitude": "-6.2154", 
         "longitude": "106.8166"
       },
       "priceRange": "$$$",
@@ -116,14 +142,14 @@ const SEO: React.FC<SEOProps> = ({
         }
       ],
       "sameAs": [
-        "https://www.linkedin.com/company/ditralaw",
-        "https://twitter.com/ditralaw"
+        "https://www.linkedin.com/company/ditralaw"
       ]
     };
 
-    script.textContent = JSON.stringify(structuredData);
+    // Combine schemas
+    script.textContent = JSON.stringify([businessData, breadcrumbData]);
 
-  }, [title, description, image, type, canonicalUrl, fullTitle]);
+  }, [title, description, image, type, canonicalUrl, fullTitle, keywords]);
 
   return null;
 };

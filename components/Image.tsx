@@ -8,17 +8,18 @@ const Image: React.FC<ImageProps> = ({
   containerClassName, 
   className, 
   alt, 
-  loading = "lazy", // Default to lazy loading
+  loading = "lazy", 
+  sizes,
   ...props 
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
     <div className={`relative overflow-hidden bg-gray-100 dark:bg-white/5 ${containerClassName || ''}`}>
-      {/* Skeleton Loader Overlay */}
+      {/* Skeleton / Placeholder */}
       <div 
-        className={`absolute inset-0 bg-gray-200 dark:bg-white/10 animate-pulse transition-opacity duration-500 ${
-          isLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'
+        className={`absolute inset-0 bg-gray-200 dark:bg-white/10 transition-opacity duration-700 ease-out ${
+          isLoaded ? 'opacity-0' : 'opacity-100 animate-pulse'
         }`} 
         aria-hidden="true"
       />
@@ -29,6 +30,7 @@ const Image: React.FC<ImageProps> = ({
         alt={alt}
         loading={loading}
         decoding="async"
+        sizes={sizes}
         className={`${className || ''} transition-all duration-700 ease-out ${
           isLoaded ? 'opacity-100 blur-0 scale-100' : 'opacity-0 blur-sm scale-105'
         }`}
