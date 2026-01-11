@@ -27,47 +27,47 @@ const Contact: React.FC = () => {
   const googleMapsUrl = "https://www.google.com/maps/search/?api=1&query=Jakarta+Mori+Tower";
 
   return (
-    <div className="bg-white dark:bg-primary min-h-screen pt-20 transition-colors duration-300">
+    <div className="bg-white dark:bg-primary min-h-screen transition-colors duration-300">
       <SEO 
         title={t.nav.contact}
         description="Contact DITRA Law Partnership for legal inquiries and support."
       />
 
-      <div className="flex flex-col lg:flex-row min-h-[calc(100vh-5rem)]">
+      <div className="flex flex-col lg:flex-row min-h-screen">
         
         {/* Left Content - Form */}
-        <div className="lg:w-1/2 p-8 lg:p-16 flex flex-col justify-center bg-white dark:bg-[#1c1917] order-2 lg:order-1 transition-colors duration-300">
-          <div className="max-w-lg w-full mx-auto">
-             <h4 className="text-xs font-bold tracking-widest text-secondary uppercase mb-4">{t.contact.getInTouch}</h4>
-             <h1 className="text-4xl md:text-5xl font-serif text-primary dark:text-white mb-10">{t.contact.title}</h1>
+        <div className="lg:w-1/2 pt-32 pb-16 px-8 md:px-16 lg:px-20 flex flex-col justify-center bg-white dark:bg-[#1c1917] order-2 lg:order-1 transition-colors duration-300">
+          <div className="max-w-xl w-full mx-auto">
+             <h4 className="text-[10px] font-bold tracking-[0.2em] text-secondary uppercase mb-6">{t.contact.getInTouch}</h4>
+             <h1 className="text-4xl md:text-6xl font-serif text-primary dark:text-white mb-10">{t.contact.title}</h1>
              
              <form className="space-y-6" onSubmit={handleSubmit}>
                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                  <div className="group">
-                   <label className="block text-xs font-bold uppercase tracking-widest text-gray-700 dark:text-stone-400 mb-2 group-focus-within:text-secondary transition-colors">{t.contact.form.name}</label>
+                   <label className="block text-[10px] font-bold uppercase tracking-[0.2em] text-gray-700 dark:text-stone-400 mb-2 group-focus-within:text-secondary transition-colors">{t.contact.form.name}</label>
                    <input 
                     type="text" 
                     required
                     disabled={isSubmitting}
-                    className="w-full border-b border-gray-300 dark:border-stone-700 py-2 text-primary dark:text-white bg-transparent focus:outline-none focus:border-secondary input-glow transition-all duration-300 disabled:opacity-50 text-sm" 
+                    className="w-full border-b border-gray-300 dark:border-stone-700 py-3 text-primary dark:text-white bg-transparent focus:outline-none focus:border-secondary input-glow transition-all duration-300 disabled:opacity-50 text-sm" 
                     placeholder="John Doe"
                    />
                  </div>
                  <div className="group">
-                   <label className="block text-xs font-bold uppercase tracking-widest text-gray-700 dark:text-stone-400 mb-2 group-focus-within:text-secondary transition-colors">{t.contact.form.email}</label>
+                   <label className="block text-[10px] font-bold uppercase tracking-[0.2em] text-gray-700 dark:text-stone-400 mb-2 group-focus-within:text-secondary transition-colors">{t.contact.form.email}</label>
                    <input 
                     type="email" 
                     required
                     disabled={isSubmitting}
-                    className="w-full border-b border-gray-300 dark:border-stone-700 py-2 text-primary dark:text-white bg-transparent focus:outline-none focus:border-secondary input-glow transition-all duration-300 disabled:opacity-50 text-sm" 
+                    className="w-full border-b border-gray-300 dark:border-stone-700 py-3 text-primary dark:text-white bg-transparent focus:outline-none focus:border-secondary input-glow transition-all duration-300 disabled:opacity-50 text-sm" 
                     placeholder="john@example.com"
                    />
                  </div>
                </div>
                
                <div className="group">
-                 <label className="block text-xs font-bold uppercase tracking-widest text-gray-700 dark:text-stone-400 mb-2 group-focus-within:text-secondary transition-colors">{t.contact.form.subject}</label>
-                 <select disabled={isSubmitting} className="w-full border-b border-gray-300 dark:border-stone-700 py-2 text-primary dark:text-white bg-transparent focus:outline-none focus:border-secondary input-glow transition-all duration-300 disabled:opacity-50 text-sm">
+                 <label className="block text-[10px] font-bold uppercase tracking-[0.2em] text-gray-700 dark:text-stone-400 mb-2 group-focus-within:text-secondary transition-colors">{t.contact.form.subject}</label>
+                 <select disabled={isSubmitting} className="w-full border-b border-gray-300 dark:border-stone-700 py-3 text-primary dark:text-white bg-transparent focus:outline-none focus:border-secondary input-glow transition-all duration-300 disabled:opacity-50 text-sm appearance-none rounded-none">
                     <option>General Inquiry</option>
                     <option>Corporate M&A</option>
                     <option>Employment</option>
@@ -76,12 +76,12 @@ const Contact: React.FC = () => {
                </div>
 
                <div className="group">
-                 <label className="block text-xs font-bold uppercase tracking-widest text-gray-700 dark:text-stone-400 mb-2 group-focus-within:text-secondary transition-colors">{t.contact.form.message}</label>
+                 <label className="block text-[10px] font-bold uppercase tracking-[0.2em] text-gray-700 dark:text-stone-400 mb-2 group-focus-within:text-secondary transition-colors">{t.contact.form.message}</label>
                  <textarea 
                   rows={4} 
                   required
                   disabled={isSubmitting}
-                  className="w-full border-b border-gray-300 dark:border-stone-700 py-2 text-primary dark:text-white bg-transparent focus:outline-none focus:border-secondary input-glow transition-all duration-300 resize-none disabled:opacity-50 text-sm" 
+                  className="w-full border-b border-gray-300 dark:border-stone-700 py-3 text-primary dark:text-white bg-transparent focus:outline-none focus:border-secondary input-glow transition-all duration-300 resize-none disabled:opacity-50 text-sm" 
                   placeholder="How can we help you?"
                  ></textarea>
                </div>
@@ -89,7 +89,7 @@ const Contact: React.FC = () => {
                <button 
                 type="submit"
                 disabled={isSubmitting}
-                className={`group mt-8 flex items-center gap-4 px-8 py-3 font-bold tracking-widest uppercase text-xs transition-all duration-300 w-full md:w-auto justify-center bg-primary dark:bg-secondary text-white hover:bg-secondary dark:hover:bg-white dark:hover:text-primary`}
+                className={`group mt-8 flex items-center gap-4 px-8 py-3 font-bold tracking-[0.2em] uppercase text-[10px] transition-all duration-300 w-full md:w-auto justify-center bg-primary dark:bg-secondary text-white hover:bg-secondary dark:hover:bg-white dark:hover:text-primary shadow-lg`}
                >
                  {isSubmitting ? (
                    <>{t.contact.form.sending} <Loader2 size={16} className="animate-spin" /></>
@@ -101,12 +101,12 @@ const Contact: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Info/Map - Dark Theme (Always Dark-ish for aesthetic, but adapted) */}
-        <div className="lg:w-1/2 bg-[#1c1917] text-white p-8 lg:p-16 flex flex-col justify-center relative overflow-hidden order-1 lg:order-2 group">
+        {/* Right Info/Map - Dark Theme */}
+        <div className="lg:w-1/2 bg-[#1c1917] text-white p-8 lg:p-16 flex flex-col justify-center relative overflow-hidden order-1 lg:order-2 group min-h-[450px]">
           
           {/* Linked Background Map Image */}
           <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" className="absolute inset-0 cursor-pointer">
-             <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-500">
+             <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-700">
                <img 
                  src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
                  alt="Jakarta Map" 
@@ -116,23 +116,23 @@ const Contact: React.FC = () => {
              <div className="absolute inset-0 bg-gradient-to-b from-[#1c1917] via-transparent to-[#1c1917] pointer-events-none"></div>
           </a>
 
-          <div className="relative z-10 max-w-lg mx-auto w-full pointer-events-none">
-             <div className="mb-10">
-               <h3 className="text-3xl font-serif mb-8 text-white">{t.contact.office.title}</h3>
+          <div className="relative z-10 max-w-lg mx-auto w-full pointer-events-none pt-16 lg:pt-0">
+             <div className="mb-8">
+               <h3 className="text-3xl font-serif mb-10 text-white">{t.contact.office.title}</h3>
                <div className="space-y-8">
                  <div className="flex gap-6 group/item pointer-events-auto">
                     <div className="w-10 h-10 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-secondary group-hover/item:scale-110 transition-transform">
                       <MapPin size={18} />
                     </div>
                     <div>
-                      <p className="text-xs font-bold uppercase tracking-widest text-stone-400 mb-1">{t.contact.office.address}</p>
+                      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-1">{t.contact.office.address}</p>
                       <div className="text-stone-300 font-light leading-relaxed text-sm">
                         {CONTACT_INFO.address.map((line, i) => (
                           <p key={i}>{line}</p>
                         ))}
                       </div>
-                      <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-secondary text-xs mt-2 hover:underline">
-                         {t.contact.office.viewMap} <ExternalLink size={12} />
+                      <a href={googleMapsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-secondary text-[10px] mt-2 hover:underline uppercase tracking-wider">
+                         {t.contact.office.viewMap} <ExternalLink size={10} />
                       </a>
                     </div>
                  </div>
@@ -142,7 +142,7 @@ const Contact: React.FC = () => {
                       <Mail size={18} />
                     </div>
                     <div>
-                      <p className="text-xs font-bold uppercase tracking-widest text-stone-400 mb-1">{t.contact.office.email}</p>
+                      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-1">{t.contact.office.email}</p>
                       <a href={`mailto:${CONTACT_INFO.email}`} className="text-stone-300 font-light hover:text-white transition-colors border-b border-stone-700 hover:border-white pb-0.5 text-sm">
                         {CONTACT_INFO.email}
                       </a>
@@ -154,7 +154,7 @@ const Contact: React.FC = () => {
                       <Phone size={18} />
                     </div>
                     <div>
-                      <p className="text-xs font-bold uppercase tracking-widest text-stone-400 mb-1">{t.contact.office.phone}</p>
+                      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-1">{t.contact.office.phone}</p>
                       <div className="text-stone-300 font-light text-sm">
                         <p>{CONTACT_INFO.phone}</p>
                         <p>{CONTACT_INFO.fax} (Fax)</p>
