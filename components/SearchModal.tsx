@@ -60,7 +60,7 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
       ></div>
 
       {/* Modal */}
-      <div className="relative w-full max-w-3xl bg-white dark:bg-[#111625] rounded-lg shadow-2xl overflow-hidden animate-fade-in-up">
+      <div className="relative w-full max-w-3xl bg-white dark:bg-surface-dark rounded-lg shadow-2xl overflow-hidden animate-fade-in-up">
         {/* Header */}
         <div className="flex items-center border-b border-gray-100 dark:border-white/10 p-4">
           <Search className="text-gray-400 w-6 h-6 mr-4" />

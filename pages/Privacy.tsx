@@ -17,7 +17,7 @@ const Privacy: React.FC = () => {
         description="Privacy Policy for DITRA Law Partnership."
       />
 
-      <div className="bg-surface dark:bg-[#111625] py-20 border-b border-gray-100 dark:border-white/5 transition-colors duration-300">
+      <div className="bg-surface dark:bg-surface-dark py-20 border-b border-gray-100 dark:border-white/5 transition-colors duration-300">
         <div className="container mx-auto px-6 md:px-12">
           <h1 className="text-4xl md:text-5xl font-serif text-primary dark:text-white mb-4">Privacy Policy</h1>
           <p className="text-secondary text-sm font-bold tracking-widest uppercase">Last updated: {new Date().toLocaleDateString()}</p>

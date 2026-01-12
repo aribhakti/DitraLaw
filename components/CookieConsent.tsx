@@ -21,7 +21,7 @@ const CookieConsent: React.FC = () => {
 
   return (
     <div className="fixed bottom-0 left-0 w-full z-50 p-4 md:p-6 animate-fade-in-up">
-      <div className="bg-[#1c1917] dark:bg-white text-white dark:text-primary p-6 md:p-8 rounded-lg shadow-2xl max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 border-l-4 border-primary">
+      <div className="bg-surface-dark dark:bg-white text-white dark:text-primary p-6 md:p-8 rounded-lg shadow-2xl max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 border-l-4 border-primary">
         <p className="text-sm font-light leading-relaxed">
           {t.cookie.text}
         </p>

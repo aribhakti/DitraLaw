@@ -13,7 +13,7 @@ export const ToastContainer: React.FC<ToastContainerProps> = ({ toasts, removeTo
       {toasts.map((toast) => (
         <div 
           key={toast.id} 
-          className="pointer-events-auto min-w-[300px] bg-white dark:bg-[#111625] border-l-4 shadow-lg rounded-r-sm p-4 flex items-start gap-3 animate-fade-in-up transition-all duration-300 transform"
+          className="pointer-events-auto min-w-[300px] bg-white dark:bg-surface-dark border-l-4 shadow-lg rounded-r-sm p-4 flex items-start gap-3 animate-fade-in-up transition-all duration-300 transform"
           style={{
             borderColor: toast.type === 'success' ? '#22c55e' : toast.type === 'error' ? '#ef4444' : '#3b82f6'
           }}

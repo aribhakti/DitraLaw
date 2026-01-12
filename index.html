@@ -4,9 +4,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#4A0404" />
+  <meta name="theme-color" content="#4a0f1c" />
   <meta name="description"
     content="DITRA Law Partnership - Jakarta-based law firm specializing in corporate, M&A, and commercial law." />
+  <link rel="icon" type="image/webp" href="https://fshhzvdr1jy25963.public.blob.vercel-storage.com/Mark%202.webp" />
 
   <!-- Resource Hints for Performance -->
   <link rel="preconnect" href="https://images.unsplash.com" />
@@ -25,18 +26,21 @@
       theme: {
         extend: {
           fontFamily: {
-            serif: ['"Playfair Display"', 'serif'],
+            serif: ['SimpleAmp', '"Playfair Display"', 'serif'],
             sans: ['"Manrope"', 'sans-serif'],
           },
           colors: {
             // Primary: Deep Maroon (DITRA Brand Color)
-            primary: '#4A0404',
+            primary: '#4a0f1c',
             // Secondary: Rich Gold - Slightly darkened for better contrast on white (WCAG improvement)
             secondary: '#B0891E',
             accent: '#3B82F6',
             surface: '#FFFFFF',
             'surface-alt': '#FDF8F8', // Very light tint of red/warm grey
-            'surface-dark': '#2A0505', // Very dark maroon for dark mode backgrounds
+            'surface-dark': '#0c0a09', // Unified dark stone color from hero
+          },
+          fontSize: {
+            'xxs': ['10px', '1.5'],
           },
           letterSpacing: {
             widest: '.25em',
@@ -72,6 +76,16 @@
     html {
       scroll-behavior: smooth;
     }
+
+    /* Global Simple Ampersand Strategy */
+    @font-face {
+      font-family: 'SimpleAmp';
+      /* Use system sans-serif or Manrope for a cleaner ampersand */
+      src: local('Manrope'), local('Arial'), local('sans-serif');
+      unicode-range: U+0026;
+      /* Only apply to '&' */
+    }
+
 
     /* Refined Scrollbar */
     ::-webkit-scrollbar {
@@ -141,7 +155,7 @@
 </head>
 
 <body
-  class="bg-surface dark:bg-primary text-primary dark:text-stone-200 font-sans antialiased selection:bg-secondary selection:text-white overflow-x-hidden transition-colors duration-300">
+  class="bg-surface dark:bg-surface-dark text-primary dark:text-stone-200 font-sans antialiased selection:bg-secondary selection:text-white overflow-x-hidden transition-colors duration-300">
   <div class="bg-noise"></div>
   <div id="root"></div>
   <script type="module" src="/index.tsx"></script>

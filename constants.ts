@@ -45,7 +45,7 @@ Aditya also has significant experience in financing and is well-versed in equity
     phone: "+6221 509 046428",
     email: "adhi.wardhana@ditralaw.com",
     // Professional male portrait, slightly different setting
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1600&auto=format&fit=crop",
+    image: "https://fshhzvdr1jy25963.public.blob.vercel-storage.com/Adhi%20Wardhana.webp",
     bio: `Adhi is an Of Counsel at DITRA with more than 15 years of combined experience in an international law firm, as an in-house counsel, and in civil society organizations. His expertise focuses on corporate and commercial matters, capital market transactions (including IPOs, rights issues, and private placements), and foreign direct investment. Beyond his legal experience, he has built a strong network and profound understanding of Indonesia’s policy landscape, particularly in carbon markets, forestry, climate change, and palm oil governance.
 
 Adhi has extensive experience in equity capital markets and has advised clients across various industries, including technology, media, and telecommunications (TMT), manufacturing, the digital economy, and natural resources.`,
@@ -58,13 +58,12 @@ Adhi has extensive experience in equity capital markets and has advised clients 
     languages: ["Indonesian", "English"]
   },
   {
-    name: "Associates",
-    role: "Legal Team",
+    name: "Michael Ho",
+    role: "Associate",
     phone: "+6221 509 046428",
-    email: "info@ditralaw.com",
-    // Team meeting/Collaboration abstract image
-    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1600&auto=format&fit=crop",
-    bio: "Our team of dedicated associates supports all practice areas. Detailed profiles coming soon.",
+    email: "michael.ho@ditralaw.com",
+    image: "https://fshhzvdr1jy25963.public.blob.vercel-storage.com/Michael%20Ho%20LinkedIn.webp",
+    bio: "Michael is an Associate at DITRA. He assists the team in various corporate and commercial matters.",
     education: [],
     qualifications: [],
     languages: ["Indonesian", "English"]
