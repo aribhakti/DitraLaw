@@ -115,8 +115,8 @@ export const EN: Translations = {
   practiceAreas: [
     {
       id: "corporate-commercial",
-      title: "Corporate and Commercial",
-      shortDescription: "Comprehensive solutions for business operations.",
+      title: "Corporate & Commercial",
+      shortDescription: "Delivering practical legal support for corporate and commercial transactions, from structuring and governance to regulatory compliance.",
       fullDescription: `Our team provides comprehensive, solutions-focused advice on all aspects of doing business in Indonesia, from initial investment to day-to-day operations.
 
 We assist domestic and foreign investors with the structuring and corporate aspects of their investments and company establishment in Indonesia (PT PMA), regulatory licensing, corporate compliance and commercial matters, ensuring every step meets local formalities. By combining international standard documentation with excellent relationships with governmental authorities typically involved in such process and reputable notaries, we deliver practical advice that is easy to understand and implement.`,
@@ -126,7 +126,7 @@ We assist domestic and foreign investors with the structuring and corporate aspe
     {
       id: "ma",
       title: "Mergers & Acquisitions",
-      shortDescription: "Advising on high-profile domestic and cross-border transactions.",
+      shortDescription: "Advising on mergers, acquisitions, divestments, and corporate restructurings across the full transaction spectrum.",
       fullDescription: `We specialize in Indonesian M&A with extensive expertise advising multinational corporations and leading Indonesian entities on high-profile domestic and cross-border transactions across the region. We provide a full range of integrated services, including advice on transaction structuring, legal due diligence exercise, preparation of sale and purchase agreements, shareholders agreement and completion. Our team has a proven track record of handling inbound acquisitions for clients from key markets such as Australia, China, Hong Kong, Japan, Malaysia and Singapore, ensuring every deal is grounded in technical precision and practical business insight.
 
 Recognizing that M&A transactions are highly time-sensitive, we provide flexible and responsive support to ensure rapid turnaround times. We navigate the complexities of highly regulated industries by providing end-to-end assistance with regulatory filings, internal corporate approvals and compliance with Indonesia’s legal regimes. By bridging the gap between international standards and local practice, we act as trusted partners to corporate clients and financial advisors, delivering a seamless service that covers everything from initial formation to the final completion of the deal.`,
@@ -136,7 +136,7 @@ Recognizing that M&A transactions are highly time-sensitive, we provide flexible
     {
       id: "capital-markets",
       title: "Capital Markets",
-      shortDescription: "Navigating public markets, IPOs and debt structures.",
+      shortDescription: "Navigating public markets, IPOs and debt structures with precision.",
       fullDescription: `DITRA has extensive experience in both Equity Capital Markets (ECM) and Debt Capital Markets (DCM), with particular expertise in initial public offerings (IPOs) and rights issues. Our team has successfully guided clients through the complexities of capital raising, ensuring compliance with Indonesian regulations and addressing market challenges to deliver optimal results. We provide end-to-end support for our clients, from structuring and documentation to investor relations and market positioning.
 
 Our Partner is also a member of the HKHSK (Himpunan Konsultan Hukum Sektor Keuangan), further enhancing our firm’s ability to offer high-level insights and strategic guidance on capital markets transactions in Indonesia. This membership connects DITRA with a strong network of market professionals, ensuring that our clients benefit from up-to-date regulatory knowledge and industry trends.`,
@@ -146,7 +146,7 @@ Our Partner is also a member of the HKHSK (Himpunan Konsultan Hukum Sektor Keuan
     {
       id: "banking-finance",
       title: "Banking & Finance",
-      shortDescription: "Structuring financing solutions for lenders and borrowers.",
+      shortDescription: "Structuring and negotiating financing solutions for lenders and borrowers.",
       fullDescription: `DITRA has extensive experience in advising both domestic and international investors on a wide array of banking and finance matters in Indonesia.
 
 Our team has a strong track record in financing arrangements, regulatory compliance and structuring financial transactions. We have represented borrowers, private equity firms and corporate groups in cross-border financings and are increasingly handling domestic transactions under Indonesian law, utilizing international-standard documentation.
@@ -180,7 +180,7 @@ We bring a deep understanding of the critical mechanics that define a successful
     {
       id: "soes",
       title: "SOEs and Public Authorities",
-      shortDescription: "Navigating requirements of State-Owned Enterprises.",
+      shortDescription: "Advising SOEs on complex commercial and corporate transactions, regulatory and governance matters.",
       fullDescription: `DITRA offers a sophisticated depth of expertise in navigating the unique legal and administrative requirements of State-Owned Enterprises (SOEs) and public agencies.
 
 With over 15 years of our team experience in building strong and continuous relationships with various institutions and agencies, including government bodies, non-government organizations and SOEs along with their subsidiaries, our firm serves as a strategic bridge between public interest mandates and commercial objectives. These ongoing collaborations ensure that we consistently receive up-to-date insights, which serve as a key foundation in navigating Indonesia’s evolving regulatory landscape.
@@ -201,8 +201,8 @@ Our team specializes in high-stakes projects across the commercial, industrial, 
     },
     {
       id: "vc-growth",
-      title: "VC & Growth Companies",
-      shortDescription: "Guiding investors and startups through the growth lifecycle.",
+      title: "VC & High-Growth",
+      shortDescription: "Advising investors and startups throughout the growth and investment lifecycle.",
       fullDescription: `Our team has a deep understanding of the venture capital landscape, having worked with a wide range of investors, including venture capital firms, private equity funds, and corporate investors, as well as fast-growing startups across various fundraising stages. We guide clients through the entire investment lifecycle, from initial seed funding to later-stage investments.
 
 Our partners’ extensive background and prior experience at an international law firm have equipped them with a deep understanding of the nuances of venture capital transactions. This enables us to offer sound legal guidance on equity structuring, term sheets shareholder agreements, regulatory compliance and exit strategies.

@@ -13,12 +13,24 @@ const People = lazy(() => import('./pages/People'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Privacy = lazy(() => import('./pages/Privacy'));
 const Insights = lazy(() => import('./pages/Insights'));
+const ArticleDetail = lazy(() => import('./pages/ArticleDetail'));
 const Careers = lazy(() => import('./pages/Careers'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 const LoadingFallback = () => (
-  <div className="min-h-screen flex items-center justify-center bg-surface">
-    <Loader2 size={40} className="animate-spin text-secondary" />
+  <div className="min-h-[80vh] w-full flex flex-col items-center justify-center bg-surface transition-colors duration-500">
+    <div className="relative flex flex-col items-center">
+      <span className="font-serif text-4xl md:text-5xl font-bold text-primary tracking-widest mb-6 animate-pulse">DITRA.</span>
+      <div className="w-24 h-[2px] bg-primary/10 overflow-hidden relative rounded-full">
+         <div className="absolute inset-y-0 left-0 bg-secondary w-full origin-left animate-[progress_1.5s_ease-in-out_infinite]"></div>
+      </div>
+    </div>
+    <style>{`
+      @keyframes progress {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+      }
+    `}</style>
   </div>
 );
 
@@ -36,6 +48,7 @@ const App: React.FC = () => {
                   <Route path="/practices" element={<Navigate to="/services" replace />} />
                   <Route path="/people" element={<People />} />
                   <Route path="/insights" element={<Insights />} />
+                  <Route path="/insights/:id" element={<ArticleDetail />} />
                   <Route path="/careers" element={<Careers />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/privacy" element={<Privacy />} />

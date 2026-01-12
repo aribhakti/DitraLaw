@@ -40,15 +40,6 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     window.scrollTo(0, 0);
   }, [location]);
 
-  // Lock body scroll when mobile menu is open
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-  }, [isMobileMenuOpen]);
-
   // Keyboard shortcut for search
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -215,7 +206,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 {/* Office Info on Mobile Menu */}
                 <div className="border-t border-white/10 pt-6">
                   <p className="text-white/40 text-[10px] uppercase tracking-widest font-bold mb-2">Jakarta Office</p>
-                  <a href={`tel:${CONTACT_INFO.phone}`} className="text-white text-xl font-serif block hover:text-secondary transition-colors">{CONTACT_INFO.phone}</a>
+                  <a href={`tel:${CONTACT_INFO.phone.replace(/\s/g, '')}`} className="text-white text-xl font-serif block hover:text-secondary transition-colors">{CONTACT_INFO.phone}</a>
                 </div>
               </div>
           </div>
@@ -267,8 +258,8 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                   ))}
                 </div>
                 <div className="mt-8 text-stone-400 font-light text-sm space-y-2">
-                  <p className="hover:text-secondary transition-colors cursor-pointer">{CONTACT_INFO.email}</p>
-                  <p>{CONTACT_INFO.phone}</p>
+                  <a href={`mailto:${CONTACT_INFO.email}`} className="hover:text-secondary transition-colors cursor-pointer block">{CONTACT_INFO.email}</a>
+                  <a href={`tel:${CONTACT_INFO.phone.replace(/\s/g, '')}`} className="hover:text-secondary transition-colors cursor-pointer block">{CONTACT_INFO.phone}</a>
                 </div>
               </div>
 

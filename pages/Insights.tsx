@@ -3,91 +3,8 @@ import { Calendar, ArrowRight } from 'lucide-react';
 import { useLang } from '../providers';
 import SEO from '../components/SEO';
 import Image from '../components/Image';
-
-// Real data from 2025 Legal Updates with Curated Professional Imagery
-const ALL_INSIGHTS = [
-  {
-    id: 1,
-    title: "Indonesia Updates Stock Exchange Disclosure Framework Through IDX Regulation No. I-E of 2025",
-    date: "Dec 29, 2025",
-    category: "Capital Markets",
-    // Image: Abstract glass building reflection (Corporate/Finance feel)
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop",
-    excerpt: "On 12 December 2025, IDX issued a new Regulation No. I-E on Disclosure Obligations replacing the previous framework issued in 2022. The regulation aligns reporting mechanisms with OJK frameworks."
-  },
-  {
-    id: 2,
-    title: "New Implementation Guidelines for Mineral and Coal Mining Under MEMR Regulation No. 18 of 2025",
-    date: "Dec 05, 2025",
-    category: "Mining",
-    // Image: Aerial texture of earth/mining (Industrial/Raw)
-    image: "https://images.unsplash.com/photo-1579541579240-a33777555d8f?q=80&w=2000&auto=format&fit=crop", 
-    excerpt: "The Minister of Energy and Mineral Resources enacted MR 18/2025 to implement regulatory frameworks set out under GR 39/2025, revising eligibility criteria for WIUP auctions."
-  },
-  {
-    id: 3,
-    title: "Indonesia Updates State-Owned Enterprises Legal Framework Through Law No. 16 of 2025",
-    date: "Nov 10, 2025",
-    category: "SOE",
-    // Image: Abstract Batik or Indonesian texture (Cultural/State)
-    image: "https://images.unsplash.com/photo-1628190201777-62f790299d9d?q=80&w=2000&auto=format&fit=crop", 
-    excerpt: "The Indonesian Government enacted Law 16/2025, the fourth amendment to the SOE Law, enhancing governance, efficiency and competitiveness of SOEs."
-  },
-  {
-    id: 4,
-    title: "Indonesia’s New Mining Framework: Key Insights into GR No. 39 of 2025",
-    date: "Oct 29, 2025",
-    category: "Mining",
-    // Image: Coal/Mineral texture (Dark/Serious)
-    image: "https://images.unsplash.com/photo-1618388428806-3af443210b42?q=80&w=2000&auto=format&fit=crop", 
-    excerpt: "Government Regulation 39/2025 aligns the mineral and coal mining framework with the latest Mining Law amendment, introducing detailed priority rights mechanisms."
-  },
-  {
-    id: 5,
-    title: "Indonesia's Latest Regime on Risk-Based Business Licensing System Under BKPM Regulation No. 5/2025",
-    date: "Oct 22, 2025",
-    category: "Corporate",
-    // Image: Modern office architecture (Business/Licensing)
-    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=2000&auto=format&fit=crop", 
-    excerpt: "BKPM issued MR 5/2025 to clarify provisions on business licensing and investment under GR 28/2025, effectively replacing three previous BKPM regulations."
-  },
-  {
-    id: 6,
-    title: "Indonesia Introduces New Import Policy Regime Under Ministry of Trade Regulation No. 16 of 2025",
-    date: "Aug 18, 2025",
-    category: "Trade",
-    // Image: Shipping containers/Logistics (Trade/Export)
-    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2000&auto=format&fit=crop", 
-    excerpt: "MOTR 16/2025 becomes Indonesia’s new import regulatory framework, aimed at simplifying licensing procedures and strengthening compliance oversight."
-  },
-  {
-    id: 7,
-    title: "Indonesia’s New Risk Based-Licensing Regime (GR 28/2025)",
-    date: "Jul 21, 2025",
-    category: "Corporate",
-    // Image: Abstract skyscraper looking up (Growth/Structure)
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2000&auto=format&fit=crop", 
-    excerpt: "A comprehensive update to the risk-based business licensing framework, aiming to enhance legal certainty and streamline regulatory processes via the OSS system."
-  },
-  {
-    id: 8,
-    title: "Significant Amendments to Land Rights Regime Under Ministerial Regulation No. 5 of 2025",
-    date: "Jun 22, 2025",
-    category: "Real Estate",
-    // Image: Architectural details/Building facade (Property/Land)
-    image: "https://images.unsplash.com/photo-1516156008625-3a9d60da923c?q=80&w=2000&auto=format&fit=crop", 
-    excerpt: "MR 5/2025 develops Indonesia’s land rights regime by refining key reforms, clarifying delegation of authority, and providing certainty on land right renewals."
-  },
-  {
-    id: 9,
-    title: "OJK Mandates Dematerialization of Physical Shares and Regulates Unclaimed Assets (POJK 9/2025)",
-    date: "Jun 16, 2025",
-    category: "Capital Markets",
-    // Image: Digital data/Abstract tech (Modernization/Digital)
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop", 
-    excerpt: "OJK's new regulation mandates full dematerialization of equity securities within 5 years and establishes a framework to manage unclaimed assets in the capital market."
-  }
-];
+import { Link } from 'react-router-dom';
+import { INSIGHTS } from '../constants';
 
 const Insights: React.FC = () => {
   const { t } = useLang();
@@ -97,10 +14,10 @@ const Insights: React.FC = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const categories = ['All', ...Array.from(new Set(ALL_INSIGHTS.map(i => i.category)))];
+  const categories = ['All', ...Array.from(new Set(INSIGHTS.map(i => i.category)))];
   const filteredInsights = activeCategory === 'All' 
-    ? ALL_INSIGHTS 
-    : ALL_INSIGHTS.filter(i => i.category === activeCategory);
+    ? INSIGHTS 
+    : INSIGHTS.filter(i => i.category === activeCategory);
 
   return (
     <div className="bg-white dark:bg-primary min-h-screen transition-colors duration-300">
@@ -141,8 +58,9 @@ const Insights: React.FC = () => {
         {/* Grid - Reduced Gap */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
           {filteredInsights.map((item, index) => (
-            <div 
-              key={item.id} 
+            <Link 
+              key={item.id}
+              to={`/insights/${item.id}`}
               className="group cursor-pointer flex flex-col h-full animate-fade-in-up"
               style={{ animationDelay: `${0.4 + (index * 0.1)}s` }}
             >
@@ -177,7 +95,7 @@ const Insights: React.FC = () => {
                <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-primary dark:text-white group-hover:gap-3 transition-all mt-auto pt-4 border-t border-gray-100 dark:border-white/5">
                   {t.home.readMore} <ArrowRight size={12} className="text-secondary" />
                </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

@@ -19,38 +19,25 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
       setTimeout(() => inputRef.current?.focus(), 100);
     }
     
-    // Lock body scroll when open
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
     };
     window.addEventListener('keydown', handleEsc);
     return () => {
       window.removeEventListener('keydown', handleEsc);
-      document.body.style.overflow = 'auto';
     };
   }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
-  const filteredPractices = t.practicesList ? t.practicesList.filter(
-    (p) => 
-      p.title.toLowerCase().includes(query.toLowerCase()) || 
-      p.shortDescription?.toLowerCase().includes(query.toLowerCase())
-  ) : [];
-  
-  // Note: If t.practicesList is not directly available, fall back to aggregating from t.practiceAreas and t.expertise
-  // Assuming useLang returns access to those or we can just use the merged list logic here for safety:
+  // Aggregate services from available lists
   const allServices = [...(t.practiceAreas || []), ...(t.expertise || [])];
+  
   const results = allServices.filter(
-     (p) => p.title.toLowerCase().includes(query.toLowerCase()) || (p.shortDescription && p.shortDescription.toLowerCase().includes(query.toLowerCase()))
+     (p) => 
+       p.title.toLowerCase().includes(query.toLowerCase()) || 
+       (p.shortDescription && p.shortDescription.toLowerCase().includes(query.toLowerCase()))
   );
-
 
   const filteredLawyers = LAWYERS.filter(
     (l) => l.name.toLowerCase().includes(query.toLowerCase())
