@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ArrowUpRight, Calendar } from 'lucide-react';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { useLang } from '../providers';
 import SEO from '../components/SEO';
 import Image from '../components/Image';
-import { INSIGHTS } from '../constants';
 
 const Home: React.FC = () => {
   const { t } = useLang();
@@ -19,12 +18,6 @@ const Home: React.FC = () => {
   };
 
   const featuredServices = homeServiceKeys.map(key => findService(key)).filter(Boolean);
-
-  // Get latest 3 insights
-  // INSIGHTS are assumed to be sorted by date descending in constants.ts
-  const featuredInsights = INSIGHTS.slice(0, 3);
-  const mainInsight = featuredInsights[0]; // Left (Newest)
-  const sideInsights = featuredInsights.slice(1, 3); // Right Top (2nd newest), Right Bottom (3rd newest)
 
   const [scrollY, setScrollY] = useState(0);
   const [hoveredPracticeIndex, setHoveredPracticeIndex] = useState<number | null>(null);
@@ -149,34 +142,25 @@ const Home: React.FC = () => {
                   key={practice?.id || idx}
                   to={`/services#${practice?.id}`}
                   onMouseEnter={() => setHoveredPracticeIndex(idx)}
-                  className={`group relative border-r border-b border-gray-200 p-5 transition-all duration-500 hover:bg-white flex flex-col justify-between h-full min-h-[180px]`}
+                  className={`group relative border-r border-b border-gray-200 p-8 transition-all duration-500 hover:bg-white`}
                 >
-                    <div className="flex justify-between items-start w-full mb-3">
+                  <div className="flex flex-col h-full gap-6">
+                    <div className="flex justify-between items-start">
                       {/* Fixed contrast for grid number: text-gray-300 to text-gray-400 */}
-                      <span className="text-[10px] font-bold text-gray-400 transition-colors group-hover:text-primary">{(idx + 1).toString().padStart(2, '0')}</span>
-                      <ArrowUpRight className="w-4 h-4 text-gray-300 group-hover:text-secondary transition-colors" />
+                      <span className="text-xs font-bold text-gray-400">{(idx + 1).toString().padStart(2, '0')}</span>
+                      <ArrowUpRight className="w-5 h-5 text-gray-300 group-hover:text-secondary transition-colors" />
                     </div>
                     
                     <div className="mt-auto">
-                      <h3 className="text-lg md:text-xl font-serif text-primary mb-1 group-hover:-translate-y-4 transition-transform duration-500">
-                        {practice?.title.split('&').map((part, i, arr) => (
-                           <React.Fragment key={i}>
-                             {part}
-                             {/* Simplify the Ampersand by using sans-serif font */}
-                             {i < arr.length - 1 && <span className="font-sans font-light text-[0.9em] px-0.5">&</span>}
-                           </React.Fragment>
-                        ))}
+                      <h3 className="text-2xl font-serif text-primary mb-3 group-hover:translate-x-1 transition-transform duration-300">
+                        {practice?.title}
                       </h3>
-                      
-                      {/* Description: Hidden by default, reveals on hover in Gold */}
-                      <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-[grid-template-rows] duration-500 ease-in-out">
-                         <div className="overflow-hidden">
-                            <p className="text-xs font-light text-secondary leading-relaxed pt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-75">
-                              {practice?.shortDescription}
-                            </p>
-                         </div>
-                      </div>
+                      {/* Removed opacity-0 to make card feel populated naturally */}
+                      <p className="text-sm font-light text-gray-500 leading-relaxed group-hover:text-gray-700 transition-colors">
+                        {practice?.shortDescription}
+                      </p>
                     </div>
+                  </div>
                 </Link>
               ))}
            </div>
@@ -194,54 +178,51 @@ const Home: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-gray-200">
-             {/* Feature 1 (Newest) */}
-             {mainInsight && (
-               <Link to={`/insights/${mainInsight.id}`} className="group relative aspect-[3/2] lg:aspect-auto overflow-hidden">
-                  <Image 
-                    src={mainInsight.image}
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    alt={mainInsight.title} 
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
-                    containerClassName="w-full h-full"
-                  />
-                  <div className="absolute inset-0 bg-primary/40 group-hover:bg-primary/20 transition-colors"></div>
-                  <div className="absolute bottom-0 left-0 p-8 md:p-12 w-full bg-gradient-to-t from-black/80 to-transparent">
-                     <div className="flex items-center gap-3 mb-3">
-                        <span className="text-secondary text-[10px] font-bold uppercase tracking-[0.2em]">{mainInsight.category}</span>
-                        <span className="w-px h-3 bg-white/40"></span>
-                        <span className="text-white/80 text-[10px] font-bold uppercase tracking-[0.2em] flex items-center gap-2">
-                           {mainInsight.date}
-                        </span>
-                     </div>
-                     <h3 className="text-2xl md:text-3xl font-serif text-white mb-6 leading-tight">{mainInsight.title}</h3>
-                     <span className="inline-flex items-center gap-2 text-white text-[10px] font-bold uppercase tracking-[0.2em] border-b border-white pb-1 group-hover:text-secondary group-hover:border-secondary transition-colors">{t.home.readMore} <ArrowRight size={14} /></span>
-                  </div>
-               </Link>
-             )}
+             {/* Feature 1 */}
+             <Link to="/insights" className="group relative aspect-[3/2] lg:aspect-auto overflow-hidden">
+                <Image 
+                  src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  alt="M&A" 
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                  containerClassName="w-full h-full"
+                />
+                <div className="absolute inset-0 bg-primary/40 group-hover:bg-primary/20 transition-colors"></div>
+                <div className="absolute bottom-0 left-0 p-8 md:p-12 w-full bg-gradient-to-t from-black/80 to-transparent">
+                   <span className="text-secondary text-[10px] font-bold uppercase tracking-[0.2em] mb-3 block">Corporate</span>
+                   <h3 className="text-2xl md:text-3xl font-serif text-white mb-6 leading-tight">The Evolution of M&A in Southeast Asia</h3>
+                   <span className="inline-flex items-center gap-2 text-white text-[10px] font-bold uppercase tracking-[0.2em] border-b border-white pb-1 group-hover:text-secondary group-hover:border-secondary transition-colors">{t.home.readMore} <ArrowRight size={14} /></span>
+                </div>
+             </Link>
 
              {/* Stacked Features */}
              <div className="grid grid-rows-2 divide-y divide-gray-200">
-                {/* 2nd Newest (Top) and 3rd Newest (Bottom) */}
-                {sideInsights.map((item) => (
-                  <Link key={item.id} to={`/insights/${item.id}`} className="group relative p-8 md:p-10 hover:bg-surface-alt transition-colors">
-                     <div className="flex flex-col h-full justify-between">
-                        <div>
-                          <div className="flex items-center gap-3 mb-3">
-                             <span className="text-stone-500 text-[10px] font-bold uppercase tracking-[0.2em]">{item.category}</span>
-                             <span className="w-px h-3 bg-stone-300"></span>
-                             <span className="text-stone-400 text-[10px] font-bold uppercase tracking-[0.2em] flex items-center gap-2">
-                                <Calendar size={10} /> {item.date}
-                             </span>
-                          </div>
-                          <h3 className="text-xl md:text-2xl font-serif text-primary mb-4 group-hover:translate-x-1 transition-transform">{item.title}</h3>
-                          <p className="text-sm text-gray-500 font-light line-clamp-2 leading-relaxed">{item.excerpt}</p>
-                        </div>
-                        <div className="mt-6 flex justify-end">
-                           <ArrowRight className="text-gray-300 group-hover:text-secondary transition-colors" size={24} />
-                        </div>
-                     </div>
-                  </Link>
-                ))}
+                <Link to="/insights" className="group relative p-8 md:p-10 hover:bg-surface-alt transition-colors">
+                   <div className="flex flex-col h-full justify-between">
+                      <div>
+                        {/* Fixed contrast: Changed text-secondary to text-stone-500 on light bg */}
+                        <span className="text-stone-500 text-[10px] font-bold uppercase tracking-[0.2em] mb-3 block">Sustainability</span>
+                        <h3 className="text-xl md:text-2xl font-serif text-primary mb-4 group-hover:translate-x-1 transition-transform">Carbon Trading Regulations in Indonesia</h3>
+                        <p className="text-sm text-gray-500 font-light line-clamp-2 leading-relaxed">New compliance frameworks are emerging for environmental assets. Understanding the impact on industrial sectors.</p>
+                      </div>
+                      <div className="mt-6 flex justify-end">
+                         <ArrowRight className="text-gray-300 group-hover:text-secondary transition-colors" size={24} />
+                      </div>
+                   </div>
+                </Link>
+                <Link to="/insights" className="group relative p-8 md:p-10 hover:bg-surface-alt transition-colors">
+                   <div className="flex flex-col h-full justify-between">
+                      <div>
+                        {/* Fixed contrast: Changed text-secondary to text-stone-500 on light bg */}
+                        <span className="text-stone-500 text-[10px] font-bold uppercase tracking-[0.2em] mb-3 block">Employment</span>
+                        <h3 className="text-xl md:text-2xl font-serif text-primary mb-4 group-hover:translate-x-1 transition-transform">Employment Law Changes for Remote Work</h3>
+                        <p className="text-sm text-gray-500 font-light line-clamp-2 leading-relaxed">Navigating the omnibus law amendments regarding flexible work arrangements and cross-border teams.</p>
+                      </div>
+                      <div className="mt-6 flex justify-end">
+                         <ArrowRight className="text-gray-300 group-hover:text-secondary transition-colors" size={24} />
+                      </div>
+                   </div>
+                </Link>
              </div>
           </div>
         </div>

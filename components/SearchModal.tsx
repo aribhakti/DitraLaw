@@ -19,25 +19,31 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
       setTimeout(() => inputRef.current?.focus(), 100);
     }
     
+    // Lock body scroll when open
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
     };
     window.addEventListener('keydown', handleEsc);
     return () => {
       window.removeEventListener('keydown', handleEsc);
+      document.body.style.overflow = 'auto';
     };
   }, [isOpen, onClose]);
 
   if (!isOpen) return null;
-
-  // Aggregate services from available lists
-  const allServices = [...(t.practiceAreas || []), ...(t.expertise || [])];
   
+  // Aggregate services from practiceAreas and expertise
+  const allServices = [...(t.practiceAreas || []), ...(t.expertise || [])];
   const results = allServices.filter(
-     (p) => 
-       p.title.toLowerCase().includes(query.toLowerCase()) || 
-       (p.shortDescription && p.shortDescription.toLowerCase().includes(query.toLowerCase()))
+     (p) => p.title.toLowerCase().includes(query.toLowerCase()) || (p.shortDescription && p.shortDescription.toLowerCase().includes(query.toLowerCase()))
   );
+
 
   const filteredLawyers = LAWYERS.filter(
     (l) => l.name.toLowerCase().includes(query.toLowerCase())

@@ -32,16 +32,6 @@ export interface ToastMessage {
   message: string;
 }
 
-export interface Insight {
-  id: string;
-  title: string;
-  date: string;
-  category: string;
-  image: string;
-  excerpt: string;
-  content: string;
-}
-
 export interface Translations {
   nav: {
     home: string;

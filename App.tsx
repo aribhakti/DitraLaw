@@ -13,7 +13,6 @@ const People = lazy(() => import('./pages/People'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Privacy = lazy(() => import('./pages/Privacy'));
 const Insights = lazy(() => import('./pages/Insights'));
-const ArticleDetail = lazy(() => import('./pages/ArticleDetail'));
 const Careers = lazy(() => import('./pages/Careers'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
@@ -48,7 +47,6 @@ const App: React.FC = () => {
                   <Route path="/practices" element={<Navigate to="/services" replace />} />
                   <Route path="/people" element={<People />} />
                   <Route path="/insights" element={<Insights />} />
-                  <Route path="/insights/:id" element={<ArticleDetail />} />
                   <Route path="/careers" element={<Careers />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/privacy" element={<Privacy />} />

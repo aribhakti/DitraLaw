@@ -160,7 +160,7 @@ const Contact: React.FC = () => {
                     <div>
                       <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-stone-400 mb-1">{t.contact.office.phone}</p>
                       <div className="text-stone-300 font-light text-sm">
-                        <a href={`tel:${CONTACT_INFO.phone.replace(/\s/g, '')}`} className="hover:text-white transition-colors block">{CONTACT_INFO.phone}</a>
+                        <a href={`tel:${CONTACT_INFO.phone}`} className="hover:text-white transition-colors block">{CONTACT_INFO.phone}</a>
                         <p>{CONTACT_INFO.fax} (Fax)</p>
                       </div>
                     </div>
