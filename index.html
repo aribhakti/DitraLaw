@@ -1,137 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#4A0404" />
-    <meta name="description" content="DITRA Law Partnership - Jakarta-based law firm specializing in corporate, M&A, and commercial law." />
-    
-    <!-- Resource Hints for Performance -->
-    <link rel="preconnect" href="https://images.unsplash.com" />
-    <link rel="dns-prefetch" href="https://images.unsplash.com" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <title>DITRA Law Partnership</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            fontFamily: {
-              serif: ['"Playfair Display"', 'serif'],
-              sans: ['"Manrope"', 'sans-serif'],
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#4A0404" />
+  <meta name="description"
+    content="DITRA Law Partnership - Jakarta-based law firm specializing in corporate, M&A, and commercial law." />
+
+  <!-- Resource Hints for Performance -->
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link rel="dns-prefetch" href="https://images.unsplash.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <title>DITRA Law Partnership</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['"Manrope"', 'sans-serif'],
+          },
+          colors: {
+            // Primary: Deep Maroon (DITRA Brand Color)
+            primary: '#4A0404',
+            // Secondary: Rich Gold - Slightly darkened for better contrast on white (WCAG improvement)
+            secondary: '#B0891E',
+            accent: '#3B82F6',
+            surface: '#FFFFFF',
+            'surface-alt': '#FDF8F8', // Very light tint of red/warm grey
+            'surface-dark': '#2A0505', // Very dark maroon for dark mode backgrounds
+          },
+          letterSpacing: {
+            widest: '.25em',
+          },
+          backgroundImage: {
+            'noise': "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.05%22/%3E%3C/svg%3E')",
+          },
+          animation: {
+            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+            'fade-in': 'fadeIn 1s ease-out forwards',
+            'page-enter': 'pageEnter 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+          },
+          keyframes: {
+            fadeInUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
             },
-            colors: {
-              // Primary: Deep Maroon (DITRA Brand Color)
-              primary: '#4A0404', 
-              // Secondary: Rich Gold - Slightly darkened for better contrast on white (WCAG improvement)
-              secondary: '#B0891E', 
-              accent: '#3B82F6', 
-              surface: '#FFFFFF', 
-              'surface-alt': '#FDF8F8', // Very light tint of red/warm grey
-              'surface-dark': '#2A0505', // Very dark maroon for dark mode backgrounds
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
             },
-            letterSpacing: {
-              widest: '.25em',
+            pageEnter: {
+              '0%': { opacity: '0', transform: 'translateY(15px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
             },
-            backgroundImage: {
-              'noise': "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.05%22/%3E%3C/svg%3E')",
-            },
-            animation: {
-              'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-              'fade-in': 'fadeIn 1s ease-out forwards',
-              'page-enter': 'pageEnter 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-            },
-            keyframes: {
-              fadeInUp: {
-                '0%': { opacity: '0', transform: 'translateY(20px)' },
-                '100%': { opacity: '1', transform: 'translateY(0)' },
-              },
-              fadeIn: {
-                '0%': { opacity: '0' },
-                '100%': { opacity: '1' },
-              },
-              pageEnter: {
-                '0%': { opacity: '0', transform: 'translateY(15px)' },
-                '100%': { opacity: '1', transform: 'translateY(0)' },
-              },
-            }
           }
         }
       }
-    </script>
-    <style>
-      html { scroll-behavior: smooth; }
-      
-      /* Refined Scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: #FDF8F8;
-      }
-      .dark ::-webkit-scrollbar-track {
-        background: #2A0505;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #9CA3AF;
-        border-radius: 4px;
-      }
-      .dark ::-webkit-scrollbar-thumb {
-        background: #5c1818;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #B0891E;
+    }
+  </script>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Refined Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #FDF8F8;
+    }
+
+    .dark ::-webkit-scrollbar-track {
+      background: #2A0505;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #9CA3AF;
+      border-radius: 4px;
+    }
+
+    .dark ::-webkit-scrollbar-thumb {
+      background: #5c1818;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #B0891E;
+    }
+
+    /* Noise Overlay */
+    .bg-noise {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 50;
+      opacity: 0.4;
+      background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%221%22/%3E%3C/svg%3E');
+    }
+
+    .dark .bg-noise {
+      opacity: 0.15;
+      mix-blend-mode: overlay;
+    }
+
+    .input-glow:focus {
+      box-shadow: 0 0 0 1px #B0891E;
+      border-color: #B0891E;
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background-color: white !important;
+        color: black !important;
       }
 
-      /* Noise Overlay */
-      .bg-noise {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 50;
-        opacity: 0.4;
-        background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%221%22/%3E%3C/svg%3E');
+      nav,
+      footer,
+      .bg-noise,
+      .no-print {
+        display: none !important;
       }
-      .dark .bg-noise {
-        opacity: 0.15;
-        mix-blend-mode: overlay;
-      }
+    }
+  </style>
 
-      .input-glow:focus {
-        box-shadow: 0 0 0 1px #B0891E;
-        border-color: #B0891E;
-      }
-      
-      /* Print Styles */
-      @media print {
-        body { background-color: white !important; color: black !important; }
-        nav, footer, .bg-noise, .no-print { display: none !important; }
-      }
-    </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@18.2.0",
-    "react/": "https://esm.sh/react@18.2.0/",
-    "react-dom": "https://esm.sh/react-dom@18.2.0",
-    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
-    "react-router-dom": "https://esm.sh/react-router-dom@6.22.3?deps=react@18.2.0,react-dom@18.2.0",
-    "lucide-react": "https://esm.sh/lucide-react@0.263.1?deps=react@18.2.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
-  }
-}
-</script>
 </head>
-  <body class="bg-surface dark:bg-primary text-primary dark:text-stone-200 font-sans antialiased selection:bg-secondary selection:text-white overflow-x-hidden transition-colors duration-300">
-    <div class="bg-noise"></div>
-    <div id="root"></div>
-  </body>
+
+<body
+  class="bg-surface dark:bg-primary text-primary dark:text-stone-200 font-sans antialiased selection:bg-secondary selection:text-white overflow-x-hidden transition-colors duration-300">
+  <div class="bg-noise"></div>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
 </html>
