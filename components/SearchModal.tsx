@@ -13,12 +13,12 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
   const { t } = useLang();
   const [query, setQuery] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
-  
+
   useEffect(() => {
     if (isOpen && inputRef.current) {
       setTimeout(() => inputRef.current?.focus(), 100);
     }
-    
+
     // Lock body scroll when open
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -37,11 +37,11 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
   }, [isOpen, onClose]);
 
   if (!isOpen) return null;
-  
+
   // Aggregate services from practiceAreas and expertise
-  const allServices = [...(t.practiceAreas || []), ...(t.expertise || [])];
+  const allServices = t.practiceAreas.flatMap(p => [p, ...(p.expertise || [])]);
   const results = allServices.filter(
-     (p) => p.title.toLowerCase().includes(query.toLowerCase()) || (p.shortDescription && p.shortDescription.toLowerCase().includes(query.toLowerCase()))
+    (p) => p.title.toLowerCase().includes(query.toLowerCase()) || (p.shortDescription && p.shortDescription.toLowerCase().includes(query.toLowerCase()))
   );
 
 
@@ -54,7 +54,7 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
   return (
     <div className="fixed inset-0 z-[120] flex items-start justify-center pt-24 px-4">
       {/* Backdrop */}
-      <div 
+      <div
         className="absolute inset-0 bg-primary/90 backdrop-blur-md transition-opacity duration-300"
         onClick={onClose}
       ></div>
@@ -87,9 +87,9 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
                     <h3 className="text-xs font-bold uppercase tracking-widest text-secondary mb-4">{t.search.services}</h3>
                     <div className="space-y-2">
                       {results.map((p) => (
-                        <Link 
-                          key={p.id} 
-                          to={`/services#${p.id}`} 
+                        <Link
+                          key={p.id}
+                          to={`/services#${p.id}`}
                           onClick={onClose}
                           className="block p-4 rounded bg-gray-50 dark:bg-white/5 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors group"
                         >
@@ -109,9 +109,9 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
                     <h3 className="text-xs font-bold uppercase tracking-widest text-secondary mb-4">{t.search.people}</h3>
                     <div className="space-y-2">
                       {filteredLawyers.map((l, i) => (
-                        <Link 
-                          key={i} 
-                          to="/people" 
+                        <Link
+                          key={i}
+                          to="/people"
                           onClick={onClose}
                           className="flex items-center p-4 rounded bg-gray-50 dark:bg-white/5 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors group"
                         >
@@ -119,8 +119,8 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
                             <img src={l.image} alt={l.name} className="w-full h-full object-cover" />
                           </div>
                           <div className="flex-grow">
-                             <div className="font-serif text-lg text-primary dark:text-white">{l.name}</div>
-                             <div className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">{l.role}</div>
+                            <div className="font-serif text-lg text-primary dark:text-white">{l.name}</div>
+                            <div className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">{l.role}</div>
                           </div>
                           <ChevronRight size={16} className="text-gray-400 group-hover:text-secondary" />
                         </Link>
@@ -135,9 +135,9 @@ const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => {
               </div>
             )
           ) : (
-             <div className="text-center py-12 text-gray-400 text-sm">
-               Type to search across our practice areas and team.
-             </div>
+            <div className="text-center py-12 text-gray-400 text-sm">
+              Type to search across our practice areas and team.
+            </div>
           )}
         </div>
       </div>

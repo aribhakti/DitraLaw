@@ -146,7 +146,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                     }`}
                 >
                   {link.name}
-                  <div className={`absolute -bottom-2 left-1/2 w-0 h-[1px] bg-secondary transition-all duration-300 group-hover:w-full group-hover:left-0 ${isActive ? 'w-full left-0' : ''}`}></div>
+                  <div className={`absolute -bottom-2 w-0 h-[1px] bg-secondary transition-all duration-300 group-hover:w-full group-hover:left-0 ${isActive ? 'w-full left-0' : ''}`}></div>
                 </Link>
               );
             })}

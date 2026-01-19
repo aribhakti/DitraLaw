@@ -8,11 +8,12 @@ import CookieConsent from './components/CookieConsent';
 // Lazy load pages for performance
 const Home = lazy(() => import('./pages/Home'));
 // Reusing Practices.tsx file but conceptually it's the Services page now
-const Services = lazy(() => import('./pages/Practices')); 
+const Services = lazy(() => import('./pages/Practices'));
 const People = lazy(() => import('./pages/People'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Privacy = lazy(() => import('./pages/Privacy'));
 const Insights = lazy(() => import('./pages/Insights'));
+const InsightDetail = lazy(() => import('./pages/InsightDetail'));
 const Careers = lazy(() => import('./pages/Careers'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
@@ -21,7 +22,7 @@ const LoadingFallback = () => (
     <div className="relative flex flex-col items-center">
       <span className="font-serif text-4xl md:text-5xl font-bold text-primary tracking-widest mb-6 animate-pulse">DITRA.</span>
       <div className="w-24 h-[2px] bg-primary/10 overflow-hidden relative rounded-full">
-         <div className="absolute inset-y-0 left-0 bg-secondary w-full origin-left animate-[progress_1.5s_ease-in-out_infinite]"></div>
+        <div className="absolute inset-y-0 left-0 bg-secondary w-full origin-left animate-[progress_1.5s_ease-in-out_infinite]"></div>
       </div>
     </div>
     <style>{`
@@ -47,13 +48,14 @@ const App: React.FC = () => {
                   <Route path="/practices" element={<Navigate to="/services" replace />} />
                   <Route path="/people" element={<People />} />
                   <Route path="/insights" element={<Insights />} />
+                  <Route path="/insights/:slug" element={<InsightDetail />} />
                   <Route path="/careers" element={<Careers />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/privacy" element={<Privacy />} />
-                  
+
                   {/* Redirect generic 'about' to home or people depending on context */}
                   <Route path="/about" element={<Navigate to="/people" replace />} />
-                  
+
                   {/* Custom 404 */}
                   <Route path="*" element={<NotFound />} />
                 </Routes>

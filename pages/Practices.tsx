@@ -11,7 +11,7 @@ const Practices: React.FC = () => {
   const observer = useRef<IntersectionObserver | null>(null);
 
   // Combine lists for observation logic
-  const allSections = [...t.practiceAreas, ...t.expertise];
+  const allSections = t.practiceAreas.flatMap(p => [p, ...(p.expertise || [])]);
 
   useEffect(() => {
     // Only scroll to top on initial mount if there's no hash
@@ -116,12 +116,14 @@ const Practices: React.FC = () => {
                 onChange={(e) => scrollToSection(e, e.target.value)}
                 value={activeSection}
               >
-                <optgroup label={t.services.practiceAreasHeader}>
-                  {t.practiceAreas.map(p => <option key={p.id} value={p.id}>{p.title}</option>)}
-                </optgroup>
-                <optgroup label={t.services.expertiseHeader}>
-                  {t.expertise.map(p => <option key={p.id} value={p.id}>{p.title}</option>)}
-                </optgroup>
+                {t.practiceAreas.map(p => (
+                  <optgroup key={p.id} label={p.title}>
+                    <option value={p.id}>{p.title} (Overview)</option>
+                    {p.expertise?.map(e => (
+                      <option key={e.id} value={e.id}>{e.title}</option>
+                    ))}
+                  </optgroup>
+                ))}
               </select>
               <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" size={16} />
             </div>
@@ -132,46 +134,48 @@ const Practices: React.FC = () => {
             <h3 className="font-bold text-xxs uppercase tracking-[0.2em] text-primary mb-6 border-b border-primary pb-4">{t.services.index}</h3>
 
             <div className="max-h-[calc(100vh-200px)] overflow-y-auto pr-2 scrollbar-thin pb-10">
-              {/* Practice Areas List */}
               <div className="mb-8">
                 <h4 className="text-xxs font-bold text-gray-400 uppercase mb-4 tracking-wider">{t.services.practiceAreasHeader}</h4>
                 <ul className="space-y-1 relative border-l border-gray-100">
                   {t.practiceAreas.map((practice) => (
-                    <li key={practice.id}>
-                      <a
-                        href={`#${practice.id}`}
-                        onClick={(e) => scrollToSection(e, practice.id)}
-                        className={`flex items-center justify-between transition-all duration-300 text-xs py-2 pl-4 border-l-2 -ml-[1px] ${activeSection === practice.id
-                          ? 'text-primary font-bold border-secondary bg-surface-alt'
-                          : 'text-gray-500 hover:text-primary font-medium border-transparent hover:border-gray-300'
-                          }`}
-                      >
-                        <span>{practice.title}</span>
-                        {activeSection === practice.id && <ArrowRight size={10} />}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Expertise List */}
-              <div>
-                <h4 className="text-xxs font-bold text-gray-400 uppercase mb-4 tracking-wider">{t.services.expertiseHeader}</h4>
-                <ul className="space-y-1 relative border-l border-gray-100">
-                  {t.expertise.map((exp) => (
-                    <li key={exp.id}>
-                      <a
-                        href={`#${exp.id}`}
-                        onClick={(e) => scrollToSection(e, exp.id)}
-                        className={`flex items-center justify-between transition-all duration-300 text-xs py-2 pl-4 border-l-2 -ml-[1px] ${activeSection === exp.id
-                          ? 'text-primary font-bold border-secondary bg-surface-alt'
-                          : 'text-gray-500 hover:text-primary font-medium border-transparent hover:border-gray-300'
-                          }`}
-                      >
-                        <span>{exp.title}</span>
-                        {activeSection === exp.id && <ArrowRight size={10} />}
-                      </a>
-                    </li>
+                    <React.Fragment key={practice.id}>
+                      <li>
+                        <a
+                          href={`#${practice.id}`}
+                          onClick={(e) => scrollToSection(e, practice.id)}
+                          className={`flex items-center justify-between transition-all duration-300 text-xs py-2 pl-4 border-l-2 -ml-[1px] ${activeSection === practice.id
+                            ? 'text-primary font-bold border-secondary bg-surface-alt'
+                            : 'text-gray-500 hover:text-primary font-medium border-transparent hover:border-gray-300'
+                            }`}
+                        >
+                          <span>{practice.title}</span>
+                          {activeSection === practice.id && <ArrowRight size={10} />}
+                        </a>
+                      </li>
+                      {/* Nested Expertise */}
+                      {practice.expertise && practice.expertise.length > 0 && (
+                        <div>
+                          <h5 className="pl-4 mt-3 mb-2 text-[10px] font-bold text-gray-300 uppercase tracking-widest">{t.services.expertiseHeader}</h5>
+                          <ul className="pl-4 space-y-1 mb-3">
+                            {practice.expertise.map(exp => (
+                              <li key={exp.id}>
+                                <a
+                                  href={`#${exp.id}`}
+                                  onClick={(e) => scrollToSection(e, exp.id)}
+                                  className={`flex items-center justify-between transition-all duration-300 text-[10px] py-1 pl-4 border-l-2 -ml-[1px] ${activeSection === exp.id
+                                    ? 'text-primary font-bold border-secondary'
+                                    : 'text-gray-400 hover:text-primary font-medium border-transparent hover:border-gray-200'
+                                    }`}
+                                >
+                                  <span>{exp.title}</span>
+                                  {activeSection === exp.id && <ArrowRight size={8} />}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </React.Fragment>
                   ))}
                 </ul>
               </div>
@@ -181,18 +185,16 @@ const Practices: React.FC = () => {
           {/* Content */}
           <div className="lg:col-span-9 space-y-24">
 
-            {/* Practice Areas Section */}
             <div>
-              <h2 className="text-2xl md:text-3xl font-serif text-primary mb-12 border-b border-gray-200 pb-6">{t.services.practiceAreasHeader}</h2>
-              <div className="flex flex-col gap-16">
+              <div className="flex flex-col gap-24">
                 {t.practiceAreas.map((practice) => (
-                  <div
-                    key={practice.id}
-                    id={practice.id}
-                    className="scroll-mt-32 border-b border-gray-100 pb-16 last:border-0 last:pb-0"
-                  >
-                    <div className="flex flex-col md:flex-row gap-8 lg:gap-12 items-start group">
-                      {/* Image Side - Visible on Mobile now */}
+                  <div key={practice.id} className="scroll-mt-32">
+                    {/* Practice Area Header & Content */}
+                    <div
+                      id={practice.id}
+                      className="flex flex-col md:flex-row gap-8 lg:gap-12 items-start group border-b border-gray-100 pb-12 mb-12"
+                    >
+                      {/* Image Side */}
                       <div className="w-full md:w-3/12 flex-shrink-0">
                         <div className="aspect-[3/2] md:aspect-square overflow-hidden rounded-sm bg-gray-100 relative shadow-sm">
                           <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
@@ -207,51 +209,49 @@ const Practices: React.FC = () => {
 
                       {/* Content Side */}
                       <div className="w-full md:w-9/12">
-                        <h2 className="text-2xl md:text-3xl font-serif text-primary group-hover:text-secondary transition-colors mb-4 md:mt-0">
+                        <h2 className="text-3xl md:text-4xl font-serif text-primary mb-6">
                           {practice.title}
                         </h2>
-                        <div className="prose prose-lg prose-gray max-w-none font-light leading-relaxed text-gray-600 text-base">
+                        <div className="prose prose-lg prose-gray max-w-none font-light leading-relaxed text-gray-600 text-base mb-8">
                           <p className="whitespace-pre-line">{practice.fullDescription}</p>
                         </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
 
-            {/* Expertise Section */}
-            <div>
-              <h2 className="text-2xl md:text-3xl font-serif text-primary mb-12 border-b border-gray-200 pb-6">{t.services.expertiseHeader}</h2>
-              <div className="flex flex-col gap-16">
-                {t.expertise.map((exp) => (
-                  <div
-                    key={exp.id}
-                    id={exp.id}
-                    className="scroll-mt-32 border-b border-gray-100 pb-16 last:border-0 last:pb-0"
-                  >
-                    <div className="flex flex-col md:flex-row gap-8 lg:gap-12 items-start group">
-                      {/* Image Side - Visible on Mobile now */}
-                      <div className="w-full md:w-3/12 flex-shrink-0">
-                        <div className="aspect-[3/2] md:aspect-square overflow-hidden rounded-sm bg-gray-100 relative shadow-sm">
-                          <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
-                          <Image
-                            src={exp.image}
-                            alt={exp.title}
-                            sizes="(max-width: 768px) 100vw, 25vw"
-                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-105"
-                          />
-                        </div>
-                      </div>
+                        {/* Nested Expertise Cards */}
+                        {practice.expertise && practice.expertise.length > 0 && (
+                          <div className="mt-12">
+                            <h3 className="text-xxs font-bold text-gray-400 uppercase mb-8 tracking-wider border-b border-gray-100 pb-2">Expertise in {practice.title}</h3>
+                            <div className="grid grid-cols-1 gap-12">
+                              {practice.expertise.map(exp => (
+                                <div
+                                  key={exp.id}
+                                  id={exp.id}
+                                  className="scroll-mt-48 flex flex-col md:flex-row gap-6 items-start group/exp"
+                                >
+                                  {/* Smaller Image for Expertise */}
+                                  <div className="w-full md:w-32 flex-shrink-0">
+                                    <div className="aspect-square overflow-hidden rounded-sm bg-gray-50 relative shadow-sm">
+                                      <Image
+                                        src={exp.image}
+                                        alt={exp.title}
+                                        sizes="150px"
+                                        className="w-full h-full object-cover grayscale group-hover/exp:grayscale-0 transition-all duration-500"
+                                      />
+                                    </div>
+                                  </div>
 
-                      {/* Content Side */}
-                      <div className="w-full md:w-9/12">
-                        <h2 className="text-2xl md:text-3xl font-serif text-primary group-hover:text-secondary transition-colors mb-4 md:mt-0">
-                          {exp.title}
-                        </h2>
-                        <div className="prose prose-lg prose-gray max-w-none font-light leading-relaxed text-gray-600 text-base">
-                          <p className="whitespace-pre-line">{exp.fullDescription}</p>
-                        </div>
+                                  <div className="flex-1">
+                                    <h4 className="text-xl font-serif text-primary group-hover/exp:text-secondary transition-colors mb-3">
+                                      {exp.title}
+                                    </h4>
+                                    <div className="prose prose-sm prose-gray max-w-none font-light leading-relaxed text-gray-500">
+                                      <p className="whitespace-pre-line">{exp.fullDescription}</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>

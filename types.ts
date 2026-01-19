@@ -4,6 +4,7 @@ export interface PracticeArea {
   shortDescription?: string;
   fullDescription: string;
   image: string;
+  expertise?: PracticeArea[];
 }
 
 export interface Lawyer {
@@ -144,5 +145,4 @@ export interface Translations {
     button: string;
   };
   practiceAreas: PracticeArea[];
-  expertise: PracticeArea[];
 }

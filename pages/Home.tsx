@@ -4,6 +4,7 @@ import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { useLang } from '../providers';
 import SEO from '../components/SEO';
 import Image from '../components/Image';
+import { ALL_INSIGHTS } from '../data/insights';
 
 const Home: React.FC = () => {
   const { t } = useLang();
@@ -14,7 +15,16 @@ const Home: React.FC = () => {
   ];
 
   const findService = (id: string) => {
-    return t.practiceAreas.find(p => p.id === id) || t.expertise.find(e => e.id === id);
+    const practice = t.practiceAreas.find(p => p.id === id);
+    if (practice) return practice;
+
+    for (const p of t.practiceAreas) {
+      if (p.expertise) {
+        const exp = p.expertise.find(e => e.id === id);
+        if (exp) return exp;
+      }
+    }
+    return undefined;
   };
 
   const featuredServices = homeServiceKeys.map(key => findService(key)).filter(Boolean);
@@ -169,53 +179,57 @@ const Home: React.FC = () => {
             </Link>
           </div>
 
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 border border-gray-200">
             {/* Feature 1 */}
-            <Link to="/insights" className="group relative aspect-[3/2] lg:aspect-auto overflow-hidden">
-              <Image
-                src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                alt="M&A"
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
-                containerClassName="w-full h-full"
-              />
-              <div className="absolute inset-0 bg-primary/40 group-hover:bg-primary/20 transition-colors"></div>
-              <div className="absolute bottom-0 left-0 p-8 md:p-12 w-full bg-gradient-to-t from-black/80 to-transparent">
-                <span className="text-secondary text-xxs font-bold uppercase tracking-[0.2em] mb-3 block">Corporate</span>
-                <h3 className="text-2xl md:text-3xl font-serif text-white mb-6 leading-tight">The Evolution of M&A in Southeast Asia</h3>
-                <span className="inline-flex items-center gap-2 text-white text-xxs font-bold uppercase tracking-[0.2em] border-b border-white pb-1 group-hover:text-secondary group-hover:border-secondary transition-colors">{t.home.readMore} <ArrowRight size={14} /></span>
-              </div>
-            </Link>
+            {(() => {
+              const latestInsights = [...ALL_INSIGHTS]
+                .sort((a, b) => b.date.getTime() - a.date.getTime())
+                .slice(0, 3);
+              const mainFeature = latestInsights[0];
+              const sideFeatures = latestInsights.slice(1, 3);
 
-            {/* Stacked Features */}
-            <div className="grid grid-rows-2 divide-y divide-gray-200">
-              <Link to="/insights" className="group relative p-8 md:p-10 hover:bg-surface-alt transition-colors">
-                <div className="flex flex-col h-full justify-between">
-                  <div>
-                    {/* Fixed contrast: Changed text-secondary to text-stone-500 on light bg */}
-                    <span className="text-stone-500 text-xxs font-bold uppercase tracking-[0.2em] mb-3 block">Sustainability</span>
-                    <h3 className="text-xl md:text-2xl font-serif text-primary mb-4 group-hover:translate-x-1 transition-transform">Carbon Trading Regulations in Indonesia</h3>
-                    <p className="text-sm text-gray-500 font-light line-clamp-2 leading-relaxed">New compliance frameworks are emerging for environmental assets. Understanding the impact on industrial sectors.</p>
+              return (
+                <>
+                  {mainFeature && (
+                    <Link to={`/insights/${mainFeature.slug}`} className="group relative aspect-[3/2] lg:aspect-auto overflow-hidden">
+                      <Image
+                        src={mainFeature.image}
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        alt={mainFeature.title}
+                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                        containerClassName="w-full h-full"
+                      />
+                      <div className="absolute inset-0 bg-primary/40 group-hover:bg-primary/20 transition-colors"></div>
+                      <div className="absolute bottom-0 left-0 p-8 md:p-12 w-full bg-gradient-to-t from-black/80 to-transparent">
+                        <span className="text-secondary text-xxs font-bold uppercase tracking-[0.2em] mb-3 block">{mainFeature.category}</span>
+                        <h3 className="text-2xl md:text-3xl font-serif text-white mb-6 leading-tight">{mainFeature.title}</h3>
+                        <span className="inline-flex items-center gap-2 text-white text-xxs font-bold uppercase tracking-[0.2em] border-b border-white pb-1 group-hover:text-secondary group-hover:border-secondary transition-colors">{t.home.readMore} <ArrowRight size={14} /></span>
+                      </div>
+                    </Link>
+                  )}
+
+                  {/* Stacked Features */}
+                  <div className="grid grid-rows-2 divide-y divide-gray-200">
+                    {sideFeatures.map((insight) => (
+                      <Link key={insight.id} to={`/insights/${insight.slug}`} className="group relative p-8 md:p-10 hover:bg-surface-alt transition-colors">
+                        <div className="flex flex-col h-full justify-between">
+                          <div>
+                            {/* Fixed contrast: Changed text-secondary to text-stone-500 on light bg */}
+                            <span className="text-stone-500 text-xxs font-bold uppercase tracking-[0.2em] mb-3 block">{insight.category}</span>
+                            <h3 className="text-xl md:text-2xl font-serif text-primary mb-4 group-hover:translate-x-1 transition-transform">{insight.title}</h3>
+                            <p className="text-sm text-gray-500 font-light line-clamp-2 leading-relaxed">{insight.excerpt}</p>
+                          </div>
+                          <div className="mt-6 flex justify-end">
+                            <ArrowRight className="text-gray-300 group-hover:text-secondary transition-colors" size={24} />
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
                   </div>
-                  <div className="mt-6 flex justify-end">
-                    <ArrowRight className="text-gray-300 group-hover:text-secondary transition-colors" size={24} />
-                  </div>
-                </div>
-              </Link>
-              <Link to="/insights" className="group relative p-8 md:p-10 hover:bg-surface-alt transition-colors">
-                <div className="flex flex-col h-full justify-between">
-                  <div>
-                    {/* Fixed contrast: Changed text-secondary to text-stone-500 on light bg */}
-                    <span className="text-stone-500 text-xxs font-bold uppercase tracking-[0.2em] mb-3 block">Employment</span>
-                    <h3 className="text-xl md:text-2xl font-serif text-primary mb-4 group-hover:translate-x-1 transition-transform">Employment Law Changes for Remote Work</h3>
-                    <p className="text-sm text-gray-500 font-light line-clamp-2 leading-relaxed">Navigating the omnibus law amendments regarding flexible work arrangements and cross-border teams.</p>
-                  </div>
-                  <div className="mt-6 flex justify-end">
-                    <ArrowRight className="text-gray-300 group-hover:text-secondary transition-colors" size={24} />
-                  </div>
-                </div>
-              </Link>
-            </div>
+                </>
+              );
+            })()}
           </div>
         </div>
       </section>
