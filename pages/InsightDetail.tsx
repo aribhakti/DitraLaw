@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import { Calendar, ArrowLeft } from 'lucide-react';
+import { Calendar, ArrowLeft, Download } from 'lucide-react';
 import { ALL_INSIGHTS } from '../data/insights';
 import SEO from '../components/SEO';
 import Image from '../components/Image';
@@ -105,6 +105,31 @@ const InsightDetail: React.FC = () => {
                             </div>
                         )}
                     </div>
+
+                    {/* PDF Download CTA */}
+                    {insight.pdf_url && (
+                        <div className="mt-12 md:mt-16 pt-8 border-t border-gray-200 dark:border-white/10">
+                            <div className="flex flex-col md:flex-row items-center justify-between gap-6 p-6 md:p-8 bg-gray-50 dark:bg-white/5 rounded-lg border border-gray-100 dark:border-white/10">
+                                <div className="text-center md:text-left">
+                                    <h3 className="text-lg font-serif font-bold text-primary dark:text-white mb-2">
+                                        Download Full Insight
+                                    </h3>
+                                    <p className="text-gray-600 dark:text-gray-400 text-sm max-w-md">
+                                        Access the complete legal update document for offline reading and reference.
+                                    </p>
+                                </div>
+                                <a
+                                    href={insight.pdf_url}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center gap-2 px-8 py-4 bg-secondary text-white font-bold uppercase tracking-widest text-xs hover:bg-secondary/90 transition-all rounded shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+                                >
+                                    <Download size={16} />
+                                    Download PDF
+                                </a>
+                            </div>
+                        </div>
+                    )}
 
                 </div>
             </div>

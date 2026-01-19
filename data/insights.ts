@@ -1,25 +1,26 @@
 export interface Insight {
-    id: number;
-    title: string;
-    slug: string;
-    article_background: string;
-    article_content: string;
-    article_conclusion: string;
-    date: Date;
-    category: string;
-    image: string;
-    excerpt: string;
+        id: number;
+        title: string;
+        slug: string;
+        article_background: string;
+        article_content: string;
+        article_conclusion: string;
+        date: Date;
+        category: string;
+        image: string;
+        excerpt: string;
+        pdf_url: string;
 }
 
 export const ALL_INSIGHTS: Insight[] = [
-    {
-        id: 1,
-        title: "Indonesia Updates Stock Exchange Disclosure Framework Through IDX Regulation No. I-E of 2025",
-        slug: "indonesia-updates-stock-exchange-disclosure-framework-through-idx-regulation-no-i-e-of-2025",
-        article_background: `On 12 December 2025, PT Bursa Efek Indonesia (_the Indonesian Stock Exchange_  or “**IDX**”) issued Regulation No. I-E pursuant to IDX Board of Directors Decree No. Kep-00087/BEI/12-2025 on Disclosure Obligations (“**New Reg I-E**”), which took effect on same date.
+        {
+                id: 1,
+                title: "Indonesia Updates Stock Exchange Disclosure Framework Through IDX Regulation No. I-E of 2025",
+                slug: "indonesia-updates-stock-exchange-disclosure-framework-through-idx-regulation-no-i-e-of-2025",
+                article_background: `On 12 December 2025, PT Bursa Efek Indonesia (_the Indonesian Stock Exchange_  or “**IDX**”) issued Regulation No. I-E pursuant to IDX Board of Directors Decree No. Kep-00087/BEI/12-2025 on Disclosure Obligations (“**New Reg I-E**”), which took effect on same date.
 New Reg I-E revokes and replaces the previous framework under IDX Board of Directors Decree No. Kep-00066/BEI/09-2022 on the same subject (“**Previous Reg I-E**”), and is issued to align with the current provisions on share ownership reporting and to provide additional time for the submission of certain interim financial reports for listed insurance companies or insurance holding companies.
 This legal update will outline the provisions introduced under New Reg I-E and their implication for listed companies and other relevant stakeholders.`,
-        article_content: `
+                article_content: `
 -   **_Share Ownership and Share Pledge Reporting_**
 
 While New Reg I-E restates the entirety of the provisions under Previous Reg I-E, it removes Provision III.2.1.3 of the Previous Reg I-E concerning share ownership reporting, as the underlying regulatory reference in the previous framework is no longer applicable. Under New Reg I-E, the reporting mechanism for share ownership and any changes thereto in public companies must be conducted in accordance with the latest regulatory framework, namely the Financial Services Authority (_Otoritas Jasa Keuangan_  or “**OJK**”) Circular Letter No. 10/SEOJK.04/2025 on Electronic Submission of Ownership Reports or Any Changes in Share Ownership of Public Companies and Reports on the Pledging of Public Company Shares dated 5 June 2025 (“**SEOJK 10/2025**”).
@@ -33,24 +34,25 @@ Pursuant to OJK Regulation No. 22 of 2024 on Periodic Reports of Insurance Compa
 -   by the end of the third month after the financial statements date, if accompanied by a public accountant’s report in the form of an audit;
 -   by the end of the second month after the financial statements date, if accompanied by a public accountant’s report in the form of a limited review; or
 -   within 45 days after the financial statements date, if not accompanied by a public accountant’s report.`,
-        article_conclusion: "New Reg I-E updates the IDX disclosure framework by aligning share ownership and share pledge reporting with the latest OJK rules and removing outdated requirements. This clarification helps listed companies better understand where and how their reporting obligations should be fulfilled, reducing overlap and administrative complexity. At the same time, New Reg I-E provides practical flexibility for listed insurance companies and insurance holding companies by extending the deadlines for submitting Q3 2025 interim financial statements. Overall, New Regulation I-E aims to make compliance more straightforward while preserving transparency and regulatory oversight in the capital markets.New Reg I-E updates the IDX disclosure framework by aligning share ownership and share pledge reporting with the latest OJK rules and removing outdated requirements. This clarification helps listed companies better understand where and how their reporting obligations should be fulfilled, reducing overlap and administrative complexity. At the same time, New Reg I-E provides practical flexibility for listed insurance companies and insurance holding companies by extending the deadlines for submitting Q3 2025 interim financial statements. Overall, New Regulation I-E aims to make compliance more straightforward while preserving transparency and regulatory oversight in the capital markets.",
-        date: new Date("Dec 29, 2025"),
-        category: "Capital Markets",
-        // Image: Abstract glass building reflection (Corporate/Finance feel)
-        image: "https://ditralaw.com/wp-content/uploads/2025/12/Picture1-2-e1767020100142.jpg",
-        excerpt: "On 12 December 2025, IDX issued a new Regulation No. I-E on Disclosure Obligations replacing the previous framework issued in 2022. The regulation aligns reporting mechanisms with OJK frameworks.",
-    },
-    {
-        id: 2,
-        title: "New Implementation Guidelines for Mineral and Coal Mining Under Ministry of Energy and Mineral Resources Regulation No. 18 of 2025",
-        slug: "new-implementation-guidelines-for-mineral-and-coal-mining-under-ministry-of-energy-and-mineral-resources-regulation-no-18-of-2025",
-        article_background: `
+                article_conclusion: "New Reg I-E updates the IDX disclosure framework by aligning share ownership and share pledge reporting with the latest OJK rules and removing outdated requirements. This clarification helps listed companies better understand where and how their reporting obligations should be fulfilled, reducing overlap and administrative complexity. At the same time, New Reg I-E provides practical flexibility for listed insurance companies and insurance holding companies by extending the deadlines for submitting Q3 2025 interim financial statements. Overall, New Regulation I-E aims to make compliance more straightforward while preserving transparency and regulatory oversight in the capital markets.New Reg I-E updates the IDX disclosure framework by aligning share ownership and share pledge reporting with the latest OJK rules and removing outdated requirements. This clarification helps listed companies better understand where and how their reporting obligations should be fulfilled, reducing overlap and administrative complexity. At the same time, New Reg I-E provides practical flexibility for listed insurance companies and insurance holding companies by extending the deadlines for submitting Q3 2025 interim financial statements. Overall, New Regulation I-E aims to make compliance more straightforward while preserving transparency and regulatory oversight in the capital markets.",
+                date: new Date("Dec 29, 2025"),
+                category: "Capital Markets",
+                // Image: Abstract glass building reflection (Corporate/Finance feel)
+                image: "https://ditralaw.com/wp-content/uploads/2025/12/Picture1-2-e1767020100142.jpg",
+                excerpt: "On 12 December 2025, IDX issued a new Regulation No. I-E on Disclosure Obligations replacing the previous framework issued in 2022. The regulation aligns reporting mechanisms with OJK frameworks.",
+                pdf_url: "https://ditralaw.com/wp-content/uploads/2025/12/IDX-Rule-No.-I-E-Legal-Update-20251229-FINAL.pdf"
+        },
+        {
+                id: 2,
+                title: "New Implementation Guidelines for Mineral and Coal Mining Under Ministry of Energy and Mineral Resources Regulation No. 18 of 2025",
+                slug: "new-implementation-guidelines-for-mineral-and-coal-mining-under-ministry-of-energy-and-mineral-resources-regulation-no-18-of-2025",
+                article_background: `
 On 14 November 2025, the Minister of Energy and Mineral Resources (“**MEMR**”) issued Regulation No. 18 of 2025 (“**MR 18/2025**”) on the Implementing Regulation of Government Regulation No. 39 of 2025 (“**GR 39/2025**”), which lastly amends Government Regulation No. 96 of 2021 on the Implementation of Mineral and Coal Mining Business Activities. For further analysis of GR 39/2025, please refer to our publication linked  [here](https://ditralaw.com/indonesias-new-mining-framework-key-insights-into-government-regulation-no-39-of-2025-on-mineral-and-coal-business-activities/).
 
 MR 18/2025, which took effect on 18 November 2025, seeks to provide clear implementing rules on several provisions introduced under GR 39/2025 and introduces substantive updates aimed to tighten, refine and enhance the regulatory framework for mineral and coal business activities, while strengthening compliance standards.
 
 This legal update highlights the key updates introduced under MR 18/2025 that impact business actors in the mineral and coal mining industry, particularly with respect to administrative procedures, compliance and ongoing operational requirements.`,
-        article_content: `
+                article_content: `
 -   **_Revised Participants Eligibility Criteria for WIUP Auctions_**
 
 MR 18/2025 revises the eligibility framework for Mining Business Permit Area (_Wilayah Izin Usaha Pertambangan_  or “**WIUP**”) auctions for metal minerals and coal concessions, replacing the previous regime set out under MEMR Regulation No. 7 of 2020 on Procedures for the Granting of Areas, Licensing and Reporting in Mineral and Coal Mining Business Activities (“**MR 7/2020**”). Under MR 7/2020, all wholly national private enterprises (irrespective of their business scale) were eligible to participate in such WIUP auction of any size. MR 18/2025 introduces a categorized set of criteria for such enterprises where:
@@ -140,27 +142,28 @@ To ensure legal certainty and continuity during the regulatory transition period
 -   WIUP and WIUPK designated before MR 18/2025 came into force may be awarded either through an auction or through the priority rights mechanism in accordance with the procedures and requirements under MR 18/2025.
 
 Applications for the approval of People’s Mining Area (_Wilayah Pertambangan Rakyat_) management documents that were already in process prior to enactment must be reviewed and evaluated in accordance with the new standards under MR 18/2025.`,
-        article_conclusion: `MR 18/2025 provides comprehensive changes and clearer guidance to the mineral and coal mining legal framework, recalibrating rules and closing structural gaps left by prior regulations. The changes tighten eligibility parameters, reinforce commodity prioritization, and introduce compliance obligations that raise the operational standards for all industry participants.
+                article_conclusion: `MR 18/2025 provides comprehensive changes and clearer guidance to the mineral and coal mining legal framework, recalibrating rules and closing structural gaps left by prior regulations. The changes tighten eligibility parameters, reinforce commodity prioritization, and introduce compliance obligations that raise the operational standards for all industry participants.
 
 The regulation also brings clarifications to areas with regulatory ambiguity. Spatial requirements for consolidation and overlap management are now codified, reducing discretion and creating anticipated pathways for resolving cross-commodity overlap issues. New mechanisms for WIUP and WIUPK allocation, whether through priority rights, auctions or SOE-led offerings, create a more accountable licensing landscape supported by defined timelines and differentiated eligibility thresholds.
 
 MR 18/2025 also streamlines multi-permit management and accelerates decision timelines. By establishing explicit rules for extensions, consolidations, joint-venture structuring, and area limits, the regulation underscores a proactive commitment to disciplined, integrated and compliance-driven sector oversight, requiring business actors to proactively align their licensing and operational strategies with the new regime.`,
-        date: new Date("Dec 05, 2025"),
-        category: "Mining",
-        // Image: Aerial texture of earth/mining (Industrial/Raw)
-        image: "https://ditralaw.com/wp-content/uploads/2025/12/Picture1-1-e1764904378901.jpg",
-        excerpt: "The Minister of Energy and Mineral Resources enacted MR 18/2025 to implement regulatory frameworks set out under GR 39/2025, revising eligibility criteria for WIUP auctions.",
-    },
-    {
-        id: 3,
-        title: "Indonesia Updates State-Owned Enterprises Legal Framework Through Law No. 16 of 2025",
-        slug: "indonesia-updates-state-owned-enterprises-legal-framework-through-law-no-16-of-2025",
-        article_background: `On 6 October 2025, the Indonesian Government enacted Law No. 16 of 2025 on the Fourth Amendment to Law No. 19 of 2003 on State-Owned Enterprises (“**Law 16/2025**”). The enactment of Law 16/2025 reflects the Government’s continuing effort to strengthen the governance and efficiency of state-owned enterprises (“**SOEs**”) as key contributors to Indonesia’s economic growth.
+                date: new Date("Dec 05, 2025"),
+                category: "Mining",
+                // Image: Aerial texture of earth/mining (Industrial/Raw)
+                image: "https://ditralaw.com/wp-content/uploads/2025/12/Picture1-1-e1764904378901.jpg",
+                excerpt: "The Minister of Energy and Mineral Resources enacted MR 18/2025 to implement regulatory frameworks set out under GR 39/2025, revising eligibility criteria for WIUP auctions.",
+                pdf_url: "https://ditralaw.com/wp-content/uploads/2025/12/New-Implementation-Guidelines-for-Mineral-and-Coal-Mining-Under-Ministry-of-Energy-and-Mineral-Resources-Regulation-No.-18-of-2025-1.pdf"
+        },
+        {
+                id: 3,
+                title: "Indonesia Updates State-Owned Enterprises Legal Framework Through Law No. 16 of 2025",
+                slug: "indonesia-updates-state-owned-enterprises-legal-framework-through-law-no-16-of-2025",
+                article_background: `On 6 October 2025, the Indonesian Government enacted Law No. 16 of 2025 on the Fourth Amendment to Law No. 19 of 2003 on State-Owned Enterprises (“**Law 16/2025**”). The enactment of Law 16/2025 reflects the Government’s continuing effort to strengthen the governance and efficiency of state-owned enterprises (“**SOEs**”) as key contributors to Indonesia’s economic growth.
 
 Since the issuance of Law No. 19 of 2003 on State-Owned Enterprises, the legal framework on SOEs has undergone multiple revisions to align with evolving market dynamics, corporate governance standards and state priorities. Law 16/2025 introduces further structural, governance and operational refinements. It reinforces the separation between the Government’s regulatory and management functions and harmonize SOEs governance with international best practices.
 
 This legal update will outline the key changes introduced under Law 16/2025 and their implications for SOEs, government institutions and stakeholders engaging with state enterprises.`,
-        article_content: `
+                article_content: `
 -   **_Transformation of Ministry of SOE into BP BUMN_**
 
 Law 16/2025 mandates the President of the Republic of Indonesia (“**President**”) to establish the SOE Regulatory Agency (_Badan Pengaturan Badan Usaha Milik Negara_  or “**BP BUMN**”). Upon its establishment, the Ministry of SOE shall be dissolved, its personnel transferred to BP BUMN and all SOE shares currently registered under the name of the Minister of SOE transferred to BP BUMN as the new legal shareholder.
@@ -222,28 +225,29 @@ To ensure legal continuity and a seamless transition to the new framework, Law 1
 1.  Existing assignments issued by the Minister of SOEs or relevant technical ministers prior to the enactment of the Law 16/2025 shall remain valid until the end of their respective terms.
 2.  All references to the Minister of SOEs in existing regulations and official documents shall be construed as referring to the Head of BP BUMN.
 3.  Until BP BUMN is formally established and its head appointed, the Ministry of SOEs and the Minister of SOEs will continue to exercise their existing governmental and management functions over SOEs to ensure continuity of governance.`,
-        article_conclusion: `Law 16/2025 marks a major reform of Indonesia’s SOEs governance landscape. Through the transformation of the Ministry of SOE into BP BUMN, the law seeks to improve oversight, enhance accountability and align SOEs management with national development priorities. Collectively, these changes reflect a strategic shift toward a more professional and investment-driven SOE ecosystem.
+                article_conclusion: `Law 16/2025 marks a major reform of Indonesia’s SOEs governance landscape. Through the transformation of the Ministry of SOE into BP BUMN, the law seeks to improve oversight, enhance accountability and align SOEs management with national development priorities. Collectively, these changes reflect a strategic shift toward a more professional and investment-driven SOE ecosystem.
 
 In light of these developments, SOEs should proactively review their governance structures, shareholding compositions and internal policies to ensure compliance with the new legal framework. Particular attention should be given to amendments of articles of association, realignment of approval and reporting processes, and close coordination with BP BUMN and BPI Danantara to clarify certain implementation details that remain unclear.
 
 All and all, Law 16/2025 is expected to strengthen institutional clarity, improve operational efficiency and reinforce the strategic role of SOEs as key drivers of Indonesia’s economic and social development. The successful implementation of this reform will depend on effective coordination among regulators, holding entities and individual SOEs to translate the new legal structure into sustainable governance practice.`,
-        date: new Date("Nov 10, 2025"),
-        category: "SOE",
-        // Image: Abstract Batik or Indonesian texture (Cultural/State)
-        image: "https://ditralaw.com/wp-content/uploads/2025/11/Picture11.jpg",
-        excerpt: "The Indonesian Government enacted Law 16/2025, the fourth amendment to the SOE Law, enhancing governance, efficiency and competitiveness of SOEs.",
-    },
-    {
-        id: 4,
-        title: "Indonesia’s New Mining Framework: Key Insights into Government Regulation No. 39 of 2025 on Mineral and Coal Business Activities",
-        slug: "indonesias-new-mining-framework-key-insights-into-government-regulation-no-39-of-2025-on-mineral-and-coal-business-activities",
-        article_background: `
+                date: new Date("Nov 10, 2025"),
+                category: "SOE",
+                // Image: Abstract Batik or Indonesian texture (Cultural/State)
+                image: "https://ditralaw.com/wp-content/uploads/2025/11/Picture11.jpg",
+                excerpt: "The Indonesian Government enacted Law 16/2025, the fourth amendment to the SOE Law, enhancing governance, efficiency and competitiveness of SOEs.",
+                pdf_url: "https://ditralaw.com/wp-content/uploads/2025/11/UU-16-2025-BUMN-Legal-Update-2.pdf"
+        },
+        {
+                id: 4,
+                title: "Indonesia’s New Mining Framework: Key Insights into Government Regulation No. 39 of 2025 on Mineral and Coal Business Activities",
+                slug: "indonesias-new-mining-framework-key-insights-into-government-regulation-no-39-of-2025-on-mineral-and-coal-business-activities",
+                article_background: `
 On 11 September 2025, the Government of the Republic of Indonesia (“**Government**”) issued Government Regulation No. 39 of 2025 on the Second Amendment to Government Regulation No. 96 of 2021 on the Implementation of Mineral and Coal Mining Business Activities (“**GR 39/2025**”).
 
 Effective of its issuance, GR 39/2025 revokes and replaces several provisions of Government Regulation No. 96 of 2021, as previously amended by Government Regulation No. 25 of 2024 (collectively, “**GR 96/2021**”). The amendments are intended to align the regulatory framework governing mineral and coal mining operations with the latest legislative developments, specifically Law No. 2 of 2025 on the Fourth Amendment to Law No. 4 of 2009 on Mineral and Coal Mining (“**Law 2/2025**”, together with its precedecessors, “**Mining Law**”).
 
 This update will highlight the key regulatory updates and changes introduced by GR 39/2025 and is meant to provide practical insights for mining companies and the related stakeholders to understand their potential implications and ensure ongoing compliance.`,
-        article_content: `
+                article_content: `
 -   **_More Detailed Priority Right Mechanism for Obtaining WIUP and WIUPK_**
 
 GR 39/2025 provides a more comprehensive framework for the granting of priority rights (_pemberian prioritas_) as previously introduced under Law 2/2025. GR 39/2025 sets out clearer related procedures, including application submission, verification and approval stages. It also elaborates on the eligibility criteria and requirements that an applicant must satisfy to qualify for a priority rights allocation.
@@ -308,22 +312,23 @@ To ensure legal certainty and continuity during the the regulatory transition pe
 4.  A holder of multiple production operation-stage IUPs may merge its WIUP, provided that the type of the mining resources and the activities stage are the same.
 5.  Existing mining permits (IUP, IUPK or IPR) are protected from changes in spatial or land-use designation. If the Central or Regional Government later alters the spatial use of such areas, mining permit holders may continue their mining operations until the permit’s expiry, including its first and second extensions.
 6.  The duration of production operation stages may be adjusted based on the approved feasibility study and the size of resources or reserves, provided the current permit duration has not yet reached the maximum permitted period.`,
-        article_conclusion: `GR 39/2025 marks a significant step in refining Indonesia’s mineral and coal mining regulatory framework. It introduces clearer mechanisms for the granting of priority rights, and expands domestic supply obligations. The regulation also tightens eligibility and procedural standards for IUP and IUPK extensions, adds new prerequisites for the conversion of exploration-stage IUPKs to production operation-stage IUPKs, and enhances environmental compliance obligations, reflecting the Government’s continued focus on governance, transparency and sustainable resource management.
+                article_conclusion: `GR 39/2025 marks a significant step in refining Indonesia’s mineral and coal mining regulatory framework. It introduces clearer mechanisms for the granting of priority rights, and expands domestic supply obligations. The regulation also tightens eligibility and procedural standards for IUP and IUPK extensions, adds new prerequisites for the conversion of exploration-stage IUPKs to production operation-stage IUPKs, and enhances environmental compliance obligations, reflecting the Government’s continued focus on governance, transparency and sustainable resource management.
 
 In addition, GR 39/2025 reinforces the role of local participation in mining services by restricting subcontracting and delegation arrangements to domestic mining contractors, while expanding the grounds under which affiliates may be engaged.
 
 Overall, these changes underscore the Government’s policy direction toward promoting downstream value creation, prioritizing domestic resource utilization and enhancing administrative oversight across the mining sector. Mining companies, contractors and stakeholders are advised to review their operational structures, licensing portfolios, and compliance frameworks to align with the new requirements and to anticipate further implementing regulations expected to follow GR 39/2025.`,
-        date: new Date("Oct 29, 2025"),
-        category: "Mining",
-        // Image: Coal/Mineral texture (Dark/Serious)
-        image: "https://ditralaw.com/wp-content/uploads/2025/10/Picture4.jpg",
-        excerpt: "Government Regulation 39/2025 aligns the mineral and coal mining framework with the latest Mining Law amendment, introducing detailed priority rights mechanisms.",
-    },
-    {
-        id: 5,
-        title: "Indonesia's Latest Regime on Risk-Based Business Licensing System Under BKPM Regulation No. 5/2025",
-        slug: "indonesias-latest-regime-on-risk-based-business-licensing-system-under-bkpm-regulation-no-52025",
-        article_background: `On 1 October 2025, the Minister of Investment and Downstream Industry/Head of the Investment Coordinating Board (the “**BKPM**”) issued Regulation No. 5 of 2025 on Guidelines and Procedures for the Implementation of Risk-Based Business Licensing and Investment Facilities Through the Electronically Integrated Business Licensing System (Online Single Submission) (“**MR 5/2025**”). MR 5/2025, which took effect on 2 October 2025, was enacted as the implementing regulation of the recently issued Government Regulation No. 28 of 2025 on Risk-Based Business Licensing (“**GR 28/2025**”). For GR 28/2025, please refer to our publication linked  [here](https://ditralaw.com/indonesias-new-risk-based-licensing-regime/).
+                date: new Date("Oct 29, 2025"),
+                category: "Mining",
+                // Image: Coal/Mineral texture (Dark/Serious)
+                image: "https://ditralaw.com/wp-content/uploads/2025/10/Picture4.jpg",
+                excerpt: "Government Regulation 39/2025 aligns the mineral and coal mining framework with the latest Mining Law amendment, introducing detailed priority rights mechanisms.",
+                pdf_url: "https://ditralaw.com/wp-content/uploads/2025/10/PP-39-2025-Legal-Update-20251029-1.pdf"
+        },
+        {
+                id: 5,
+                title: "Indonesia's Latest Regime on Risk-Based Business Licensing System Under BKPM Regulation No. 5/2025",
+                slug: "indonesias-latest-regime-on-risk-based-business-licensing-system-under-bkpm-regulation-no-52025",
+                article_background: `On 1 October 2025, the Minister of Investment and Downstream Industry/Head of the Investment Coordinating Board (the “**BKPM**”) issued Regulation No. 5 of 2025 on Guidelines and Procedures for the Implementation of Risk-Based Business Licensing and Investment Facilities Through the Electronically Integrated Business Licensing System (Online Single Submission) (“**MR 5/2025**”). MR 5/2025, which took effect on 2 October 2025, was enacted as the implementing regulation of the recently issued Government Regulation No. 28 of 2025 on Risk-Based Business Licensing (“**GR 28/2025**”). For GR 28/2025, please refer to our publication linked  [here](https://ditralaw.com/indonesias-new-risk-based-licensing-regime/).
 
 MR 5/2025 effectively revokes and replaces three previous regulations issued by BKPM in 2021, namely:
 
@@ -334,7 +339,7 @@ MR 5/2025 effectively revokes and replaces three previous regulations issued by 
 MR 5/2025 provides further elaboration of the provisions previously stipulated under GR 28/2025, thus providing clearer guidance on their implementation, while introducing several important updates and adjustments intended to refine existing regulatory requirements.
 
 This update aims to highlight the key provisions set forth under MR 5/2025 relevant to business actors concerning their licensing obligations, compliance requirements and ongoing operational processes.`,
-        article_content: `
+                article_content: `
 -   **_Lowered Minimum Capital Requirement and Capital Retention Requirement for Foreign Investment Companies_**
 
 MR 5/2025 introduces a significant amendment by lowering the minimum issued and paid-up capital for foreign investment companies (“**PT PMA**”) from IDR10 billion to IDR2,5 billion, unless higher thresholds apply under specific sectoral rules. Furthermore, the paid-up capital for PT PMA must be retained in its bank account for at least 12 months from its payment date, except when the capital is utilised for asset acquisition, building construction or business operations.
@@ -415,27 +420,28 @@ To ensure legal certainty and a smooth transition, MR 5/2025 includes several tr
 2.  Applications for Basic Requirements, Business License, PB-UMKU, and/or any investment facilities submitted before MR 5/2025 takes effect, but are still in process, will continue to be processed based on BKPM Regulation No. 4 of 2021.
 3.  The capital and minimum investment provisions for PT PMA under MR 5/2025 do not apply when the business actor undertakes any change of its business location, expansion of its business and/or applies for an extension of its existing Business License.
 4.  PT PMA which has already obtained its Business License and is planning to change of its business location, expand its business and/or apply for an extension of its existing Business License, is still subject to the minimum capital and investment amount as required under MR 5/2025.`,
-        article_conclusion: `MR 5/2025 represents a significant step in Indonesia’s ongoing regulatory reform, reinforcing a more efficient and investor-oriented business licensing framework. By refining procedures, lowering capital thresholds and clarifying sector-specific requirements, the regulation strengthens the role of the OSS system and supports Indonesia’s ease of doing business agenda.
+                article_conclusion: `MR 5/2025 represents a significant step in Indonesia’s ongoing regulatory reform, reinforcing a more efficient and investor-oriented business licensing framework. By refining procedures, lowering capital thresholds and clarifying sector-specific requirements, the regulation strengthens the role of the OSS system and supports Indonesia’s ease of doing business agenda.
 
 To align with the new regime, business actors should review their licensing portfolios, reassess capital and investment structures and leverage newly introduced exemptions to streamline compliance. Close coordination with OSS authorities and regulators is recommended to ensure smooth implementation, particularly during transitional periods.
 
 Ultimately, MR 5/2025 is poised to enhance regulatory certainty, reduce administrative burdens and bolster investor confidence, positioning Indonesia as a more competitive destination for foreign and domestic investment.`,
-        date: new Date("Oct 22, 2025"),
-        category: "Corporate",
-        // Image: Modern office architecture (Business/Licensing)
-        image: "https://ditralaw.com/wp-content/uploads/2025/10/Picture12.jpg",
-        excerpt: "BKPM issued MR 5/2025 to clarify provisions on business licensing and investment under GR 28/2025, effectively replacing three previous BKPM regulations.",
-    },
-    {
-        id: 6,
-        title: "Indonesia Introduces New Import Policy Regime Under Ministry of Trade Regulation No. 16 of 2025",
-        slug: "indonesia-introduces-new-import-policy-regime-under-ministry-of-trade-regulation-no-16-of-2025",
-        article_background: `On 30 June 2025, the Ministry of Trade of the Republic of Indonesia (_Kementerian Perdagangan Republik Indonesia_  or “**MOT**”) issued MOT Regulation No. 16 of 2025 on Import Policy and Provisions (“**MOTR 16/2025**”), which introduces major changes to Indonesia’s import governance framework. MOTR 16/2025, which takes effect on 30 August 2025, repeals and replaces MOT Regulation No. 36 of 2023 on the same subject (as lastly amended by MOT Regulation No. 8 of 2024, “**MOTR 36/2023**”).
+                date: new Date("Oct 22, 2025"),
+                category: "Corporate",
+                // Image: Modern office architecture (Business/Licensing)
+                image: "https://ditralaw.com/wp-content/uploads/2025/10/Picture12.jpg",
+                excerpt: "BKPM issued MR 5/2025 to clarify provisions on business licensing and investment under GR 28/2025, effectively replacing three previous BKPM regulations.",
+                pdf_url: "https://ditralaw.com/wp-content/uploads/2025/10/Permen-Inves-5-2025-DL20251024-cir-2.pdf"
+        },
+        {
+                id: 6,
+                title: "Indonesia Introduces New Import Policy Regime Under Ministry of Trade Regulation No. 16 of 2025",
+                slug: "indonesia-introduces-new-import-policy-regime-under-ministry-of-trade-regulation-no-16-of-2025",
+                article_background: `On 30 June 2025, the Ministry of Trade of the Republic of Indonesia (_Kementerian Perdagangan Republik Indonesia_  or “**MOT**”) issued MOT Regulation No. 16 of 2025 on Import Policy and Provisions (“**MOTR 16/2025**”), which introduces major changes to Indonesia’s import governance framework. MOTR 16/2025, which takes effect on 30 August 2025, repeals and replaces MOT Regulation No. 36 of 2023 on the same subject (as lastly amended by MOT Regulation No. 8 of 2024, “**MOTR 36/2023**”).
 
 MOTR 16/2025 intends to simplify import procedures, remove regulatory overlaps and strengthen compliance oversight. It also aims to facilitate access to strategic goods and raw materials, while promoting the development of domestic industries through more disciplined import governance.
 
 Importantly, MOTR 16/2025 serves as the umbrella import regulation for eight newly issued, sector-specific import regulations (including those covering textiles, agriculture and livestock, fisheries, salt, chemicals and hazardous substances, mining inputs, electronics and telematics, consumer goods and non-new or non-hazardous waste). This update outlines key provisions introduced by MOTR 16/2025 and aims to provide practical insights to help importers navigating the revised import regime.`,
-        article_content: `New rules and key changes introduced under MOTR 16/2025 are as follows:
+                article_content: `New rules and key changes introduced under MOTR 16/2025 are as follows:
 
 -   **Clarified Definition for Imported Goods**
 
@@ -519,27 +525,28 @@ To ensure legal certainty and a smooth transition, MOTR 16/2025 includes several
 3.  Supporting documents such as verification reports, technical considerations, exemptions, explanatory letters, certificates, recommendations, and other related documents issued by ministries, non-ministerial government agencies, or other relevant institutions prior to 30 August 2025 shall remain valid until their expiration, provided they are not inconsistent with this Regulation.
 
 Imported goods that arrive at the port of destination, as evidenced by customs documents (BC 1.1 manifest), shall be subject to the import policies and regulations under MOTR 16/2025.`,
-        article_conclusion: `MOTR 16/2025 fundamentally shifts Indonesia’s import governance framework. By repealing and replacing MOTR 36/2023, MOTR 16/2025 consolidates and streamlines previously fragmented rules while introducing significant procedural and substantive changes. These include clearer definitions or classifications for goods subject to import rules, enhanced flexibility in licensing conversions, streamlined timelines for administrative processes and reinforced dual-layered supervision mechanisms at both border and post-border levels.
+                article_conclusion: `MOTR 16/2025 fundamentally shifts Indonesia’s import governance framework. By repealing and replacing MOTR 36/2023, MOTR 16/2025 consolidates and streamlines previously fragmented rules while introducing significant procedural and substantive changes. These include clearer definitions or classifications for goods subject to import rules, enhanced flexibility in licensing conversions, streamlined timelines for administrative processes and reinforced dual-layered supervision mechanisms at both border and post-border levels.
 
 Equally important are the more structured sanction regime and transitional measures, which provide importers a defined path to compliance. The revocation of existing import approvals for select commodities emphasises the government’s commitment to reassert control over critical sectors while fostering more transparent and strategic trade flows.
 
 As MOTR 16/2025 takes effect on 30 August 2025, businesses engaged in import activities should immediately assess their current practices, identify any gaps and update their internal procedures to align with the new framework. Specifically, businesses importing commodities with revoked Import Approvals must ensure they reapply for these approvals.`,
-        date: new Date("Aug 18, 2025"),
-        category: "Trade",
-        // Image: Shipping containers/Logistics (Trade/Export)
-        image: "https://ditralaw.com/wp-content/uploads/2025/08/Picture13.jpg",
-        excerpt: "MOTR 16/2025 becomes Indonesia’s new import regulatory framework, aimed at simplifying licensing procedures and strengthening compliance oversight.",
-    },
-    {
-        id: 7,
-        title: "Indonesia’s New Risk Based-Licensing Regime",
-        slug: "indonesias-new-risk-based-licensing-regime-gr-282025",
-        article_background: `On 5 June 2025, the Government of Indonesia (“**Government**”) issued Government Regulation No. 28 of 2025 on the Implementation of Risk-Based Licensing (“**GR 28/2025**”) as part of its ongoing regulatory reform to refine and streamline the business licensing process. GR 28/2025 revokes and replaces Government Regulation No. 5 of 2021 on the same subject (“**GR 5/2021**”) to align with the latest legislative developments, particularly the enactment of Law No. 6 of 2023 on the Enactment of Government Regulation in Lieu of Law No. 2 of 2022 on Job Creation into Law. GR 28/2025 aims to enhance legal certainty, improve regulatory oversight, and support a more efficient licensing environment.
+                date: new Date("Aug 18, 2025"),
+                category: "Trade",
+                // Image: Shipping containers/Logistics (Trade/Export)
+                image: "https://ditralaw.com/wp-content/uploads/2025/08/Picture13.jpg",
+                excerpt: "MOTR 16/2025 becomes Indonesia’s new import regulatory framework, aimed at simplifying licensing procedures and strengthening compliance oversight.",
+                pdf_url: "https://ditralaw.com/wp-content/uploads/2025/08/Trade-Law-Legal-Update-MOT-Regulation-16-2025-20250818-Final-1.pdf"
+        },
+        {
+                id: 7,
+                title: "Indonesia’s New Risk Based-Licensing Regime",
+                slug: "indonesias-new-risk-based-licensing-regime-gr-282025",
+                article_background: `On 5 June 2025, the Government of Indonesia (“**Government**”) issued Government Regulation No. 28 of 2025 on the Implementation of Risk-Based Licensing (“**GR 28/2025**”) as part of its ongoing regulatory reform to refine and streamline the business licensing process. GR 28/2025 revokes and replaces Government Regulation No. 5 of 2021 on the same subject (“**GR 5/2021**”) to align with the latest legislative developments, particularly the enactment of Law No. 6 of 2023 on the Enactment of Government Regulation in Lieu of Law No. 2 of 2022 on Job Creation into Law. GR 28/2025 aims to enhance legal certainty, improve regulatory oversight, and support a more efficient licensing environment.
 
 Notably, GR 28/2025 centralizes all licensing procedures through the Online Single Submission (“**OSS**”) system, which now serves as the front-end interface for business actors. Under this framework, business actors are only required to interact with the OSS system, while OSS coordinates directly with the relevant ministries and agencies on the backend. Despite this integration, the final licensing documents continue to be issued through the OSS system.
 
 This update will highlight the key updates and changes introduced by GR 28/2025 and is meant to provide practical insights to help business actors understand the regulatory changes that may affect their licensing obligations and operational processes.`,
-        article_content: `-   **_Stricter Emphasis on Basic Requirements_**
+                article_content: `-   **_Stricter Emphasis on Basic Requirements_**
 
 GR 28/2025 explicitly requires the fulfilment of Basic Requirements (_Persyaratan Dasar_) as a prerequisite for the issuance of a Business License (_Perizinan Berusaha_), unless certain exemption applies. This represents a refinement from the previous regime under GR 5/2021, which ambiguously allowed business actors to obtain Basic Requirements and/or a Business License without a clear sequence. Additionally, while GR 5/2021 generally deferred the specifics and requirements for Basic Requirements to separate sectoral regulations, GR 28/2025 consolidates and provides detailed elaboration on each Basic Requirement within GR 28/2025 itself.
 
@@ -644,25 +651,26 @@ To ensure legal certainty and a smooth transition, GR 28/2025 includes several t
 3.  Business actors engaged in medium-high or high risk business activities that have obtained (i) a Standard Certificate that has not yet been verified, (ii) licenses that have not yet met all required obligations, or (iii) PB-UMKU that are not yet effective, may continue their activities in accordance with the provisions of GR 5/2021 during the four month transitional period.
 
 Importantly, all licenses, approvals and certificates granted to business actors prior to the enactment of GR 28/2025 will remain valid, provided that they do not conflict with GR 28/2025. Relevant provisions of GR 5/2021 on the application of Basic Requirements, Business License and PB-UMKU will also continue to apply, to the extent they do not conflict with GR 28/2025.`,
-        article_conclusion: `GR 28/2025 represents a significant step forward in Indonesia’s regulatory landscape by introducing a more structured, integrated and sector-specific approach to business licensing process. Through the consolidation of licensing processes within the OSS system, clearer delineation of institutional responsibilities and streamlined procedures such as fictitious positive approvals, GR 28/2025 aims to enhance legal certainty, reduce procedural burden and foster a more transparent and investor-friendly business environment. Business actors are now subject to more detailed compliance requirements, including sector-specific standards, clear timelines for permit issuance, and centralized digital processing, all of which are intended to reduce bureaucratic hurdles and increase transparency.
+                article_conclusion: `GR 28/2025 represents a significant step forward in Indonesia’s regulatory landscape by introducing a more structured, integrated and sector-specific approach to business licensing process. Through the consolidation of licensing processes within the OSS system, clearer delineation of institutional responsibilities and streamlined procedures such as fictitious positive approvals, GR 28/2025 aims to enhance legal certainty, reduce procedural burden and foster a more transparent and investor-friendly business environment. Business actors are now subject to more detailed compliance requirements, including sector-specific standards, clear timelines for permit issuance, and centralized digital processing, all of which are intended to reduce bureaucratic hurdles and increase transparency.
 
 To ensure alignment with GR 28/2025, business actors should proactively assess their licensing status, conduct internal compliance reviews, and where relevant, update their operational procedures to ensure that all relevant business licenses are obtained and updated in accordance with GR 28/2025. Before and after the effectiveness of new OSS system, business actors are also encouraged to engage with OSS where necessary to ensure a smooth adjustment and full compliance with the new regulatory framework introduced by GR 28/2025.`,
-        date: new Date("Jul 21, 2025"),
-        category: "Corporate",
-        // Image: Abstract skyscraper looking up (Growth/Structure)
-        image: "https://ditralaw.com/wp-content/uploads/2025/07/Picture6.jpg",
-        excerpt: "A comprehensive update to the risk-based business licensing framework, aiming to enhance legal certainty and streamline regulatory processes via the OSS system.",
-    },
-    {
-        id: 8,
-        title: "Significant Amendments to Land Rights Regime Under Ministerial of Agrarian and Spatial Planning / Head of National Land Office Regulation No. 5 of 2025",
-        slug: "significant-amendments-to-land-rights-regime-under-ministerial-of-agrarian-and-spatial-planning-head-of-national-land-office-regulation-no-5-of-2025",
-        article_background: `On April 28, 2025, the Minister of Agrarian and Spatial Planning / National Land Agency (“**Minister**”) issued Regulation Number 5 of 2025 on the Delegation of Authority for the Granting of Land Rights and Land Registration Activities (“**MR 5/2025**”). This regulation repeals and replaces Minister Regulation Number 16 of 2022 (“**MR 16/2022**”), which had been recently amended in March 2025 by Minister Regulation Number 2 of 2025 (“**MR 2/2025**”).
+                date: new Date("Jul 21, 2025"),
+                category: "Corporate",
+                // Image: Abstract skyscraper looking up (Growth/Structure)
+                image: "https://ditralaw.com/wp-content/uploads/2025/07/Picture6.jpg",
+                excerpt: "A comprehensive update to the risk-based business licensing framework, aiming to enhance legal certainty and streamline regulatory processes via the OSS system.",
+                pdf_url: "https://ditralaw.com/wp-content/uploads/2025/07/PP-28-2025-Legal-Update-20250720-final.pdf"
+        },
+        {
+                id: 8,
+                title: "Significant Amendments to Land Rights Regime Under Ministerial of Agrarian and Spatial Planning / Head of National Land Office Regulation No. 5 of 2025",
+                slug: "significant-amendments-to-land-rights-regime-under-ministerial-of-agrarian-and-spatial-planning-head-of-national-land-office-regulation-no-5-of-2025",
+                article_background: `On April 28, 2025, the Minister of Agrarian and Spatial Planning / National Land Agency (“**Minister**”) issued Regulation Number 5 of 2025 on the Delegation of Authority for the Granting of Land Rights and Land Registration Activities (“**MR 5/2025**”). This regulation repeals and replaces Minister Regulation Number 16 of 2022 (“**MR 16/2022**”), which had been recently amended in March 2025 by Minister Regulation Number 2 of 2025 (“**MR 2/2025**”).
 
 Despite the short-lived nature of MR 2/2025, MR 5/2025 essentially restates the key changes to the land law framework that MR 2/2025 introduced. Additionally, MR 5/2025 clarifies certain provisions from the MR 2/2025 and introduces further revisions that largely build upon the provisions of MR 16/2022. Notably, MR 5/2025 sets out new provisions on the delegation and sub-delegation of the Minister’s authority in determining land rights, issuing land rights certificates and conducting land registration.
 
 This client alert highlights the key changes introduced by MR 2/2025, as carried forward in the MR 5/2025, compared to the previous regime under the MR 16/2022 regime.`,
-        article_content: `New rules and/or key changes introduced under MR 5/2025 or MR 2/2025, which remain under MR 5/2025, are as follows:
+                article_content: `New rules and/or key changes introduced under MR 5/2025 or MR 2/2025, which remain under MR 5/2025, are as follows:
 
 -   **Region Categorization**
 
@@ -691,25 +699,26 @@ MR 5/2025 clarifies the previously unclear provisions under MR 2/2025 concerning
 2.  through relinquishing the HM to the state, followed by the granting of the new land rights, which is a practice that has already been implemented.
 
 MR 5/2025 also repeals Minister Regulation Number 18 of 2021 on Procedures for the Establishment of Management Rights and Land Rights, except for the provisions governing the auction process, which remain in effect.`,
-        article_conclusion: `MR 5/2025 reflects the government’s push to modernize land services and bring greater clarity to how land rights are managed. With clearer roles, streamlined procedures, and updated rules, MR 5/2025 is expected to reduce delays and confusion in practice. However, as with any regulatory change, successful implementation will depend on how consistently the new rules are applied on the ground. It is important for stakeholders to stay informed, engage with the relevant local Land Offices and Land Deed Official (Pejabat Pembuat Akta Tanah) when needed, and prepare for practical adjustments in land-related processes.`,
-        date: new Date("Jun 22, 2025"),
-        category: "Real Estate",
-        // Image: Architectural details/Building facade (Property/Land)
-        image: "https://ditralaw.com/wp-content/uploads/2025/06/Picture2.jpg",
-        excerpt: "MR 5/2025 develops Indonesia’s land rights regime by refining key reforms, clarifying delegation of authority, and providing certainty on land right renewals.",
-    },
-    {
-        id: 9,
-        title: "OJK Mandates Dematerialization of Physical Shares and Regulates Unclaimed Assets in the Capital Market Through POJK 9/2025",
-        slug: "ojk-mandates-dematerialization-of-physical-shares-and-regulates-unclaimed-assets-in-the-capital-market-through-pojk-92025",
-        article_background: `On 28 April 2025, Indonesian Financial Services Authority (_Otoritas Jasa Keuangan_  or “**OJK**”) enacted Regulation Number 9 of 2025 on the Dematerialization of Equity Securities and Management of Unclaimed Assets in the Capital Market (“**POJK 9/2025**”).
+                article_conclusion: `MR 5/2025 reflects the government’s push to modernize land services and bring greater clarity to how land rights are managed. With clearer roles, streamlined procedures, and updated rules, MR 5/2025 is expected to reduce delays and confusion in practice. However, as with any regulatory change, successful implementation will depend on how consistently the new rules are applied on the ground. It is important for stakeholders to stay informed, engage with the relevant local Land Offices and Land Deed Official (Pejabat Pembuat Akta Tanah) when needed, and prepare for practical adjustments in land-related processes.`,
+                date: new Date("Jun 22, 2025"),
+                category: "Real Estate",
+                // Image: Architectural details/Building facade (Property/Land)
+                image: "https://ditralaw.com/wp-content/uploads/2025/06/Picture2.jpg",
+                excerpt: "MR 5/2025 develops Indonesia’s land rights regime by refining key reforms, clarifying delegation of authority, and providing certainty on land right renewals.",
+                pdf_url: "https://ditralaw.com/wp-content/uploads/2025/06/Land-Legal-Update-22-June-2025-Final.pdf"
+        },
+        {
+                id: 9,
+                title: "OJK Mandates Dematerialization of Physical Shares and Regulates Unclaimed Assets in the Capital Market Through POJK 9/2025",
+                slug: "ojk-mandates-dematerialization-of-physical-shares-and-regulates-unclaimed-assets-in-the-capital-market-through-pojk-92025",
+                article_background: `On 28 April 2025, Indonesian Financial Services Authority (_Otoritas Jasa Keuangan_  or “**OJK**”) enacted Regulation Number 9 of 2025 on the Dematerialization of Equity Securities and Management of Unclaimed Assets in the Capital Market (“**POJK 9/2025**”).
 
 Historically, securities ownership in Indonesia has been in two forms: physical (scripted), which is recorded by the Share Registrar (_Biro Administrasi Efek_  or “**BAE**”), and electronic (scripless), which is managed electronically by the Indonesia Central Securities Depository (_Kustodian Sentral Efek Indonesia_  or “**KSEI**”). This results in decentralized recording and creates potential discrepancies between the two records and reflects gaps in the safeguards which supposed to ensure the data integrity.
 
 The dematerialization process will impact unclaimed assets; particularly script securities in custodial account but have never been claimed by its owners. For a long time, custodians often face challenges from unpaid safekeeping fees and undisbursed dividend payments related to such dormant accounts.
 
 In light of the foregoing, POJK 9/2025 aimed to mandate the conversion of all scripted securities to scripless form, establish a centralized, electronic ownership recording system, and introduces a legal framework to identify, classify, and manage unclaimed assets in Indonesian capital market.`,
-        article_content: `New rules and/or key changes introduced under POJK 9/2025 are as follows:
+                article_content: `New rules and/or key changes introduced under POJK 9/2025 are as follows:
 
 -   **Mandatory Dematerialization of Securities**
 
@@ -751,17 +760,18 @@ In all cases, OJK is entitled to determine the party which will manage any uncla
 -   **Administrative Sanction**
 
 POJK 9/2025 also imposes administrative sanctions on parties that fail to fulfil the aforementioned obligations, including BAE, public companies, custodians, parties declaring certain assets as unclaimed assets, and parties appointed by OJK to manage unclaimed assets. Such administrative sanctions may range from written warnings to the revocation of business licenses.`,
-        article_conclusion: `POJK 9/2025 introduces a new comprehensive regulatory framework to modernize Indonesia’s capital market infrastructure. By mandating the full dematerialization of equity securities and establishing a structured regime for unclaimed asset management, the regulation seeks to enhance transparency, efficiency, and investor protection.
+                article_conclusion: `POJK 9/2025 introduces a new comprehensive regulatory framework to modernize Indonesia’s capital market infrastructure. By mandating the full dematerialization of equity securities and establishing a structured regime for unclaimed asset management, the regulation seeks to enhance transparency, efficiency, and investor protection.
 
 The regulation is expected to bring positive outcomes for investors. Holders of scripted share certificates will benefit from a five-year post-deadline window to claim and convert their scripted certificate, thereby easing administrative burdens and facilitating compliance.
 
 The introduction of clear framework for unclaimed asset management also marks a significant step toward regulatory certainty and risk mitigation. By clearly outlining the identification, notification, and transfer processes, the regulation establishes a standardized and accountable framework for handling dormant or unclaimed assets.
 
 For all public companies, BAE, custodians are encouraged to prepare a robust governance and monitoring system, essential to meet the regulatory requirements within the prescribed deadline. Proactive compliance will be critical to ensure that unclaimed assets are managed appropriately and avoid administrative sanctions.`,
-        date: new Date("Jun 16, 2025"),
-        category: "Capital Markets",
-        // Image: Digital data/Abstract tech (Modernization/Digital)
-        image: "https://ditralaw.com/wp-content/uploads/2025/06/Picture2.png",
-        excerpt: "OJK's new regulation mandates full dematerialization of equity securities within 5 years and establishes a framework to manage unclaimed assets in the capital market.",
-    }
+                date: new Date("Jun 16, 2025"),
+                category: "Capital Markets",
+                // Image: Digital data/Abstract tech (Modernization/Digital)
+                image: "https://ditralaw.com/wp-content/uploads/2025/06/Picture2.png",
+                excerpt: "OJK's new regulation mandates full dematerialization of equity securities within 5 years and establishes a framework to manage unclaimed assets in the capital market.",
+                pdf_url: "https://ditralaw.com/wp-content/uploads/2025/06/Capital-Market-Legal-Update-20250611.pdf"
+        }
 ];
