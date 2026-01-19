@@ -773,5 +773,54 @@ For all public companies, BAE, custodians are encouraged to prepare a robust gov
                 image: "https://ditralaw.com/wp-content/uploads/2025/06/Picture2.png",
                 excerpt: "OJK's new regulation mandates full dematerialization of equity securities within 5 years and establishes a framework to manage unclaimed assets in the capital market.",
                 pdf_url: "https://ditralaw.com/wp-content/uploads/2025/06/Capital-Market-Legal-Update-20250611.pdf"
+        },
+        {
+                id: 10,
+                title: "Minister of Law Regulation No. 49 of 2025: New Reporting Obligations and Verification Process for Indonesian Companies",
+                slug: "minister-of-law-regulation-no-49-of-2025-new-reporting-obligations-and-verification-process-for-indonesian-companies",
+                article_background: `On 11 December 2025, the Minister of Law of the Republic of Indonesia (“**MoL**”) issued Regulation No. 49 of 2025 on the Requirements and Procedures for the Establishment, Amendment and Dissolution of Limited Liability Company Legal Entities (“**MR 49/2025**”), which came into force on 17 December 2025. With its enactment, MR 49/2025 formally revokes and replaces the prior regulatory framework under MoL Regulation No. 21 of 2021 on the same subject matter (“**MR 21/2021**”).
+
+MR 49/2025 is enacted to enhance the administration of legal entities within the Ministry of Law, particularly strengthening regulatory transparency, administrative order and accountability of business entities in Indonesia.
+
+This update highlights the key changes introduced by MR 49/2025, offering practical guidance for stakeholders to navigate the new requirements and maintain compliance.`,
+                article_content: `
+-   **_New Requirement to File Shareholders Approval of Annual Report to the MoL_**
+
+Under the previous regulatory framework, only amendments to a company’s articles of association and/or corporate data were required to be submitted to the MoL for approval and/or notification.
+
+The preparation and internal approval of annual reports was largely treated as an internal corporate governance compliance matter, where external reporting is typically limited to public companies. MR 49/2025 introduces a significant change to this framework where it now mandates that the shareholders meeting, which approves the company’s annual report to be also drawn in a notarial deed and submitted (along with the annual report) to the MoL for receipt of notification within 30 calendar days from the shareholders meeting date. Failure to comply will result in administrative sanctions in the forms of a written warning and the blocking of access to the MoL’s Legal Entity Administration System (_Sistem Administrasi Badan Hukum_  or “**SABH**”).
+
+This requirement applies to capital-partnership limited liability companies generally, regardless of whether the company is publicly listed or subject to sector-specific supervisory regimes, and does not apply to individual limited liability companies (_perseroan perorangan_).
+
+-   **_New Required Beneficial Owner Information_**
+
+MR 49/2025 imposes a stricter obligation on Indonesian companies with respect to the disclosure of beneficial owner information. Generally, MR 49/2025 is consistent with the existing regulatory frameworks, which require companies to disclose their beneficial ownership information to the MoL at the time of establishment and must promptly report any subsequent changes on the company’s beneficial owner. However, MR 49/2025 introduces a new mandatory requirement that companies must now also submit consent letter from the beneficial owner for the initial establishment of the company and for subsequent changes.
+
+-   **_New Verification Requirement for Articles and Corporate Data Amendments_**
+
+MR 49/2025 introduces a verification process for any applications relating to amendments to a company’s Articles of Association and/or corporate data. Under MR 49/2025, the MoL is now required to conduct a formal verification process prior to issuing its approval and/or issue receipt of notification of such amendments.
+
+The Ministry of Law must complete this verification process within 14 working days from the date the application is formally received through the SABH. During this period, the Ministry of Law will ensure that the information entered in the digital form aligns with the uploaded supporting documents including the shareholders meeting, shares transfer deed, newspaper announcement (as applicable), and the company’s most recent data already recorded in the SABH. If any inconsistencies or legal deficiencies are identified, the application may be returned for clarification or rectification, in which case the notary must complete the required corrections within seven days of receiving the MoL’s comments.
+
+-   **_Contingency for Non-Electronic Filings_**
+
+MR 49/2025 introduces a contingency mechanism allowing for manual, non-electronic filings under certain technical circumstances. Specifically, notaries may file applications for the establishment, amendment or dissolution of companies offline if electronic filing is hindered by internet connectivity issues or where the SABH is temporarily unavailable or malfunctioning.
+
+The detailed procedures for such manual filings are to be further regulated in a separate implementing regulation.
+
+-   **_Transitional Provisions_**
+
+To ensure legal certainty and continuity during the regulatory transition period, MR 49/2025 includes several key transitional provisions as follows:
+
+1.  any applications for the establishment, amendment or dissolution of a legal entity submitted prior to 17 December 2025, will continue to be processed in accordance with MR 21/2021; and
+2.  for companies that have not yet transitioned to the electronic system may continue to submit their financial statements manually for up to six months following 17 December 2025.`,
+                article_conclusion: `The enactment of MR 49/2025 marks a material shift in the Indonesia’s corporate regulatory framework, most notably by elevating the approval of annual reports approval from an internal governance matter to  a formal state-supervised administrative obligation. Further, by mandating a strict 14-working-day verification period for corporate amendments, the Ministry of Law is enhancing transparency, data integrity, and proactive regulatory oversight.
+
+To remain compliant and mitigate the risk of administrative sanctions, companies should update their internal governance and compliance procedures. It is essential to ensure that all future shareholders meeting approving annual reports are coordinated with a notary to produce the now-mandatory notarial deed for Ministry of Law filing. Furthermore, companies must factor the new 14 working day verification process period in their corporate action timelines, especially where amendments to articles of association and/or corporate data are conditions for a transaction.`,
+                date: new Date("Jan 5, 2026"),
+                category: "Corporate Law",
+                image: "https://ditralaw.com/wp-content/uploads/2026/01/Picture1-e1767617802823.jpg",
+                excerpt: "Minister of Law Regulation No. 49 of 2025: New Reporting Obligations and Verification Process for Indonesian Companies",
+                pdf_url: "https://ditralaw.com/wp-content/uploads/2026/01/Permenkum-49-2025-Legal-Update.pdf"
         }
 ];
