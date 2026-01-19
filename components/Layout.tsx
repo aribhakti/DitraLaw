@@ -277,7 +277,6 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                   <li><Link to="/services" className="hover:text-secondary text-stone-400 transition-colors">{t.nav.services}</Link></li>
                   <li><Link to="/people" className="hover:text-secondary text-stone-400 transition-colors">{t.nav.people}</Link></li>
                   <li><Link to="/insights" className="hover:text-secondary text-stone-400 transition-colors">{t.nav.insights}</Link></li>
-                  <li><Link to="/careers" className="hover:text-secondary text-stone-400 transition-colors">{t.nav.careers}</Link></li>
                   <li><Link to="/contact" className="hover:text-secondary text-stone-400 transition-colors">{t.nav.contact}</Link></li>
                   <li><Link to="/privacy" className="hover:text-secondary text-stone-400 transition-colors">{t.footer.privacy}</Link></li>
                 </ul>
