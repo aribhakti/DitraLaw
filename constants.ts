@@ -63,9 +63,14 @@ Adhi has extensive experience in equity capital markets and has advised clients 
     phone: "+6221 509 046428",
     email: "michael.ho@ditralaw.com",
     image: "https://fshhzvdr1jy25963.public.blob.vercel-storage.com/Michael%20Ho%20LinkedIn.webp",
-    bio: "Michael is an Associate at DITRA. He assists the team in various corporate and commercial matters.",
-    education: [],
-    qualifications: [],
+    bio: `Michael is a Trainee Associate at Ditra with experiences on various corporate matters.
+
+Throughout his career, Michael has assisted on multiple corporate matters, including mergers and acquisitionns, fundraising, foreign investmennts, company restructurinng as well as asset transactions.
+
+Michael’s experience spans across various industries, including shipping sector, manufacturing sectors, retail, state-owned enterprise and capital market sectors.`,
+    education: [
+      "S.H., University of Indonesia"
+    ],
     languages: ["Indonesian", "English"]
   }
 ];
